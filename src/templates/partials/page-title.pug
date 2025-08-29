@@ -1,0 +1,17 @@
+// Page Title
+.page-title
+  .container
+    .row.justify-content-md-between
+      .col-md-6.order-2.order-md-1.text-center.text-md-left: h1 #{pageTitle}
+      .col-md-6.order-1.order-md-2
+        if breadcrumbs.length
+          ul.breadcrumbs
+            each breadcrumb in breadcrumbs
+              if breadcrumb.link
+                li
+                  - var linkatts = {'href': breadcrumb.link}
+                  a()&attributes(linkatts)= breadcrumb.title
+                li.separator
+                  i.fas.fa-long-arrow-alt-right &nbsp;
+              else
+                li= breadcrumb.title

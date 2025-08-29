@@ -1,0 +1,312 @@
+extends ../partials/layout
+
+//- Override default config variables
+append config
+  - var isComponentHeader = true
+  - var isHeader = false
+  - var pageTitle = 'Widgets'
+  - var isFooter = false
+  - var isNestedFile = true
+  - var breadcrumbs = [{'title': 'Components', 'link': 'index.html'}, {'title': 'Widgets'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x
+    .row
+      .col-lg-9.col-md-8.order-md-2
+        h6.text-muted.text-normal.text-uppercase General Widgets
+        hr.margin-bottom-1x
+        .row
+          .col-lg-4
+            // Widget Contacts
+            section.widget
+              h3.widget-title Contacts Widget
+              p Phone: 00 33 169 7720
+              ul.list-unstyled.text-sm
+                li
+                  span.text-muted Monday-Friday:
+                  | 9.00 am - 8.00 pm
+                li
+                  span.text-muted Saturday:
+                  | 10.00 am - 6.00 pm
+              p: a(href='#').navi-link support@webtickets.com
+              a(href='#' data-toggle='tooltip' data-placement='top' title='Facebook').social-button.shape-circle.sb-facebook
+                i.fab.fa-facebook-f
+              a(href='#' data-toggle='tooltip' data-placement='top' title='Twitter').social-button.shape-circle.sb-twitter
+                i.fab.fa-twitter
+              a(href='#' data-toggle='tooltip' data-placement='top' title='Instagram').social-button.shape-circle.sb-instagram
+                i.fab.fa-instagram
+              a(href='#' data-toggle='tooltip' data-placement='top' title='Google +').social-button.shape-circle.sb-google-plus
+                i.fab.fa-google-plus-g
+
+          .col-lg-4
+            // Widget Links
+            section.widget.widget-links
+              h3.widget-title Links Widget
+              ul
+                li: a(href='#') Careers
+                li: a(href='#') About Webtickets
+                li: a(href='#') Get Help
+                li: a(href='#') Browse
+                li: a(href='#') Buy a Gift Voucher
+
+          .col-lg-4
+            // Widget Search
+            section.widget.widget-links
+              h3.widget-title Search Widget
+              form(method='get').input-group.form-group
+                span.input-group-btn
+                  button(type='submit')
+                    i.fas.fa-search
+                input(type='search' placeholder='Search site').form-control
+
+        h6.text-muted.text-normal.text-uppercase.padding-top-1x Blog Widgets
+        hr.margin-bottom-1x
+        .row
+          .col-lg-4
+            // Widget Categories
+            section.widget.widget-links
+              h3.widget-title Categories Widget
+              ul
+                li
+                  a(href='#') Editor's Choice
+                  <span>(24)</span>
+                li
+                  a(href='#') Local Events
+                  <span>(12)</span>
+                li
+                  a(href='#') Selling Tickets Online
+                  <span>(5)</span>
+                li
+                  a(href='#') Popular Events
+                  <span>(7)</span>
+                li
+                  a(href='#') Music Festivals
+                  <span>(3)</span>
+
+          .col-lg-4
+            // Widget Featured Posts
+            section.widget.widget-featured-posts
+              h3.widget-title Featured Posts Widget Here
+              // Entry
+              .entry
+                .entry-thumb
+                  a(href='#')
+                    img(src='../img/blog/widget/01.jpg', alt='Post')
+                .entry-content
+                  h4.entry-title
+                    a(href='#') Blog Post Title Here
+                  span.entry-meta by Olivia Reyes
+              // Entry
+              .entry
+                .entry-content
+                  h4.entry-title
+                    a(href='#') Long Blog Post Title Here With Enough Space For Two Lines
+                  span.entry-meta by Logan Coleman
+              // Entry
+              .entry
+                .entry-thumb
+                  a(href='#')
+                    img(src='../img/blog/widget/02.jpg', alt='Post')
+                .entry-content
+                  h4.entry-title
+                    a(href='#') Blog Post Title Here
+                  span.entry-meta by Cynthia Gomez
+
+          .col-lg-4
+            // Widget Tags
+            section.widget.widget-tags
+              h3.widget-title Tags Widget
+              a(href='#').tag #events
+              a(href='#').tag #festivals
+              a(href='#').tag #travelling
+              span.tag.active #active tag
+              a(href='#').tag #meetups
+
+        h6.text-muted.text-normal.text-uppercase.padding-top-1x Shop Widgets
+        hr.margin-bottom-1x
+        .row
+          .col-lg-4
+            // Widget Categories
+            section.widget.widget-categories
+              h3.widget-title Shop Categories Widget
+              ul
+                li.has-children.expanded
+                  a(href='#') Music
+                  span (1138)
+                  ul
+                    li
+                      a(href='#') Music Festivals
+                      span (508)
+                      ul
+                        li: a(href='#') Subcategory #1
+                        li: a(href='#') Subcategory #2
+                    li
+                      a(href='#') Club Nights
+                      span (423)
+                      ul
+                        li: a(href='#') Subcategory #1
+                        li: a(href='#') Subcategory #2
+                    li
+                      a(href='#') DJ Sets
+                      span (97)
+                    li
+                      a(href='#') Concerts
+                      span (110)
+                li.has-children
+                  a(href='#') Sport &amp; Fitness
+                  span (2356)
+                  ul
+                    li
+                      a(href='#') Running
+                      span (1032)
+                      ul
+                        li: a(href='#') Subcategory #1
+                        li: a(href='#') Subcategory #2
+                        li: a(href='#') Subcategory #3
+                        li: a(href='#') Subcategory #4
+                    li
+                      a(href='#') Cycling
+                      span (937)
+                      ul
+                        li: a(href='#') Subcategory #1
+                        li: a(href='#') Subcategory #2
+                        li: a(href='#') Subcategory #3
+                        li: a(href='#') Subcategory #4
+                    li
+                      a(href='#') Swimming
+                      span (386)
+                li.has-children
+                  a(href='#') Film &amp; media
+                  span (420)
+                  ul
+                    li
+                      a(href='#') Cinemas
+                      span (180)
+                    li
+                      a(href='#') Screening
+                      span (132)
+                    li
+                      a(href='#') Outdoor
+                      span (47)
+                    li
+                      a(href='#') Film Festivals
+                      span (61)
+                li.has-children
+                  a(href='#') Food &amp; Drink
+                  span (874)
+                  ul
+                    li
+                      a(href='#') Wine Testing
+                      span (211)
+                    li
+                      a(href='#') Food Festivals
+                      span (195)
+                    li
+                      a(href='#') Culinary Master Classes
+                      span (159)
+                    li
+                      a(href='#') Food Testing
+                      span (203)
+          .col-lg-4
+            // Featured Products Widget
+            section.widget.widget-featured-products
+              h3.widget-title Featured Products Widget
+              // Entry
+              .entry
+                .entry-thumb
+                  a(href='#')
+                    img(src='../img/shop/widget/01.jpg', alt='Product')
+                .entry-content
+                  h4.entry-title
+                    a(href='#') Event Title Here
+                  span.entry-meta.text-info R45 - R420
+              // Entry
+              .entry
+                .entry-thumb
+                  a(href='#')
+                    img(src='../img/shop/widget/02.jpg', alt='Product')
+                .entry-content
+                  h4.entry-title
+                    a(href='#') Event Title Here
+                  span.entry-meta.text-info R45 - R420
+              // Entry
+              .entry
+                .entry-thumb
+                  a(href='#')
+                    img(src='../img/shop/widget/03.jpg', alt='Product')
+                .entry-content
+                  h4.entry-title
+                    a(href='#') Event Title Here
+                  span.entry-meta.text-info R45 - R420
+          .col-lg-4
+            // Widget Brand Filter
+            section.widget
+              h3.widget-title Filter Widget
+              .custom-control.custom-checkbox
+                input(type='checkbox' id='exhibitions').custom-control-input
+                label(for='exhibitions').custom-control-label
+                  | Exhibitions&nbsp;
+                  span.text-muted (254)
+              .custom-control.custom-checkbox
+                input(type='checkbox' id='festivals').custom-control-input
+                label(for='festivals').custom-control-label
+                  | Festivals&nbsp;
+                  span.text-muted (39)
+              .custom-control.custom-checkbox
+                input(type='checkbox' id='conferences').custom-control-input
+                label(for='conferences').custom-control-label
+                  | Conferences&nbsp;
+                  span.text-muted (128)
+              .custom-control.custom-checkbox
+                input(type='checkbox' id='gathering').custom-control-input
+                label(for='gathering').custom-control-label
+                  | Gathering &amp; Meetups&nbsp;
+                  span.text-muted (310)
+              .custom-control.custom-checkbox
+                input(type='checkbox' id='performances').custom-control-input
+                label(for='performances').custom-control-label
+                  | Performances&nbsp;
+                  span.text-muted (42)
+
+        h6.text-muted.text-normal.text-uppercase.padding-top-1x On Dark Background
+        hr.margin-bottom-1x
+        div(style='padding: 30px 20px 0;').bg-dark
+          .row
+            .col-lg-4
+              // Widget Categories
+              section.widget.widget-links.widget-light-skin
+                h3.widget-title Categories Widget
+                ul
+                  li
+                    a(href='#') Editor's Choice
+                    <span>(24)</span>
+                  li
+                    a(href='#') Local Events
+                    <span>(12)</span>
+                  li
+                    a(href='#') Selling Tickets Online
+                    <span>(5)</span>
+                  li
+                    a(href='#') Popular Events
+                    <span>(7)</span>
+                  li
+                    a(href='#') Music Festivals
+                    <span>(3)</span>
+            .col-lg-8
+              // Widget Subscription
+              section.widget.widget-featured-products.widget-light-skin
+                h3.widget-title Subscription Widget
+                p.text-white.opacity-90 Subscribe to our Newsletter to receive early discount offers, latest news, sales and promo information.
+                form(action='').subscribe-form
+                  .clearfix
+                    .input-group
+                      input(type='email' name='email' placeholder='Your e-mail address').form-control
+                      span.input-group-addon
+                        i.fas.fa-envelope-open
+                    button(type='submit').btn.btn-primary
+                      i.fas.fa-check
+      
+      .col-lg-3.col-md-4.order-md-1
+        //- Side Menu
+        include ../partials/components-menu

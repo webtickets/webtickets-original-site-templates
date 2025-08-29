@@ -1,0 +1,83 @@
+.mobile-menu-wrapper
+
+  // Account
+  a(href='account-profile.html').account-link
+    .user-ava
+      img(src='img/account/user-ava-md.jpg' title='Christy Turner')
+    .user-info
+      h6.user-name Christy Turner
+      span.text-sm.text-gray.opacity-60 <i class='fas fa-map-marker-alt'></i> &nbsp;Cape Town
+
+  // Search
+  form(method='get').p-25
+    .input-group
+      span.input-group-btn
+        button(type='submit')
+          i.fas.fa-search
+      input(type='search' placeholder='Search Webtickets').form-control
+
+  // Menu
+  nav.mobile-menu
+    a(href='index.html')&attributes((menuTitle === 'Home') ? {'class': 'mobile-menu-item active'} : {'class': 'mobile-menu-item'})
+      span Home
+      i.fas.fa-home
+    .mobile-menu-divider
+    a(href='#menu-categories' data-toggle='collapse').mobile-menu-item.collapsed
+      span Browse
+      i.fas.fa-binoculars
+    ul#menu-categories.mobile-submenu.collapse
+      li: a(href='#') All <span>702</span>
+      li: a(href='#') Music <span>126</span>
+      li: a(href='#') Sport &amp; Fitness <span>87</span>
+      li: a(href='#') Film &amp; Media <span>54</span>
+      li: a(href='#') Talks &amp; Education <span>38</span>
+      li: a(href='#') Sport &amp; Spectating <span>67</span>
+      li: a(href='#') Performance &amp; Visual Art <span>121</span>
+      li: a(href='#') Food &amp; Drink <span>88</span>
+      li: a(href='#') Tourism &amp; Outdoor <span>30</span>
+      li: a(href='#') Health &amp; Wellness <span>12</span>
+      li: a(href='#') Family &amp; Kids <span>43</span>
+      li: a(href='#') Charities &amp; Causes <span>24</span>
+      li: a(href='#') Business &amp; Professional <span>12</span>
+    a(href='#menu-lists' data-toggle='collapse').mobile-menu-item.collapsed
+      span Lists
+      i.fas.fa-clipboard-list
+    ul#menu-lists.mobile-submenu.collapse
+      li: a(href='#') Recommended for You
+      li: a(href='#') Popular
+      li: a(href='#') Trending
+      li: a(href='#') This Weekend
+      li: a(href='#') Fun with Kids
+      li: a(href='#') Freebees
+    a(href='#menu-deals' data-toggle='collapse').mobile-menu-item.collapsed
+      span Deals
+      i.fas.fa-tags
+    ul#menu-deals.mobile-submenu.collapse
+      li: a(href='#') Visa Checkout Deals <span>12</span>
+      li: a(href='#') PnP Smart Shopper Deals <span>4</span>
+    a(href='blog.html').mobile-menu-item
+      span Blog
+      i.fas.fa-edit
+    a(href='#menu-help' data-toggle='collapse').mobile-menu-item.collapsed
+      span Help &amp; Info
+      i.fas.fa-life-ring
+    ul#menu-help.mobile-submenu.collapse
+      li: a(href='faq.html') Frequently Asked Questions
+      li: a(href='faq.html#eventquestions') Questions About an Event
+      li: a(href='faq.html#picknpay') Buying and Paying In-Store with Pick n Pay
+      li: a(href='contact.html') Contact Us for Support
+      li: a(href='about.html') About Webtickets
+      li: a(href='sellwithwebtickets.html') Selling with Webtickets
+    .mobile-menu-divider
+    a(href='account-profile.html').mobile-menu-item
+      span My Account
+      i.fas.fa-user
+    a(href='account-tickets.html').mobile-menu-item
+      span My Tickets
+      i.fas.fa-ticket-alt
+    a(href='account-likes.html').mobile-menu-item
+      span My Likes
+      i.fas.fa-heart
+    a(href='#').mobile-menu-item
+      span Cape Town
+      i.fas.fa-map-marker-alt

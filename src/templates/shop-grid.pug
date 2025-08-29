@@ -1,0 +1,318 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Browse by Grid'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Browse by Grid'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-1
+    .row
+
+      // Products
+      .col-xl-9.col-lg-8.order-lg-2
+
+        // Shop Toolbar
+        .shop-toolbar.padding-bottom-1x.mb-2
+          .column
+            .shop-sorting
+              label(for='sorting') Sort by:
+              select(id='sorting').form-control
+                option Popularity
+                option Low - High Price
+                option High - Low Price
+                option Avarage Rating
+                option A - Z Order
+                option Z - A Order
+              span.text-muted Showing:&nbsp;
+              span 1 - 18 items
+          .column
+            .shop-view
+              a(href='shop-grid.html' class='grid-view active')
+                span
+                span
+                span
+              a(href='shop-list.html' class='list-view')
+                span
+                span
+                span
+
+        // Products Grid
+        .row
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th01.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th02.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th03.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th04.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th05.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb.border-default
+                a(href='product.html')
+                  img(src='img/shop/th06.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th07.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb.border-default
+                a(href='product.html')
+                  img(src='img/shop/th08.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th09.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th10.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th11.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb.border-default
+                a(href='product.html')
+                  img(src='img/shop/th12.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th01.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th02.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th03.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th04.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb
+                a(href='product.html')
+                  img(src='img/shop/th05.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+          .col-md-4.col-sm-6
+            // Event
+            .product-card.mb-30
+              .product-card-thumb.border-default
+                a(href='product.html')
+                  img(src='img/shop/th06.jpg' alt='Product')
+                button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                  i.far.fa-heart
+              .product-card-meta Tue, Mar 27, 7PM
+              h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+              ul.product-card-category
+                li.hidden-xs-down: a(href='#') Performance & Visual Art
+                li.hidden-xs-down &gt;
+                li: a(href='#') Theatre
+              .product-card-price R45 - R414
+
+        include partials/pagination
+
+      // Sidebar
+      .col-xl-3.col-lg-4.order-lg-1
+        include partials/shop-sidebar

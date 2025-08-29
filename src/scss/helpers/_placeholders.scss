@@ -1,0 +1,241 @@
+//
+// Placeholders
+// --------------------------------------------------
+
+// Sub Menu
+%sub-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: $sub-menu-width;
+  margin: {
+    top: 0px !important;
+    left: -($sub-menu-width / 2);
+  }
+  padding: 10px 0 !important;
+  transform: scale(.85);
+  transition: all .1s;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-base;
+  background-color: $white;
+  line-height: $line-height-base;
+  box-shadow: $sub-menu-shadow;
+  visibility: hidden;
+  opacity: 0;
+  &::before,
+  &::after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    content: '';
+    pointer-events: none;
+  }
+  &::after {
+    margin-left: -8px;
+    border: {
+      width: 8px;
+      bottom-color: $white;
+    }
+  }
+  &::before {
+    margin-left: -9px;
+    border: {
+      width: 9px;
+      bottom-color: darken($border-color, 5%);
+    }
+  }
+  
+  > li {
+    display: block;
+    position: relative;
+    > a {
+      display: block;
+      padding: 5px 20px !important;
+      transition: color .3s;
+      color: $sub-menu-link-color;
+      font: {
+        size: $nav-link-font-size;
+        weight: $nav-link-font-weight;
+      }
+      text: {
+        align: left;
+        decoration: none;
+      }
+      > i {
+        display: inline-block;
+        margin-right: 6px;
+        vertical-align: middle;
+      }
+    }
+    &.sub-menu-user {
+      display: table;
+      width: 100%;
+      padding: 4px 17px 6px;
+      .user-ava,
+      .user-info {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+      }
+      .user-ava {
+        width: 44px;
+        > img {
+          display: block;
+          width: 44px;
+          padding: 3px;
+          border: 1px solid $border-color;
+          border-radius: 50%;
+        }
+      }
+      .user-info {
+        padding-left: 8px;
+        > .user-name {
+          margin-bottom: 2px;
+          font-size: $font-size-sm;
+        }
+        > span { display: block; }
+      }
+    }
+    &.sub-menu-separator {
+      margin: {
+        top: 5px;
+        bottom: 3px;
+      }
+      border-top: 1px solid $border-color;
+    }
+    &:hover > a { color: $nav-link-hover-color; }
+    &.active > a { color: $nav-link-active-color; }
+    &.has-children {
+      > a {
+        padding-right: 35px !important;
+        &::after {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 18px;
+          width: 0;
+          height: 0;
+          margin-top: -4px;
+          border-top: .3em solid transparent;
+          border-bottom: .3em solid transparent;
+          border-left: .32em solid;
+          content: '';
+        }
+      }
+    }
+    > .sub-menu {
+      top: -4px;
+      left: 100%;
+      margin-left: -5px;
+    }
+  }
+}
+
+// Mega Menu
+%mega-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 26px 0;
+  transform: translate3d(0, -9px, 0);
+  transition: all .1s;
+  border: {
+    top: $header-border;
+    bottom: 2px solid $primary;
+  }
+  background: {
+    position: center;
+    color: $gray-lightest;
+    repeat: no-repeat;
+  }
+  box-shadow: $sub-menu-shadow;
+  visibility: hidden;
+  opacity: 0;
+  .mega-menu-links {
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid $border-color;
+    list-style: none;
+    > li {
+      display: block;
+      margin-bottom: 13px;
+      line-height: $line-height-base;
+      > a {
+        display: block;
+        color: $nav-link-color;
+        font: {
+          size: $font-size-h5;
+          weight: $nav-link-font-weight;
+        }
+        text-decoration: none;
+        > .count {
+          margin-left: 8px;
+          color: $muted;
+          font: {
+            size: floor($font-size-base * .75);
+            weight: normal;
+          }
+        }
+        &:hover {
+          > span:not(.count) { text-decoration: underline; }
+        }
+      }
+      .description {
+        display: block;
+        margin-top: -2px;
+        color: $gray;
+        font: {
+          size: floor($font-size-base * .75);
+          weight: normal;
+        }
+      }
+    }
+  }
+  .mega-menu-horizontal-links {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    list-style: none;
+    > li {
+      display: block;
+      > a {
+        display: inline-block;
+        padding-bottom: 3px;
+        transition: text-shadow .2s;
+        border-bottom: 1px solid transparent;
+        color: $nav-link-color;
+        font-size: floor($font-size-base * 1.25); //~20px
+        text-decoration: none;
+        &:hover { text-shadow: 1px 0 0 $nav-link-color; }
+      }
+      &.active > a {
+        border-color: $primary;
+        text-shadow: 1px 0 0 $nav-link-color;
+      }
+    }
+  }
+  .owl-carousel.owl-hidden { opacity: 1 !important; }
+  .owl-carousel {
+    .owl-stage {
+      > .owl-item { display: none; }
+      &[style*='width'] {
+        > .owl-item {
+          display: block;
+          animation: fadein .15s;
+        }
+      }
+    }
+  }
+}
+
+// Sub Menu Animation
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

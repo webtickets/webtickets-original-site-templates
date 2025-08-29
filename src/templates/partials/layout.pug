@@ -1,0 +1,67 @@
+//- Include config.pug file that holds all variables
+block config
+  include ../helpers/config
+
+//- Mixins - reusable code snippets
+include ../helpers/mixins
+
+doctype html
+html(lang="en")
+
+  //- head.pug template
+  include head 
+  
+  // Body
+  body
+
+    //- modal-example.pug template
+    if isModalExample
+      include modal-example
+
+    //- modal-order.pug template
+    if isModalOrder
+      include modal-order
+
+    //- modal-avatar-upload.pug template
+    if isModalUpload
+      include modal-avatar-upload
+
+    //- components-header.pug template
+    if isComponentHeader
+      include components-header
+
+    //- promo-bar.pug template
+    if isHeader
+      include promo-bar
+
+    //- header.pug template
+    if isHeader
+      include header
+
+    //- page-title.pug template
+    if isPageTitle
+      include page-title
+
+    // Page Content
+    block content
+
+    //- footer.pug template
+    if isFooter
+      include footer
+
+    //- photoswipe.pug template
+    if isGallery
+      include photoswipe
+    
+    // Back To Top Button
+    a(href='#').scroll-to-top-btn
+      i.fas.fa-angle-up
+
+    // Backdrop
+    .site-backdrop
+    
+    // JavaScript (jQuery) libraries, plugins and custom scripts
+    script()&attributes(isNestedFile ? {'src': '../js/vendor.min.js'} : {'src': 'js/vendor.min.js'})
+    if isCardScript
+      script()&attributes(isNestedFile ? {'src': '../js/card.min.js'} : {'src': 'js/card.min.js'})
+    script()&attributes(isNestedFile ? {'src': '../js/scripts.min.js'} : {'src': 'js/scripts.min.js'})

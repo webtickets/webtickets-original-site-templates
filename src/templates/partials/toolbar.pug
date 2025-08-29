@@ -1,0 +1,51 @@
+.toolbar
+
+  if isHeaderSearch
+    // Search Button
+    .tool-search
+      i.fas.fa-search
+      span Search
+  
+  // Cart
+  .tool-cart
+    a(href='cart.html')
+    i.fas.fa-shopping-bag
+    span.count 2
+    span.subtotal R514.95
+    .cart-dropdown
+      // Item
+      .cart-dropdown-item
+        .inner.d-flex.align-items-top
+          .count 2
+          .item-description
+            .item-title.d-flex.justify-content-between
+              a(href='product.html') Kirstenbosch Summer Sunset. Freshly Ground
+              .item-remove
+                i.far.fa-times-circle
+            .item-meta.d-flex.justify-content-between.align-items-end
+              .pt-1
+                span.d-block.text-gray 27 March 2018
+                span.d-block.text-info R289.95
+              .text-danger 14:36
+      // Item
+      .cart-dropdown-item
+        .inner.d-flex.align-items-top
+          .count 4
+          .item-description
+            .item-title.d-flex.justify-content-between
+              a(href='product.html') Rock the Boat. Goldfish live at the V&A
+              .item-remove
+                i.far.fa-times-circle
+            .item-meta.d-flex.justify-content-between.align-items-end
+              .pt-1
+                span.d-block.text-gray 27 March 2018
+                span.d-block.text-info R225.00
+              .text-danger 12:01
+      // Footer
+      .cart-dropdown-footer
+        .d-flex.justify-content-between
+          h5.h6.text-normal Total
+          h6 R514.95
+        .d-flex.justify-content-between
+          a(href='cart.html').btn.btn-sm.btn-outline-primary.mr-0.px-3 View cart
+          a(href='checkout-address.html').btn.btn-sm.btn-primary.mr-0.px-3 Checkout

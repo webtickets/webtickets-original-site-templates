@@ -1,0 +1,26 @@
+ul.main-menu
+  li
+    a(href='shop-grid.html')
+      i.fas.fa-binoculars
+      | Browse
+    include megamenu-browse
+  li
+    a(href='shop-grid.html')
+      i.fas.fa-clipboard-list
+      | Lists
+    include megamenu-lists
+  li
+    a(href='shop-grid.html')
+      i.fas.fa-tags
+      | Deals
+    include megamenu-deals
+  li()&attributes((menuTitle === 'Blog') ? {'class': 'active'} : '')
+    a(href='blog.html')
+      i.fas.fa-edit
+      | Blog
+    include megamenu-blog
+  li
+    a(href='faq.html')
+      i.fas.fa-life-ring
+      | Help &amp; Info
+    include megamenu-helpinfo

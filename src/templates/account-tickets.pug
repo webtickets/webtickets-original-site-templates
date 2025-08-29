@@ -1,0 +1,108 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var isModalUpload = true
+  - var pageTitle = 'My Tickets'
+  - var isModalOrder = true
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Account', 'link': 'account-profile.html'}, {'title': 'My Tickets'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      .col-lg-4
+        include partials/account-menu
+      .col-lg-8
+        .padding-top-2x.mt-2.hidden-lg-up
+        .alert.alert-success.alert-dismissible.fade.show.text-center.margin-bottom-1x
+          span(data-dismiss='alert').alert-close
+            i.fas.fa-times
+          i.fas.fa-check-circle
+          | &nbsp;&nbsp;<strong>No Change Notices:</strong> Your events are scheduled as planned
+        h4 Upcoming Events
+        .table-responsive
+          table.table.table-hover.margin-bottom-none
+            thead
+              tr
+                th Order #
+                th Date Purchased
+                th Event
+                th Total
+            tbody
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 78A643CD409
+                td August 08, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R760.50
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 34VB5540K83
+                td July 21, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R315.20
+
+        .padding-top-2x
+        h4 Past Events
+        .table-responsive
+          table.table.table-hover.margin-bottom-none
+            thead
+              tr
+                th Order #
+                th Date Purchased
+                th Event
+                th Total
+            tbody
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 78A643CD409
+                td August 08, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R760.50
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 34VB5540K83
+                td July 21, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R315.20
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 112P45A90V2
+                td June 15, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R1,264.00
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 28BA67U0981
+                td May 19, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R198.35
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 502TR872W2
+                td April 04, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R2,133.90
+              tr
+                td
+                  a(href='#' data-toggle='modal' data-target='#orderDetails').text-medium.navi-link 47H76G09F33
+                td March 30, 2017
+                td
+                  span Event Title Here
+                td
+                  span.text-medium R86.40

@@ -1,0 +1,53 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Login to Account'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Login to Account'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      .col-md-6
+        form(method='post').login-box
+          h3.margin-bottom-1x Already a Member? <span class='text-primary'>Login</span>
+          .form-group.input-group
+            input(type='email' placeholder='Email' required).form-control
+            span.input-group-addon
+              i.fas.fa-envelope
+          .form-group.input-group
+            input(type='password' placeholder='Password' required).form-control
+            span.input-group-addon
+              i.fas.fa-lock
+          .d-flex.flex-wrap.justify-content-between.pb-3
+            .custom-control.custom-checkbox
+              input(type='checkbox' id='remember_me' checked).custom-control-input
+              label(for='remember_me').custom-control-label Remember me
+            a(href='account-password-recovery.html').navi-link Forgot password?
+          .text-center.text-sm-right
+            button(type='submit' class='btn btn-primary margin-bottom-none')
+              i.fas.fa-sign-in-alt
+              | &nbsp;Login
+
+      .col-md-6
+        .padding-top-3x.hidden-md-up
+        h3.margin-bottom-1x Not a Member Yet? <span class='text-primary'>Register</span>
+        p.pb-3 Registration takes less than a minute but gives you full control over your orders.
+        a(href='account-register.html').btn.btn-outline-primary.btn-block
+          i.far.fa-user
+          | &nbsp;Register
+        p.pt-2.text-center Or Login using:
+        .row.margin-bottom-1x
+          .col-xl-4.col-md-6.col-sm-4
+            a(href='#' class='btn btn-sm btn-block facebook-btn')
+              i.fab.fa-facebook-f
+              | &nbsp;Facebook login
+          .col-xl-4.col-md-6.col-sm-4
+            a(href='#' class='btn btn-sm btn-block twitter-btn')
+              i.fab.fa-twitter
+              | &nbsp;Twitter login
+          .col-xl-4.col-md-6.col-sm-4
+            a(href='#' class='btn btn-sm btn-block google-btn')
+              i.fab.fa-google-plus-g
+              | &nbsp;Google+ login

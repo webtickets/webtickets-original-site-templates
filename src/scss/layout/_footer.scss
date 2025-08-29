@@ -1,0 +1,29 @@
+//
+// Footer
+// --------------------------------------------------
+
+.site-footer {
+  padding-top: floor($grid-vertical-step * 3); //~72px;
+  background-color: $footer-bg;
+  @media (max-width: $screen-md) {
+    padding-top: floor($grid-vertical-step * 2); //~48px;
+  }
+}
+.footer-copyright {
+  margin: 0;
+  padding: {
+    top: 10px;
+    bottom: $grid-vertical-step; // ~24px
+  }
+  color: rgba($white, .5);
+  font: {
+    size: $font-size-sm;
+    weight: normal;
+  }
+  > a {
+    transition: color .25s;
+    color: rgba($white, .5);
+    text-decoration: none;
+    &:hover { color: $link-hover-color; }
+  }
+}

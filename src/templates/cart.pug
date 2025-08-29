@@ -1,0 +1,149 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Cart'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Cart'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-1
+
+    // Alert
+    .alert.alert-info.alert-dismissible.fade.show.mb-4.text-center
+      span(data-dismiss='alert').alert-close
+        i.fas.fa-times
+      i.far.fa-money-bill-alt
+      | &nbsp;&nbsp;With this purchase you will earn <strong>290</strong> Credits.
+
+    // Shopping Cart
+    .shopping-cart
+      
+      // Item
+      .item-row
+        .d-md-flex.justify-content-between.align-items-start
+          .text-center.text-md-left.p-2
+            span.d-block.text-uppercase.text-gray.text-medium.mb-2 Event
+            .product-item
+              a(href='product.html').product-thumb
+                img(src='img/shop/th01.jpg', alt='Product')
+              .product-info
+                h4.product-title
+                  a(href='product.html') Event Title Goes Here
+                .text-lg.text-info R45 - R414
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Quantity
+            span 1
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Date
+            span.text-lg Tue, Mar 27, 7PM
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Price
+            span.text-lg R43.90
+          .text-center.p-2
+            span.d-block.text-uppercase.text-gray.text-medium.mb-1 Timer
+            .countdown(data-date-time='09/25/2018 22:00:00')
+              .item
+                .hours 00
+                span.hours_ref Hours
+              .item
+                .minutes 00
+                span.minutes_ref Mins
+              .item
+                .seconds 00
+                span.seconds_ref Secs
+          .text-center.align-self-center.px-4
+            a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+              i.far.fa-times-circle
+      
+      // Item
+      .item-row
+        .d-md-flex.justify-content-between.align-items-start
+          .text-center.text-md-left.p-2
+            span.d-block.text-uppercase.text-gray.text-medium.mb-2 Event
+            .product-item
+              a(href='product.html').product-thumb
+                img(src='img/shop/th02.jpg', alt='Product')
+              .product-info
+                h4.product-title
+                  a(href='product.html') Event Title Goes Here
+                .text-lg.text-info R45 - R414
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Quantity
+            span 2
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Date
+            span.text-lg Wen, Mar 28, 6PM
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Price
+            span.text-lg R24.89
+          .text-center.p-2
+            span.d-block.text-uppercase.text-gray.text-medium.mb-1 Timer
+            .countdown(data-date-time='09/25/2018 22:00:00')
+              .item
+                .hours 00
+                span.hours_ref Hours
+              .item
+                .minutes 00
+                span.minutes_ref Mins
+              .item
+                .seconds 00
+                span.seconds_ref Secs
+          .text-center.align-self-center.px-4
+            a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+              i.far.fa-times-circle
+      
+      // Item
+      .item-row
+        .d-md-flex.justify-content-between.align-items-start
+          .text-center.text-md-left.p-2
+            span.d-block.text-uppercase.text-gray.text-medium.mb-2 Event
+            .product-item
+              a(href='product.html').product-thumb
+                img(src='img/shop/th03.jpg', alt='Product')
+              .product-info
+                h4.product-title
+                  a(href='product.html') Event Title Goes Here
+                .text-lg.text-info R45 - R414
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Quantity
+            span 1
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Date
+            span.text-lg Fri, Mar 30, 11AM
+          .text-center.text-medium.p-2
+            span.d-block.text-uppercase.text-gray.mb-2 Price
+            span.text-lg R200.00
+          .text-center.p-2
+            span.d-block.text-uppercase.text-gray.text-medium.mb-1 Timer
+            .countdown(data-date-time='09/25/2018 22:00:00')
+              .item
+                .hours 00
+                span.hours_ref Hours
+              .item
+                .minutes 00
+                span.minutes_ref Mins
+              .item
+                .seconds 00
+                span.seconds_ref Secs
+          .text-center.align-self-center.px-4
+            a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+              i.far.fa-times-circle
+    
+    // Cart Footer
+    .shopping-cart-footer
+      .column
+        form(method='post').coupon-form
+          input(type='text' placeholder='Coupon code' required).form-control.form-control-sm
+          button(type='submit' class='btn btn-outline-primary btn-sm') Apply Coupon
+      .column.text-lg
+        | Subtotal: 
+        span.text-medium R289.68
+    .shopping-cart-footer
+      .column
+        a(href='shop-grid.html' class='btn btn-outline-secondary')
+          i.fas.fa-arrow-left
+          | &nbsp;Back to Shopping
+      .column
+        a(href='#' class='btn btn-outline-primary' data-toast data-toast-type='success' data-toast-position='topRight' data-toast-icon='icon-circle-check' data-toast-title='Your cart' data-toast-message='is updated successfully!') Update Cart
+        a(href='checkout-address.html' class='btn btn-primary') Checkout

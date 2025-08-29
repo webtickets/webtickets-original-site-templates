@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>World of Beer
+    </title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Webtickets - Platform for selling and buying tickets online">
+    <meta name="keywords" content="">
+    <meta name="author" content="Webtickets">
+    <!-- Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#343b43" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="css/vendor.min.css">
+    <!-- Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Main Template Styles-->
+    <link id="mainStyles" rel="stylesheet" media="screen" href="css/styles.min.css">
+    <!-- Modernizr-->
+    <script src="js/modernizr.min.js"></script>
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Promo Bar--><a class="promo-bar alert alert-dismissible fade show text-center" href="#" style="background-image: url(img/promo-bar.jpg);"><span class="alert-close text-white" data-dismiss="alert"><i class="fas fa-times"></i></span>
+      <p class="d-inline-block text-uppercase text-medium text-white mb-0 mr-3"><i class="far fa-snowflake mr-2"></i>Rocking The Daisies On Sale</p>
+      <div class="btn btn-xs btn-white m-0">Get Yours</div></a>
+    <!-- Top Bar-->
+    <div class="top-bar" style="background-image: url(img/promo-bar.jpg);"></div>
+    <!-- Site Header-->
+    <header class="site-header">
+      <!-- Container-->
+      <div class="container-fluid d-flex align-items-center">
+        <!-- Menu Toggle--><a class="menu-toggle fas" href="#" data-toggle="mobile-menu"></a>
+        <!-- Logo--><a class="site-logo align-middle" href="index.html"><img src="img/logo.png" alt="Webtickets"/></a>
+        <!-- Navbar-->
+        <div class="navbar">
+          <!-- Top Menu-->
+          <ul class="top-menu">
+            <li><a href="account-profile.html"><i class="fas fa-user"></i>My Account</a>
+              <ul class="sub-menu">
+                <li class="sub-menu-user">
+                  <div class="user-ava"><img src="img/account/user-ava-sm.jpg" alt="Daniel Adams"/>
+                  </div>
+                  <div class="user-info">
+                    <h6 class="user-name">Christy Turner</h6><span class="text-xs text-muted"><i class="fas fa-map-marker-alt opacity-80"></i>&nbsp;Cape Town</span>
+                  </div>
+                </li>
+                <li><a href="account-profile.html">My Account</a></li>
+                <li><a href="account-tickets.html">My Tickets&nbsp;<span class="badge badge-default badge-pill">2</span></a></li>
+                <li><a href="account-passes.html">My Passes</a></li>
+                <li><a href="account-likes.html">My Likes</a></li>
+                <li><a href="account-alerts.html">My Alerts</a></li>
+                <li><a href="account-location.html">My Location</a></li>
+                <li><a href="account-vouchers.html">My Gift Vouchers</a></li>
+                <li><a href="#">Switch to Selling</a></li>
+                <li class="sub-menu-separator"></li>
+                <li><a href="account-login.html"><i class="fas fa-sign-out-alt text-primary"></i>Logout</a></li>
+              </ul>
+            </li>
+            <li><a href="account-tickets.html"><i class="fas fa-ticket-alt"></i>My Tickets&nbsp;<span class="badge badge-default badge-pill">2</span></a>
+              <ul class="sub-menu">
+                <li><a href="#">Upcoming Events&nbsp;<span class="badge badge-default badge-pill">2</span></a></li>
+                <li><a href="#">Past Events</a></li>
+                <li><a href="#">Notices of Changes</a></li>
+              </ul>
+            </li>
+            <li><a href="account-likes.html"><i class="fas fa-heart"></i>My Likes</a>
+              <ul class="sub-menu">
+                <li><a href="#">Recent Like 0</a></li>
+                <li><a href="#">Recent Like 1</a></li>
+                <li><a href="#">Recent Like 2</a></li>
+                <li><a href="#">Recent Like 3</a></li>
+                <li><a href="#">Recent Like 4</a></li>
+                <li><a href="#">Show All</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i>Cape Town</a>
+              <ul class="sub-menu">
+                <li><a href="#">Change Location&nbsp;</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- Main Menu-->
+          <ul class="main-menu">
+            <li><a href="shop-grid.html"><i class="fas fa-binoculars"></i>Browse</a>
+              <!-- Mega Menu "Browse"-->
+              <div class="mega-menu" style="min-height: 416px; background-image: url(img/mega-menu-bg.png);">
+                <div class="container">
+                  <div class="pb-4">
+                    <h3 class="d-inline-block border-right text-dark text-bold mb-0 pr-3 mr-3">Event <span class='text-uppercase text-lg text-normal'>Categories in <i class='fas fa-map-marker-alt text-primary'></i> Cape Town</span></h3><a class="d-inline-block text-decoration-none" href="#"><span class="text-uppercase text-dark text-lg">Switch to&nbsp;</span><span class="h3 text-bold text-primary">Active</span></a>
+                  </div>
+                  <!-- Categories Carousel-->
+                  <div class="owl-carousel nav-outside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;items&quot;: 3 }">
+                    <ul class="mega-menu-links">
+                      <li><a href="#"><span>Music</span><span class='count'>126</span></a><span class="description">Music Festivals, Club Nights, DJ Sets, ...</span></li>
+                      <li><a href="#"><span>Sport &amp; Fitness</span><span class='count'>87</span></a><span class="description">Running, Cycling, Swimming, ...</span></li>
+                      <li><a href="#"><span>Film &amp; Media</span><span class='count'>54</span></a><span class="description">Cinemas, Screenings, Outdoor, ...</span></li>
+                      <li><a href="#"><span>Talks &amp; Education</span><span class='count'>38</span></a><span class="description">Theatre, Comedy, Art Exhibitions, ...</span></li>
+                    </ul>
+                    <ul class="mega-menu-links">
+                      <li><a href="#"><span>Sport Spectating</span><span class='count'>67</span></a><span class="description">Rugby, Cricket, Football, ...</span></li>
+                      <li><a href="#"><span>Performance &amp; Visual Art</span><span class='count'>121</span></a><span class="description">Theatre, Comedy, Art Exhibitions, ...</span></li>
+                      <li><a href="#"><span>Food &amp; Drink</span><span class='count'>88</span></a><span class="description">Wine Tasting, Food Festivals, ...</span></li>
+                      <li><a href="#"><span>Tourism &amp; Outdoor</span><span class='count'>30</span></a><span class="description">Museums, Tours, Sights, ...</span></li>
+                    </ul>
+                    <ul class="mega-menu-links">
+                      <li><a href="#"><span>Health &amp; Wellness</span><span class='count'>12</span></a><span class="description">Events, Festivals, Classes, ...</span></li>
+                      <li><a href="#"><span>Family &amp; Kids</span><span class='count'>43</span></a><span class="description">Days Out, Under 5's, Babies, ...</span></li>
+                      <li><a href="#"><span>Charities &amp; Causes</span><span class='count'>24</span></a><span class="description">Events, Participation, ...</span></li>
+                      <li><a href="#"><span>Business &amp; Professional</span><span class='count'>12</span></a><span class="description">Networking, Conferences, ...</span></li>
+                    </ul>
+                    <ul class="mega-menu-links">
+                      <li><a href="#"><span>Music</span><span class='count'>126</span></a><span class="description">Music Festivals, Club Nights, DJ Sets, ...</span></li>
+                      <li><a href="#"><span>Sport &amp; Fitness</span><span class='count'>87</span></a><span class="description">Running, Cycling, Swimming, ...</span></li>
+                      <li><a href="#"><span>Film &amp; Media</span><span class='count'>54</span></a><span class="description">Cinemas, Screenings, Outdoor, ...</span></li>
+                      <li><a href="#"><span>Talks &amp; Education</span><span class='count'>38</span></a><span class="description">Theatre, Comedy, Art Exhibitions, ...</span></li>
+                    </ul>
+                    <ul class="mega-menu-links">
+                      <li><a href="#"><span>Sport Spectating</span><span class='count'>67</span></a><span class="description">Rugby, Cricket, Football, ...</span></li>
+                      <li><a href="#"><span>Performance &amp; Visual Art</span><span class='count'>121</span></a><span class="description">Theatre, Comedy, Art Exhibitions, ...</span></li>
+                      <li><a href="#"><span>Food &amp; Drink</span><span class='count'>88</span></a><span class="description">Wine Tasting, Food Festivals, ...</span></li>
+                      <li><a href="#"><span>Tourism &amp; Outdoor</span><span class='count'>30</span></a><span class="description">Museums, Tours, Sights, ...</span></li>
+                    </ul>
+                  </div>
+                  <!-- See All Button-->
+                  <div class="text-center pt-3"><a class="btn btn-primary" href="#">See All Categories</a></div>
+                </div>
+              </div>
+            </li>
+            <li><a href="shop-grid.html"><i class="fas fa-clipboard-list"></i>Lists</a>
+              <!-- Mega Menu "Lists"-->
+              <div class="mega-menu" style="min-height: 552px; background-image: url(img/mega-menu-bg.png);">
+                <div class="container">
+                  <div class="pb-2">
+                    <ul class="mega-menu-horizontal-links d-flex justify-content-between">
+                      <li class="active"><a href="#">Recommended for You</a></li>
+                      <li><a href="#">Popular</a></li>
+                      <li><a href="#">Trending</a></li>
+                      <li><a href="#">This Weekend</a></li>
+                      <li><a href="#">Fun with Kids</a></li>
+                      <li><a href="#">Freebees</a></li>
+                    </ul>
+                    <p class="text-lg">Some events we think you’ll love based on your activity</p>
+                    <!-- Products Carousel-->
+                    <div class="owl-carousel nav-outside" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2, &quot;margin&quot;:15},&quot;480&quot;:{&quot;items&quot;:2, &quot;margin&quot;:15},&quot;680&quot;:{&quot;items&quot;:3, &quot;margin&quot;:15},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
+                      <!-- Event-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="product.html"><img src="img/shop/th01.jpg" alt="Product"></a>
+                          <button class="product-card-like" type="button" data-toggle="tooltip" title="Add to Likes"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="product.html">Event Title Here With Enough Space For Two Lines</a></h3>
+                        <ul class="product-card-category">
+                          <li class="hidden-xs-down"><a href="#">Performance & Visual Art</a></li>
+                          <li class="hidden-xs-down">&gt;</li>
+                          <li><a href="#">Theatre</a></li>
+                        </ul>
+                        <div class="product-card-price">R45 - R414</div>
+                      </div>
+                      <!-- Event-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="product.html"><img src="img/shop/th02.jpg" alt="Product"></a>
+                          <button class="product-card-like" type="button" data-toggle="tooltip" title="Add to Likes"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="product.html">Event Title Here With Enough Space For Two Lines</a></h3>
+                        <ul class="product-card-category">
+                          <li class="hidden-xs-down"><a href="#">Performance & Visual Art</a></li>
+                          <li class="hidden-xs-down">&gt;</li>
+                          <li><a href="#">Theatre</a></li>
+                        </ul>
+                        <div class="product-card-price">R45 - R414</div>
+                      </div>
+                      <!-- Event-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="product.html"><img src="img/shop/th03.jpg" alt="Product"></a>
+                          <button class="product-card-like" type="button" data-toggle="tooltip" title="Add to Likes"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="product.html">Event Title Here With Enough Space For Two Lines</a></h3>
+                        <ul class="product-card-category">
+                          <li class="hidden-xs-down"><a href="#">Performance & Visual Art</a></li>
+                          <li class="hidden-xs-down">&gt;</li>
+                          <li><a href="#">Theatre</a></li>
+                        </ul>
+                        <div class="product-card-price">R45 - R414</div>
+                      </div>
+                      <!-- Event-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="product.html"><img src="img/shop/th04.jpg" alt="Product"></a>
+                          <button class="product-card-like" type="button" data-toggle="tooltip" title="Add to Likes"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="product.html">Event Title Here With Enough Space For Two Lines</a></h3>
+                        <ul class="product-card-category">
+                          <li class="hidden-xs-down"><a href="#">Performance & Visual Art</a></li>
+                          <li class="hidden-xs-down">&gt;</li>
+                          <li><a href="#">Theatre</a></li>
+                        </ul>
+                        <div class="product-card-price">R45 - R414</div>
+                      </div>
+                      <!-- Event-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="product.html"><img src="img/shop/th05.jpg" alt="Product"></a>
+                          <button class="product-card-like" type="button" data-toggle="tooltip" title="Add to Likes"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="product.html">Event Title Here With Enough Space For Two Lines</a></h3>
+                        <ul class="product-card-category">
+                          <li class="hidden-xs-down"><a href="#">Performance & Visual Art</a></li>
+                          <li class="hidden-xs-down">&gt;</li>
+                          <li><a href="#">Theatre</a></li>
+                        </ul>
+                        <div class="product-card-price">R45 - R414</div>
+                      </div>
+                      <!-- Event-->
+                      <div class="product-card">
+                        <div class="product-card-thumb border-default"><a href="product.html"><img src="img/shop/th06.jpg" alt="Product"></a>
+                          <button class="product-card-like" type="button" data-toggle="tooltip" title="Add to Likes"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="product.html">Event Title Here With Enough Space For Two Lines</a></h3>
+                        <ul class="product-card-category">
+                          <li class="hidden-xs-down"><a href="#">Performance & Visual Art</a></li>
+                          <li class="hidden-xs-down">&gt;</li>
+                          <li><a href="#">Theatre</a></li>
+                        </ul>
+                        <div class="product-card-price">R45 - R414</div>
+                      </div>
+                    </div>
+                    <!-- More Button-->
+                    <div class="text-center pt-4"><a class="btn btn-primary" href="#">See More</a></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="shop-grid.html"><i class="fas fa-tags"></i>Deals</a>
+              <!-- Mega Menu "Deals"-->
+              <div class="mega-menu" style="background-image: url(img/mega-menu-bg.png);">
+                <div class="container pb-5">
+                  <div class="row">
+                    <div class="col-6"><a class="promo-box" href="#">
+                        <h3 class="promo-box-title"><span>Visa Checkout Deals</span><span class="count">12</span></h3><img src="img/banners/visa-deals.jpg" alt="Visa Checkout Deals"></a></div>
+                    <div class="col-6"><a class="promo-box" href="#">
+                        <h3 class="promo-box-title"><span>PnP Smart Shopper Deals</span><span class="count">4</span></h3><img src="img/banners/pnp-deals.jpg" alt="PnP Smart Shopper Deals"></a></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="blog.html"><i class="fas fa-edit"></i>Blog</a>
+              <!-- Mega Menu "Blog"-->
+              <div class="mega-menu" style="background-image: url(img/mega-menu-bg.png);">
+                <div class="container pb-4">
+                  <h3 class="h4 mb-4">Check out the latest blog posts</h3>
+                  <div class="row pb-4">
+                    <div class="col-3">
+                      <!-- Blog Post-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="blog-single.html"><img src="img/shop/th01.jpg" alt="Post"></a></div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="blog-single.html">Blog Post Title Goes Here With a Story About a Thing.</a></h3>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <!-- Blog Post-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="blog-single.html"><img src="img/shop/th02.jpg" alt="Post"></a></div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="blog-single.html">Blog Post Title Goes Here With a Story About a Thing.</a></h3>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <!-- Blog Post-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="blog-single.html"><img src="img/shop/th03.jpg" alt="Post"></a></div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="blog-single.html">Blog Post Title Goes Here With a Story About a Thing.</a></h3>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <!-- Blog Post-->
+                      <div class="product-card">
+                        <div class="product-card-thumb"><a href="blog-single.html"><img src="img/shop/th04.jpg" alt="Post"></a></div>
+                        <div class="product-card-meta">Tue, Mar 27, 7PM</div>
+                        <h3 class="product-card-title"><a href="blog-single.html">Blog Post Title Goes Here With a Story About a Thing.</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center"><a class="btn btn-primary" href="blog.html">See More</a></div>
+                </div>
+              </div>
+            </li>
+            <li><a href="faq.html"><i class="fas fa-life-ring"></i>Help &amp; Info</a>
+              <!-- Mega Menu "Help & Info"-->
+              <div class="mega-menu" style="background-image: url(img/mega-menu-bg.png);">
+                <div class="container pb-5">
+                  <div class="row">
+                    <div class="col-6">
+                      <h3 class="h4 mb-4"><span class="d-inline-block align-middle h2 mb-0 mr-2 text-primary"><i class="far fa-life-ring"></i></span>Help</h3>
+                      <h4 class="h5 mb-3 text-normal"><a class="navi-link-2" href="faq.html">Frequently Asked Questions</a></h4>
+                      <h4 class="h5 mb-3 text-normal"><a class="navi-link-2" href="faq.html#eventquestions">Questions About an Event</a></h4>
+                      <h4 class="h5 mb-3 text-normal"><a class="navi-link-2" href="faq.html#picknpay">Buying and Paying In-Store with Pick n Pay</a></h4>
+                      <h4 class="h5 mb-3 text-normal"><a class="navi-link-2" href="contact.html">Contact Us for Support</a></h4>
+                    </div>
+                    <div class="col-6">
+                      <h3 class="h4 mb-4"><span class="d-inline-block align-middle h2 mb-0 mr-2 text-primary"><i class="fas fa-info-circle"></i></span>Info</h3>
+                      <h4 class="h5 mb-3 text-normal"><a class="navi-link-2" href="about.html">About Webtickets</a></h4>
+                      <h4 class="h5 mb-3 text-normal"><a class="navi-link-2" href="sellwithwebtickets.html">Selling with Webtickets</a></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- Search Box-->
+          <div class="search-box">
+            <div class="input-group">
+              <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"></span></div>
+              <input class="form-control" type="search" id="site-search" placeholder="Search for any Event or Category"><span class="input-group-addon text-primary"><i class="fas fa-search"></i></span>
+            </div>
+          </div>
+          <!-- Toolbar-->
+          <div class="toolbar">
+            <!-- Search Button-->
+            <div class="tool-search"><i class="fas fa-search"></i><span>Search</span></div>
+            <!-- Cart-->
+            <div class="tool-cart"><a href="cart.html"></a><i class="fas fa-shopping-bag"></i><span class="count">2</span><span class="subtotal">R514.95</span>
+              <div class="cart-dropdown">
+                <!-- Item-->
+                <div class="cart-dropdown-item">
+                  <div class="inner d-flex align-items-top">
+                    <div class="count">2</div>
+                    <div class="item-description">
+                      <div class="item-title d-flex justify-content-between"><a href="product.html">Kirstenbosch Summer Sunset. Freshly Ground</a>
+                        <div class="item-remove"><i class="far fa-times-circle"></i></div>
+                      </div>
+                      <div class="item-meta d-flex justify-content-between align-items-end">
+                        <div class="pt-1"><span class="d-block text-gray">27 March 2018</span><span class="d-block text-info">R289.95</span></div>
+                        <div class="text-danger">14:36</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item-->
+                <div class="cart-dropdown-item">
+                  <div class="inner d-flex align-items-top">
+                    <div class="count">4</div>
+                    <div class="item-description">
+                      <div class="item-title d-flex justify-content-between"><a href="product.html">Rock the Boat. Goldfishlive at the V&A</a>
+                        <div class="item-remove"><i class="far fa-times-circle"></i></div>
+                      </div>
+                      <div class="item-meta d-flex justify-content-between align-items-end">
+                        <div class="pt-1"><span class="d-block text-gray">27 March 2018</span><span class="d-block text-info">R225.00</span></div>
+                        <div class="text-danger">12:01</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Footer-->
+                <div class="cart-dropdown-footer">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="h6 text-normal">Total</h5>
+                    <h6>R514.95</h6>
+                  </div>
+                  <div class="d-flex justify-content-between"><a class="btn btn-sm btn-outline-primary mr-0 px-3" href="cart.html">View cart</a><a class="btn btn-sm btn-primary mr-0 px-3" href="checkout-address.html">Checkout</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu-->
+      <div class="mobile-menu-wrapper">
+        <!-- Account--><a class="account-link" href="account-profile.html">
+          <div class="user-ava"><img src="img/account/user-ava-md.jpg" title="Christy Turner"></div>
+          <div class="user-info">
+            <h6 class="user-name">Christy Turner</h6><span class="text-sm text-gray opacity-60"><i class='fas fa-map-marker-alt'></i> &nbsp;Cape Town</span>
+          </div></a>
+        <!-- Search-->
+        <form class="p-25" method="get">
+          <div class="input-group"><span class="input-group-btn">
+              <button type="submit"><i class="fas fa-search"></i></button></span>
+            <input class="form-control" type="search" placeholder="Search Webtickets">
+          </div>
+        </form>
+        <!-- Menu-->
+        <nav class="mobile-menu"><a class="mobile-menu-item" href="index.html"><span>Home</span><i class="fas fa-home"></i></a>
+          <div class="mobile-menu-divider"></div><a class="mobile-menu-item collapsed" href="#menu-categories" data-toggle="collapse"><span>Browse</span><i class="fas fa-binoculars"></i></a>
+          <ul class="mobile-submenu collapse" id="menu-categories">
+            <li><a href="#">All <span>702</span></a></li>
+            <li><a href="#">Music <span>126</span></a></li>
+            <li><a href="#">Sport &amp; Fitness <span>87</span></a></li>
+            <li><a href="#">Film &amp; Media <span>54</span></a></li>
+            <li><a href="#">Talks &amp; Education <span>38</span></a></li>
+            <li><a href="#">Sport &amp; Spectating <span>67</span></a></li>
+            <li><a href="#">Performance &amp; Visual Art <span>121</span></a></li>
+            <li><a href="#">Food &amp; Drink <span>88</span></a></li>
+            <li><a href="#">Tourism &amp; Outdoor <span>30</span></a></li>
+            <li><a href="#">Health &amp; Wellness <span>12</span></a></li>
+            <li><a href="#">Family &amp; Kids <span>43</span></a></li>
+            <li><a href="#">Charities &amp; Causes <span>24</span></a></li>
+            <li><a href="#">Business &amp; Professional <span>12</span></a></li>
+          </ul><a class="mobile-menu-item collapsed" href="#menu-lists" data-toggle="collapse"><span>Lists</span><i class="fas fa-clipboard-list"></i></a>
+          <ul class="mobile-submenu collapse" id="menu-lists">
+            <li><a href="#">Recommended for You</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">This Weekend</a></li>
+            <li><a href="#">Fun with Kids</a></li>
+            <li><a href="#">Freebees</a></li>
+          </ul><a class="mobile-menu-item collapsed" href="#menu-deals" data-toggle="collapse"><span>Deals</span><i class="fas fa-tags"></i></a>
+          <ul class="mobile-submenu collapse" id="menu-deals">
+            <li><a href="#">Visa Checkout Deals <span>12</span></a></li>
+            <li><a href="#">PnP Smart Shopper Deals <span>4</span></a></li>
+          </ul><a class="mobile-menu-item" href="blog.html"><span>Blog</span><i class="fas fa-edit"></i></a><a class="mobile-menu-item collapsed" href="#menu-help" data-toggle="collapse"><span>Help &amp; Info</span><i class="fas fa-life-ring"></i></a>
+          <ul class="mobile-submenu collapse" id="menu-help">
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+            <li><a href="faq.html#eventquestions">Questions About an Event</a></li>
+            <li><a href="faq.html#picknpay">Buying and Paying In-Store with Pick n Pay</a></li>
+            <li><a href="contact.html">Contact Us for Support</a></li>
+            <li><a href="about.html">About Webtickets</a></li>
+            <li><a href="sellwithwebtickets.html">Selling with Webtickets</a></li>
+          </ul>
+          <div class="mobile-menu-divider"></div><a class="mobile-menu-item" href="account-profile.html"><span>My Account</span><i class="fas fa-user"></i></a><a class="mobile-menu-item" href="account-tickets.html"><span>My Tickets</span><i class="fas fa-ticket-alt"></i></a><a class="mobile-menu-item" href="account-likes.html"><span>My Likes</span><i class="fas fa-heart"></i></a><a class="mobile-menu-item" href="#"><span>Cape Town</span><i class="fas fa-map-marker-alt"></i></a>
+        </nav>
+      </div>
+    </header>
+    <!-- Page Title-->
+    <div class="page-title">
+      <div class="container">
+        <div class="row justify-content-md-between">
+          <div class="col-md-6 order-2 order-md-1 text-center text-md-left">
+            <h1>World of Beer</h1>
+          </div>
+          <div class="col-md-6 order-1 order-md-2">
+            <ul class="breadcrumbs">
+              <li><a href="index.html">Home</a>
+              </li>
+              <li class="separator"><i class="fas fa-long-arrow-alt-right">&nbsp;</i></li>
+              <li><a href="#">Food &amp; Drink</a>
+              </li>
+              <li class="separator"><i class="fas fa-long-arrow-alt-right">&nbsp;</i></li>
+              <li><a href="#">Tour</a>
+              </li>
+              <li class="separator"><i class="fas fa-long-arrow-alt-right">&nbsp;</i></li>
+              <li>This Event</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Content-->
+    <!-- Steps-->
+    <div class="steps-wrap-container container">
+      <div class="steps-wrap margin-bottom-2x">
+        <div class="steps"><a class="step completed" href="product.html">
+            <div class="step-inner"><span class="step-addon"><i class="fas fa-check"></i></span>Tickets</div></a><a class="step active" href="product-date-time.html">
+            <div class="step-inner"><span class="step-addon"><i class="fas fa-arrow-down"></i></span>Date &amp; Time</div></a><a class="step" href="product-seating.html">
+            <div class="step-inner"><span class="step-addon">3</span>Seating</div></a><a class="step" href="product-ticket-type.html">
+            <div class="step-inner"><span class="step-addon">4</span>Ticket Type</div></a><a class="step" href="product-add-to-cart.html">
+            <div class="step-inner"><span class="step-addon">5</span>Add To Cart</div></a></div>
+      </div>
+    </div>
+    <!-- Content-->
+    <div class="container padding-bottom-3x mb-2">
+      <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+          <h2 class="mb-1">Date</h2>
+          <p class="text-lg mb-4">Choose your preferred date.</p>
+          <!-- Events Calendar-->
+          <div class="events-calendar">
+            <!-- EC Header-->
+            <div class="ec-header">
+              <div class="ec-control-prev"></div>
+              <h3 class="ec-month">March 2018</h3>
+              <div class="ec-control-next"></div>
+            </div>
+            <!-- EC Days-->
+            <div class="ec-days d-none d-md-table">
+              <div class="ec-day">Mon</div>
+              <div class="ec-day">Tue</div>
+              <div class="ec-day">Wed</div>
+              <div class="ec-day">Thu</div>
+              <div class="ec-day">Fri</div>
+              <div class="ec-day">Sat</div>
+              <div class="ec-day">Sun</div>
+            </div>
+            <!-- EC Week-->
+            <div class="ec-week">
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">26</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">27</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">28</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">1</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">2</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">3</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">4</span></div>
+              </div>
+            </div>
+            <!-- EC Week-->
+            <div class="ec-week">
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">5</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">6</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">7</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">8</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">9</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">10</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">11</span></div>
+              </div>
+            </div>
+            <!-- EC Week-->
+            <div class="ec-week">
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">12</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">13</span></div>
+              </div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">14</span></div>
+              </div>
+              <div class="ec-date"><a class="disabled" href="#"><span class="ec-number"><span class='d-inline d-md-none'>Thu</span> 15</span><span class="ec-description">Sold Out Online</span></a></div>
+              <div class="ec-date"><a class="disabled" href="#"><span class="ec-number"><span class='d-inline d-md-none'>Fri</span> 16</span><span class="ec-description">Sold Out</span></a></div>
+              <div class="ec-date"><a class="disabled" href="#"><span class="ec-number"><span class='d-inline d-md-none'>Sat</span> 17</span><span class="ec-description">Online Sales Closed</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Sun</span> 18</span><span class="ec-description">Some Times Available</span></a></div>
+            </div>
+            <!-- EC Week-->
+            <div class="ec-week">
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Mon</span> 19</span><span class="ec-description">Some Times Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Tue</span> 20</span><span class="ec-description">Some Times Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Wed</span> 21</span><span class="ec-description">Sales Close in 32 mins</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Thu</span> 22</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a class="active" href="#"><span class="ec-number"><span class='d-inline d-md-none'>Fri</span> 23</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Sat</span> 24</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Sun</span> 25</span><span class="ec-description">Available</span></a></div>
+            </div>
+            <!-- EC Week-->
+            <div class="ec-week">
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Mon</span> 26</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Tue</span> 27</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Wed</span> 28</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a href="#"><span class="ec-number"><span class='d-inline d-md-none'>Thu</span> 29</span><span class="ec-description">Available</span></a></div>
+              <div class="ec-date"><a class="disabled" href="#"><span class="ec-number"><span class='d-inline d-md-none'>Fri</span> 30</span><span class="ec-description">Not Yet Available</span></a></div>
+              <div class="ec-date"><a class="disabled" href="#"><span class="ec-number"><span class='d-inline d-md-none'>Sat</span> 31</span><span class="ec-description">Closed</span></a></div>
+              <div class="ec-date d-none d-md-table-cell">
+                <div><span class="ec-number">1</span></div>
+              </div>
+            </div>
+            <!-- EC Footer-->
+            <div class="ec-footer d-md-none">
+              <div class="ec-control-prev"></div>
+              <h3 class="ec-month">March 2018</h3>
+              <div class="ec-control-next"></div>
+            </div>
+          </div>
+          <!-- Arrow-->
+          <div class="pt-30 pb-30 d-none d-md-block">
+            <div class="ec-arrow-down"></div>
+          </div>
+          <h2 class="mb-1 pt-4 pt-md-0">Time</h2>
+          <p class="text-lg mb-3">Choose your preferred time.</p>
+          <div class="row">
+            <div class="col-sm-6"><a class="ec-time-btn" href="#">
+                <div class="ec-time"><i class="far fa-sun"></i>1:00 PM</div>
+                <div class="ec-price">R45 - R125</div></a></div>
+            <div class="col-sm-6"><a class="ec-time-btn active" href="#">
+                <div class="ec-time"><i class="far fa-moon"></i>7:30 PM</div>
+                <div class="ec-price">R45 - R125</div></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Site Footer-->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Sell Tickets-->
+            <section class="widget widget-light-skin">
+              <h3 class="widget-title">Sell Tickets With Us</h3>
+              <p class="text-white opacity-90">The leader in online ticket sales in South Africa for over 10 years.</p><a class="btn btn-primary" href="#">Sell With Us</a>
+            </section>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Find Events-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">Find Events</h3>
+              <ul>
+                <li><a href="#">Recommended for you</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Spotlight</a></li>
+                <li><a href="#">Lists</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Buy a Gift Voucher</a></li>
+              </ul>
+            </section>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- About Us-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">Help &amp; Info</h3>
+              <ul>
+                <li><a href="#">Get Help</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">About us</a></li>
+              </ul>
+            </section>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- My Account-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">My Account</h3>
+              <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">My Tickets&nbsp;<span class="badge badge-default badge-pill">3</span></a></li>
+                <li><a href="#">My Passes</a></li>
+                <li><a href="#">My Likes</a></li>
+                <li><a href="#">My Alerts</a></li>
+                <li><a href="#">My Location</a></li>
+                <li><a href="#">My Gift Vouchers</a></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Follow Us-->
+            <section class="widget widget-light-skin">
+              <h3 class="widget-title">Follow Us For Updates</h3><a class="social-button shape-circle sb-facebook sb-light-skin" href="#" data-toggle="tooltip" title="Facebook"><i class="fab fa-facebook-f"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#" data-toggle="tooltip" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#" data-toggle="tooltip" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </section>
+          </div>
+          <div class="col-lg-9 col-md-6">
+            <!-- Subscription-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">Get The Best Events In Your Inbox</h3>
+              <div class="row">
+                <div class="col-lg-4">
+                  <p class="text-white opacity-90">Subscribe to our Newsletter to receive early discount offers, latest news, sales and promo information.</p>
+                </div>
+                <div class="col-lg-8">
+                  <form class="subscribe-form" action="">
+                    <div class="clearfix">
+                      <div class="input-group">
+                        <input class="form-control" type="email" name="email" placeholder="Your e-mail address"><span class="input-group-addon"><i class="fas fa-envelope-open"></i></span>
+                      </div>
+                      <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <section class="widget widget-light-skin">
+          <h3 class="widget-title">Safe &amp; Secure</h3>
+          <div class="row">
+            <div class="col-lg-3 col-md-5 padding-bottom-1x">
+              <p class="text-white opacity-90">We accept all major credit cards, including Visa Checkout and you can even pay in store at Pick n’ Pay</p>
+            </div>
+            <div class="col-lg-9 col-md-7 padding-bottom-1x">
+              <!-- Payment Methods-->
+              <div class="pt-2 margin-bottom-1x"><img src="img/payment-methods.png" alt="Payment Methods"/>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Copyright-->
+        <p class="footer-copyright">© All content is property of Webtickets w4.pr.a</p>
+      </div>
+    </footer>
+    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="fas fa-angle-up"></i></a>
+    <!-- Backdrop-->
+    <div class="site-backdrop"></div>
+    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+    <script src="js/vendor.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>

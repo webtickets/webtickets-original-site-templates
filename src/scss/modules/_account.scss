@@ -1,0 +1,142 @@
+//
+// Account Pages
+// -------------------------------------------------------------
+
+// User Info
+.user-info-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: -1px;
+  padding: {
+    top: ($cover-height - 30);
+    bottom: 30px;
+  }
+  border: 1px solid $border-color;
+  border-top-left-radius: $border-radius-lg;
+  border-top-right-radius: $border-radius-lg;
+  overflow: hidden;
+  .user-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $cover-height;
+    border-bottom: 1px solid lighten($border-color, 8%);
+    background: {
+      position: center;
+      color: $gray-lighter;
+      repeat: no-repeat;
+      size: cover;
+    }
+    .tooltip .tooltip-inner {
+      width: 230px;
+      max-width: 100%;
+      padding: 10px 15px;
+    }
+  }
+  .info-label {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    height: 26px;
+    padding: 0 12px;
+    border-radius: 13px;
+    background-color: $white;
+    color: $gray-dark;
+    font-size: floor(($font-size-base / 1.33)); //~12px
+    line-height: 26px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .18);
+    cursor: pointer;
+    > i {
+      display: inline-block;
+      margin-right: 3px;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+  }
+  .user-info {
+    display: table;
+    position: relative;
+    width: 100%;
+    padding: 0 18px;
+    z-index: 5;
+    .user-avatar,
+    .user-data {
+      display: table-cell;
+      vertical-align: top;
+    }
+    .user-avatar {
+      position: relative;
+      width: $user-ava-size;
+      > img {
+        display: block;
+        width: 100%;
+        border: 5px solid $white;
+        border-radius: 50%;
+      }
+      .edit-avatar {
+        display: block;
+        position: absolute;
+        top: -2px;
+        right: 2px;
+        width: $btn-sm-height;
+        height: $btn-sm-height;
+        padding-left: 2px;
+        transition: opacity .3s;
+        border-radius: 50%;
+        background-color: $white;
+        color: $gray-dark;
+        font-size: $font-size-base;
+        line-height: $btn-sm-height - 2;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2);
+        cursor: pointer;
+        opacity: 0;
+        text: {
+          align: center;
+          decoration: none;
+        }
+      }
+      &:hover .edit-avatar { opacity: 1; }
+    }
+    .user-data {
+      padding: {
+        top: 48px;
+        left: 12px;
+      }
+      h4 { margin-bottom: 2px; }
+      span {
+        display: block;
+        color: $gray;
+        font-size: $font-size-xs;
+        > i { color: $gray-light; }
+      }
+    }
+  }
+  & + .list-group .list-group-item:first-child { border-radius: 0; }
+}
+
+// File Upload Plugin overrides
+.dropzone {
+  padding: 30px;
+  border: 2px dashed $primary;
+  border-radius: $border-radius-base;
+  background-color: $white;
+  .dz-message { font-size: $font-size-lead; }
+  .dz-preview .dz-remove {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: {
+      position: center;
+      color: $danger;
+      repeat: no-repeat;
+      image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIxMi45ODIgMjEyLjk4MiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjEyLjk4MiAyMTIuOTgyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnIGlkPSJDbG9zZSI+Cgk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7IiBkPSJNMTMxLjgwNCwxMDYuNDkxbDc1LjkzNi03NS45MzZjNi45OS02Ljk5LDYuOTktMTguMzIzLDAtMjUuMzEyICAgYy02Ljk5LTYuOTktMTguMzIyLTYuOTktMjUuMzEyLDBsLTc1LjkzNyw3NS45MzdMMzAuNTU0LDUuMjQyYy02Ljk5LTYuOTktMTguMzIyLTYuOTktMjUuMzEyLDBjLTYuOTg5LDYuOTktNi45ODksMTguMzIzLDAsMjUuMzEyICAgbDc1LjkzNyw3NS45MzZMNS4yNDIsMTgyLjQyN2MtNi45ODksNi45OS02Ljk4OSwxOC4zMjMsMCwyNS4zMTJjNi45OSw2Ljk5LDE4LjMyMiw2Ljk5LDI1LjMxMiwwbDc1LjkzNy03NS45MzdsNzUuOTM3LDc1LjkzNyAgIGM2Ljk4OSw2Ljk5LDE4LjMyMiw2Ljk5LDI1LjMxMiwwYzYuOTktNi45OSw2Ljk5LTE4LjMyMiwwLTI1LjMxMkwxMzEuODA0LDEwNi40OTF6IiBmaWxsPSIjZmZmZmZmIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+      size: 10px 10px;
+    }
+    z-index: 100;
+  }
+}

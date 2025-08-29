@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Join Webtickets - Sell Tickets Online</title>
+    <!-- SEO Meta Tags-->
+    <meta
+      name="description"
+      content="Join thousands of event organisers who trust Webtickets to sell tickets for their events. SA's lowest fees and biggest marketplace."
+    />
+    <meta name="keywords" content="sell tickets, event ticketing, webtickets seller" />
+    <meta name="author" content="Webtickets" />
+    <!-- Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" color="#343b43" href="safari-pinned-tab.svg" />
+    <meta name="msapplication-TileColor" content="#603cba" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="css/vendor.min.css" />
+    <!-- Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.0/css/all.css" crossorigin="anonymous" />
+    <!-- Main Template Styles-->
+    <link id="mainStyles" rel="stylesheet" media="screen" href="css/styles.min.css" />
+    <!-- Modernizr-->
+    <script src="js/modernizr.min.js"></script>
+    <style>
+      .hero-section {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1) 50%, transparent 50%);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-video {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .hero-video-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100% !important;
+        max-height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .feature-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        height: 100%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        transition: transform 0.2s;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      .feature-icon-large {
+        font-size: 3rem;
+        color: #00a651;
+        margin-bottom: 1rem;
+      }
+      .pricing-card {
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        position: relative;
+      }
+      .pricing-card.featured {
+        background: #343b43;
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .pricing-card.featured .text-muted {
+        color: #9ca3af !important;
+      }
+      .testimonial-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        height: 100%;
+      }
+      .star-rating {
+        color: #fbbf24;
+      }
+      .trust-stat {
+        border-left: 4px solid #00a651;
+        padding-left: 1.5rem;
+      }
+      .cta-section {
+        background: linear-gradient(135deg, #00a651 0%, #00c261 100%);
+        color: white;
+        padding: 5rem 0;
+      }
+      .badge-success-light {
+        background: rgba(0, 166, 81, 0.1);
+        color: #00a651;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        display: inline-block;
+        margin: 0.25rem;
+      }
+      .seating-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 0.25rem;
+        padding: 1rem;
+      }
+      .seat {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 0.25rem;
+      }
+      .seat-available {
+        background: #e5e7eb;
+      }
+      .seat-selected {
+        background: #00a651;
+      }
+      .seat-sold {
+        background: #fca5a5;
+      }
+      /* Bento Grid Layout */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1.5rem;
+        min-height: 600px;
+      }
+
+      .bento-item-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+
+      .bento-item-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+
+      .bento-item-3 {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
+
+      .bento-item-4 {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+
+      .bento-item-5 {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+      }
+
+      .bento-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (max-width: 992px) {
+        .hero-video-bg {
+          display: none;
+        }
+
+        .bento-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(3, 1fr);
+        }
+
+        .bento-item-1 {
+          grid-column: 1 / 3;
+          grid-row: 1 / 2;
+        }
+
+        .bento-item-2 {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+
+        .bento-item-3 {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+
+        .bento-item-4 {
+          grid-column: 1 / 2;
+          grid-row: 3 / 4;
+        }
+
+        .bento-item-5 {
+          grid-column: 2 / 3;
+          grid-row: 3 / 4;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-video {
+          position: relative;
+          width: 100%;
+          height: 300px;
+          margin-top: 2rem;
+        }
+
+        .hero-video-bg {
+          display: none;
+        }
+
+        .bento-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(5, auto);
+          gap: 1rem;
+        }
+
+        .bento-item-1,
+        .bento-item-2,
+        .bento-item-3,
+        .bento-item-4,
+        .bento-item-5 {
+          grid-column: 1 / 2;
+          grid-row: auto;
+        }
+      }
+    </style>
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Promo Bar--><a
+      class="promo-bar alert alert-dismissible fade show text-center"
+      href="#"
+      style="background-image: url(img/promo-bar.jpg)"
+      ><span class="alert-close text-white" data-dismiss="alert"><i class="fas fa-times"></i></span>
+      <p class="d-inline-block text-uppercase text-medium mr-3 mb-0 text-white">
+        <i class="far fa-snowflake mr-2"></i>Rocking The Daisies On Sale
+      </p>
+      <div class="btn btn-xs btn-white m-0">Get Yours</div></a
+    >
+    <!-- Top Bar-->
+    <div class="top-bar" style="background-image: url(img/promo-bar.jpg)"></div>
+    <!-- Site Header-->
+    <header class="site-header">
+      <!-- Container-->
+      <div class="container-fluid d-flex align-items-center">
+        <!-- Menu Toggle--><a class="menu-toggle fas" href="#" data-toggle="mobile-menu"></a>
+        <!-- Logo--><a class="site-logo align-middle" href="index.html"><img src="img/logo.png" alt="Webtickets" /></a>
+        <!-- Navbar-->
+        <div class="navbar">
+          <!-- Top Menu-->
+          <ul class="top-menu">
+            <li>
+              <a href="account-profile.html"><i class="fas fa-user"></i>My Account</a>
+            </li>
+            <li>
+              <a href="account-tickets.html"><i class="fas fa-ticket-alt"></i>My Tickets</a>
+            </li>
+            <li>
+              <a href="account-likes.html"><i class="fas fa-heart"></i>My Likes</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-map-marker-alt"></i>Cape Town</a>
+            </li>
+          </ul>
+          <!-- Main Menu-->
+          <ul class="main-menu">
+            <li>
+              <a href="shop-grid.html"><i class="fas fa-binoculars"></i>Browse</a>
+            </li>
+            <li>
+              <a href="shop-grid.html"><i class="fas fa-clipboard-list"></i>Lists</a>
+            </li>
+            <li>
+              <a href="shop-grid.html"><i class="fas fa-tags"></i>Deals</a>
+            </li>
+            <li>
+              <a href="blog.html"><i class="fas fa-edit"></i>Blog</a>
+            </li>
+            <li>
+              <a href="faq.html"><i class="fas fa-life-ring"></i>Help &amp; Info</a>
+            </li>
+          </ul>
+          <!-- Toolbar-->
+          <div class="toolbar">
+            <!-- Cart-->
+            <div class="tool-cart">
+              <a href="cart.html"></a><i class="fas fa-shopping-bag"></i><span class="count">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section padding-top-3x padding-bottom-3x">
+      <!-- Background Video -->
+      <video autoplay loop muted playsinline class="hero-video-bg">
+        <source src="./vid/crowd-concert.mp4" type="video/mp4" />
+      </video>
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="badge badge-light mb-3 text-primary">
+              <i class="fas fa-star"></i> Over 20 years of experience in event ticketing.
+              <a href="#features" class="text-medium ml-2 text-primary"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+            <h1 class="display-3 mb-4 text-primary">
+              <strong>Sell with South Africa's biggest experience marketplace</strong>
+            </h1>
+            <p class="lead text-gray mb-5">
+              Join thousands of event organisers who trust Webtickets to sell tickets for their events, festivals,
+              theatre productions, race entries, and much more. With over 20 years of experience and the lowest fees in
+              SA, we're your partner in your event's success.
+            </p>
+            <div class="d-flex flex-wrap">
+              <a href="#pricing" class="btn btn-primary btn-lg mr-3 mb-3">Create your first event</a>
+              <a href="#features" class="btn btn-outline-primary btn-lg mb-3"
+                >Learn more <i class="fas fa-arrow-right ml-2"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- Placeholder for right side content if needed -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Bento Grid Section -->
+    <section id="features" class="bg-faded padding-top-3x padding-bottom-3x">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h6 class="text-uppercase text-medium text-primary">Why Choose Webtickets</h6>
+          <h2 class="display-4 mb-3">Everything you need to sell tickets successfully</h2>
+        </div>
+
+        <!-- Bento Grid Container -->
+        <div class="bento-grid">
+          <!-- Quick and Easy Setup - A1 (spans 2 rows x 1 column) -->
+          <div class="bento-item bento-item-1">
+            <div class="feature-card d-flex flex-column h-100">
+              <div class="feature-icon-large mb-4 text-center">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="h4 mb-3">⚡ Quick and Easy Setup</h3>
+              <p class="mb-4 text-muted">
+                Get your event live in minutes with our intuitive platform. No technical knowledge required.
+              </p>
+              <div class="d-flex flex-column flex-grow-1">
+                <div class="bg-light d-flex align-items-center mb-3 w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-hourglass-half text-success mr-2"></i> 5-minute setup</span>
+                </div>
+                <div class="bg-light d-flex align-items-center mb-3 w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-face-laugh-beam text-success mr-2"></i> Intuitive interface</span>
+                </div>
+                <div class="bg-light d-flex align-items-center mb-3 w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-ticket text-success mr-2"></i> Custom ticket types</span>
+                </div>
+                <div class="bg-light d-flex align-items-center mb-3 w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-qrcode text-success mr-2"></i> Simple ticket scanning</span>
+                </div>
+                <div class="bg-light d-flex align-items-center mb-3 w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-chair text-success mr-2"></i> Seating charts</span>
+                </div>
+                <div class="bg-light d-flex align-items-center mb-3 w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-face-grin-stars text-success mr-2"></i> Issue complimentary tickets</span>
+                </div>
+                <div class="bg-light d-flex align-items-center w-100 flex-grow-1 rounded p-3">
+                  <span><i class="fas fa-rocket text-success mr-2"></i> Go live instantly</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Sales Reporting - A2 (spans 1 row x 1 column) -->
+          <div class="bento-item bento-item-2">
+            <div class="feature-card d-flex flex-column h-100">
+              <div class="feature-icon-large mb-4 text-center">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3 class="h4 mb-3">Live Sales Reporting</h3>
+              <p class="mb-4 text-muted">Track your ticket sales in real-time with detailed analytics and insights.</p>
+              <div class="bg-dark text-success font-monospace d-flex flex-column flex-grow-1 rounded p-3">
+                <div class="d-flex align-items-center mb-4 flex-grow-1">📊 Sales Today: R45,320</div>
+                <div class="d-flex align-items-center mb-4 flex-grow-1">🎫 Tickets Sold: 234</div>
+                <div class="d-flex align-items-center flex-grow-1">📈 Growth: +23%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multiple Sales Channels - A3 (spans 1 row x 1 column) -->
+          <div class="bento-item bento-item-3">
+            <div class="feature-card d-flex flex-column h-100">
+              <div class="feature-icon-large mb-4 text-center">
+                <i class="fas fa-store"></i>
+              </div>
+              <h3 class="h4 mb-3">Multiple Sales Channels</h3>
+              <p class="mb-4 text-muted">Reach customers wherever they prefer to buy.</p>
+              <div class="d-flex flex-column flex-grow-1 text-center">
+                <div class="d-flex align-items-center justify-content-center bg-light mb-2 flex-grow-1 rounded p-2">
+                  <img
+                    src="img/whatsapp-logo.webp"
+                    alt="WhatsApp"
+                    class="mr-2"
+                    style="height: 1.5rem; object-fit: contain"
+                  />
+                  <span class="small text-dark">WhatsApp</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-center bg-light mb-2 flex-grow-1 rounded p-2">
+                  <img
+                    src="img/pick-n-pay-logo.png"
+                    alt="Pick n Pay"
+                    class="mr-2"
+                    style="height: 1rem; object-fit: contain"
+                  />
+                  <span class="small text-dark">Pick n Pay</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-center bg-light flex-grow-1 rounded p-2">
+                  <img src="img/boxer-logo.png" alt="Boxer" class="mr-2" style="height: 1rem; object-fit: contain" />
+                  <span class="small text-dark">Boxer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marketing Reach - B2 (spans 1 row x 1 column) -->
+          <div class="bento-item bento-item-4">
+            <div class="feature-card h-100 bg-primary text-white">
+              <div class="feature-icon-large mb-4 text-center">
+                <i class="fas fa-bullhorn text-white"></i>
+              </div>
+              <h3 class="h4 mb-3 text-white">Marketing Reach</h3>
+              <p class="mb-4 opacity-90">Leverage our marketing channels reaching millions of entertainment seekers.</p>
+              <div class="bg-opacity-20 text-dark mb-3 rounded bg-white p-2">
+                <i class="fas fa-check text-dark"></i> Marketing to 2M+ subscribers
+              </div>
+              <div class="bg-opacity-20 text-dark mb-3 rounded bg-white p-2">
+                <i class="fas fa-check text-dark"></i> Featured event placement
+              </div>
+              <div class="bg-opacity-20 text-dark rounded bg-white p-2">
+                <i class="fas fa-check text-dark"></i> Social media promotion
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Support - B3 (spans 1 row x 1 column) -->
+          <div class="bento-item bento-item-5">
+            <div class="feature-card bg-success h-100 text-white">
+              <div class="feature-icon-large mb-4 text-center">
+                <i class="fas fa-headset text-white"></i>
+              </div>
+              <h3 class="h4 mb-3 text-white">Technical Support</h3>
+              <p class="mb-4 opacity-90">Get dedicated technical support from our expert team.</p>
+              <div class="bg-opacity-20 text-dark mb-3 rounded bg-white p-2">
+                <i class="fas fa-check text-dark"></i> Live chat support
+              </div>
+              <div class="bg-opacity-20 text-dark mb-3 rounded bg-white p-2">
+                <i class="fas fa-check text-dark"></i> Phone support
+              </div>
+              <div class="bg-opacity-20 text-dark rounded bg-white p-2">
+                <i class="fas fa-check text-dark"></i> Technical documentation
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="padding-top-3x padding-bottom-3x">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <h6 class="text-uppercase text-medium text-primary">Pricing</h6>
+          <h2 class="display-4 mb-3">SA's Lowest Event Ticketing Fees</h2>
+          <p class="lead text-muted">
+            We've spent 20+ years perfecting our platform with SA's biggest entertainment providers. Choose the plan
+            that fits your needs.
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <!-- Essential Plan -->
+          <div class="col-lg-5 mb-4">
+            <div class="pricing-card bg-white shadow-lg">
+              <h3 class="mb-3 text-primary">Essential</h3>
+              <div class="mb-3">
+                <span class="display-3 text-dark">3.9%</span>
+                <span class="text-muted">commission on sales</span>
+              </div>
+              <p class="mb-4 text-muted">
+                Everything you need to start selling fast. No complicated set up, just quick and easy ticketing for your
+                event.
+              </p>
+              <ul class="list-unstyled mb-4">
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Quick and easy set up</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Live sales reports</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Simple scanning</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> WhatsApp Sales</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Issue comps</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Live client support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary btn-block">Create your first Event</a>
+            </div>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="col-lg-5 mb-4">
+            <div class="pricing-card featured">
+              <div
+                class="badge badge-warning position-absolute h4 px-4 py-2"
+                style="top: -15px; right: 20px; font-size: 1.25rem; font-weight: bold"
+              >
+                RECOMMENDED
+              </div>
+              <h3 class="mb-3 text-primary">Premium</h3>
+              <div class="mb-3">
+                <span class="display-3">Custom</span>
+                <span class="text-muted">pricing</span>
+              </div>
+              <p class="mb-4">
+                Access advanced features and tools with the expert assistance of your personal account manager.
+              </p>
+              <p class="small font-italic mb-4 text-muted">
+                Best for: Seasoned events, festivals, seating plans, tourism & attractions, race entries
+              </p>
+              <ul class="list-unstyled mb-4">
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Everything in Essential, plus:</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Appointed relationship manager</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Webtickets marketing campaigns</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Advanced Dashboard access</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Advanced seating plans</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Custom integrations</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Priority support</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Tourism & Attraction ticketing</li>
+                <li class="mb-2"><i class="fas fa-check mr-2 text-primary"></i> Race entries management</li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block">Chat to Us</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Fees Info -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="bg-faded rounded p-5">
+              <h3 class="mb-4 rounded">More About Our Fees</h3>
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac ipsum augue. Nam venenatis
+                mauris ante, at lacinia leo ornare et. Pellentesque vel aliquet augue, vitae convallis leo. Curabitur
+                porta turpis in libero volutpat, sed vehicula massa porta. Proin eu finibus arcu, maximus posuere augue.
+                Nunc imperdiet diam convallis, sodales risus et, mattis urna.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-faded padding-top-3x padding-bottom-3x">
+      <div class="container">
+        <!-- Client Testimonials -->
+        <div class="mb-5 text-center">
+          <h6 class="text-uppercase text-medium text-primary">Client Success Stories</h6>
+          <h2 class="display-4 mb-3">Trusted by South Africa's Leading Event Organisers</h2>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-lg-4 mb-4">
+            <div class="testimonial-card">
+              <div class="mb-3 text-center">
+                <img src="img/company-logos/company-1.jpg" alt="Cape Town Jazz Festival" height="40" class="mb-2" />
+                <div class="star-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <blockquote class="blockquote">
+                <p class="mb-3">
+                  "The platform is incredibly easy to use for selling tickets. Our event sold out in record time thanks
+                  to Webtickets marketing reach and tools."
+                </p>
+              </blockquote>
+              <div class="pt-3">
+                <h6 class="mb-1">Sarah Mitchell</h6>
+                <p class="small mb-0 text-muted">Festival Director</p>
+                <p class="small text-primary">Cape Town Jazz Festival</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="testimonial-card">
+              <div class="mb-3 text-center">
+                <img src="img/company-logos/company-2.jpg" alt="Theatre Productions SA" height="40" class="mb-2" />
+                <div class="star-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <blockquote class="blockquote">
+                <p class="mb-3">
+                  "We've been using Webtickets for 5 years now. The reporting tools are fantastic and the support team
+                  is always there when we need them."
+                </p>
+              </blockquote>
+              <div class="pt-3">
+                <h6 class="mb-1">David Chen</h6>
+                <p class="small mb-0 text-muted">Production Manager</p>
+                <p class="small text-primary">Theatre Productions SA</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="testimonial-card">
+              <div class="mb-3 text-center">
+                <img src="img/company-logos/company-3.jpg" alt="Marathon Events Co" height="40" class="mb-2" />
+                <div class="star-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <blockquote class="blockquote">
+                <p class="mb-3">
+                  "Switching to Webtickets was the best decision for our race events. The registration process is smooth
+                  and fees are competitive."
+                </p>
+              </blockquote>
+              <div class="pt-3">
+                <h6 class="mb-1">Amanda Johnson</h6>
+                <p class="small mb-0 text-muted">Race Organiser</p>
+                <p class="small text-primary">Marathon Events Co</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Reviews -->
+        <div class="mb-5 text-center">
+          <h6 class="text-uppercase text-medium text-primary">Customer Reviews</h6>
+          <h2 class="display-4 mb-3">What Our Customers Say</h2>
+          <p class="lead text-muted">
+            Don't take our word for it. See how we stack up on Hello Peter and Google reviews.
+          </p>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <div class="star-rating mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">
+                  "Made a mistake with booking date, through the chat they swapped it around within minutes. Excellent
+                  service!"
+                </p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="img/team/01.jpg" alt="Werner Steyn" class="rounded-circle mr-3" width="40" height="40" />
+                  <div>
+                    <h6 class="mb-0">Werner Steyn</h6>
+                    <small class="text-muted">07 Jul 2025</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <div class="star-rating mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">
+                  "Buying tickets for events is very easy and customer support was very helpful when I needed
+                  assistance."
+                </p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="img/team/02.jpg" alt="Bianca Brown" class="rounded-circle mr-3" width="40" height="40" />
+                  <div>
+                    <h6 class="mb-0">Bianca Brown</h6>
+                    <small class="text-muted">10 Jul 2025</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <div class="star-rating mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">
+                  "Good Service. Kaylin treated me like a king. Thank you very much for the amazing support!"
+                </p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="img/team/03.jpg" alt="Grant Fisher" class="rounded-circle mr-3" width="40" height="40" />
+                  <div>
+                    <h6 class="mb-0">Grant Fisher</h6>
+                    <small class="text-muted">01 Jul 2025</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="rounded bg-white p-5 shadow">
+          <h3 class="mb-5 text-center">Why Event Organisers Choose Webtickets</h3>
+          <div class="row">
+            <div class="col-md-3 mb-4">
+              <div class="trust-stat">
+                <h2 class="mb-1 text-primary">3,200+</h2>
+                <p class="text-muted">Active Events</p>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="trust-stat">
+                <h2 class="mb-1 text-primary">250K+</h2>
+                <p class="text-muted">Tickets Sold Monthly</p>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="trust-stat">
+                <h2 class="mb-1 text-primary">20+</h2>
+                <p class="text-muted">Years of Experience</p>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="trust-stat">
+                <h2 class="mb-1 text-primary">4.8/5</h2>
+                <p class="text-muted">Customer Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h2 class="display-4 mb-3 text-white">Ready to start selling?</h2>
+            <h3 class="h3 mb-4 text-white">Join thousands of successful event organisers.</h3>
+            <p class="lead text-white opacity-90">
+              Get your event live in minutes with SA's most trusted ticketing platform. No setup fees, no hidden costs,
+              just the lowest commission rates in the country.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-right text-center">
+            <a href="account-register.html" class="btn btn-white btn-lg d-block d-lg-inline-block mb-3"
+              >Create your first event</a
+            >
+            <br class="d-none d-lg-block" />
+            <a href="contact.html" class="text-medium text-white"
+              >Contact sales team <i class="fas fa-arrow-right ml-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer-->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Sell Tickets-->
+            <section class="widget widget-light-skin">
+              <h3 class="widget-title">Sell Tickets With Us</h3>
+              <p class="text-white opacity-90">The leader in online ticket sales in South Africa for over 10 years.</p>
+              <a class="btn btn-primary" href="#">Sell With Us</a>
+            </section>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Find Events-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">Find Events</h3>
+              <ul>
+                <li><a href="#">Recommended for you</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Spotlight</a></li>
+                <li><a href="#">Lists</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Buy a Gift Voucher</a></li>
+              </ul>
+            </section>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- About Us-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">Help &amp; Info</h3>
+              <ul>
+                <li><a href="#">Get Help</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">About us</a></li>
+              </ul>
+            </section>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- My Account-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">My Account</h3>
+              <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">My Tickets</a></li>
+                <li><a href="#">My Passes</a></li>
+                <li><a href="#">My Likes</a></li>
+                <li><a href="#">My Alerts</a></li>
+                <li><a href="#">My Location</a></li>
+                <li><a href="#">My Gift Vouchers</a></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Follow Us-->
+            <section class="widget widget-light-skin">
+              <h3 class="widget-title">Follow Us For Updates</h3>
+              <a
+                class="social-button shape-circle sb-facebook sb-light-skin"
+                href="#"
+                data-toggle="tooltip"
+                title="Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                class="social-button shape-circle sb-twitter sb-light-skin"
+                href="#"
+                data-toggle="tooltip"
+                title="Twitter"
+                ><i class="fab fa-twitter"></i></a
+              ><a
+                class="social-button shape-circle sb-instagram sb-light-skin"
+                href="#"
+                data-toggle="tooltip"
+                title="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </section>
+          </div>
+          <div class="col-lg-9 col-md-6">
+            <!-- Subscription-->
+            <section class="widget widget-links widget-light-skin">
+              <h3 class="widget-title">Get The Best Events In Your Inbox</h3>
+              <div class="row">
+                <div class="col-lg-4">
+                  <p class="text-white opacity-90">
+                    Subscribe to our Newsletter to receive early discount offers, latest news, sales and promo
+                    information.
+                  </p>
+                </div>
+                <div class="col-lg-8">
+                  <form class="subscribe-form" action="">
+                    <div class="clearfix">
+                      <div class="input-group">
+                        <input class="form-control" type="email" name="email" placeholder="Your e-mail address" /><span
+                          class="input-group-addon"
+                          ><i class="fas fa-envelope-open"></i
+                        ></span>
+                      </div>
+                      <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <section class="widget widget-light-skin">
+          <h3 class="widget-title">Safe &amp; Secure</h3>
+          <div class="row">
+            <div class="col-lg-3 col-md-5 padding-bottom-1x">
+              <p class="text-white opacity-90">
+                We accept all major credit cards, including Visa Checkout and you can even pay in store at Pick n' Pay
+              </p>
+            </div>
+            <div class="col-lg-9 col-md-7 padding-bottom-1x">
+              <!-- Payment Methods-->
+              <div class="margin-bottom-1x pt-2"><img src="img/payment-methods.png" alt="Payment Methods" /></div>
+            </div>
+          </div>
+        </section>
+        <!-- Copyright-->
+        <p class="footer-copyright">© All content is property of Webtickets</p>
+      </div>
+    </footer>
+    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="fas fa-angle-up"></i></a>
+    <!-- Backdrop-->
+    <div class="site-backdrop"></div>
+    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+    <script src="js/vendor.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>

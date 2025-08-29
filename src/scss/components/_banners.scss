@@ -1,0 +1,42 @@
+//
+// Banners
+// --------------------------------------------------
+
+.promo-box {
+  display: block;
+  text-decoration: none;
+  .promo-box-title {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    color: $nav-link-color;
+    font: {
+      size: floor($font-size-base * 1.25); //~20px
+      weight: $nav-link-font-weight;
+    }
+    > span:not(.count) {
+      display: inline-block;
+      padding-bottom: 3px;
+      transition: border-color .25s;
+      border-bottom: 1px solid transparent;
+    }
+    > .count {
+      display: inline-block;
+      margin-left: 9px;
+      color: $muted;
+      font: {
+        size: $font-size-base;
+        weight: normal;
+      }
+    }
+  }
+  > img {
+    display: block;
+    width: 100%;
+    box-shadow: 0 25px 40px 0 rgba($black, .3);
+  }
+  &:hover {
+    .promo-box-title > span:not(.count) {
+      border-color: $primary;
+    }
+  }
+}

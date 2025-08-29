@@ -1,0 +1,125 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'The Webtickets Blog'
+  - var menuTitle = 'Blog'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'The Blog'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-1
+    .row.justify-content-center
+      .col-lg-10
+
+        // Post
+        article.row
+          .col-md-3
+            ul.post-meta
+              li
+                i.far.fa-calendar-alt
+                a(href='blog-single.html')
+                  | &nbsp;Feb 11, 2018
+              li
+                i.far.fa-user
+                | &nbsp;John Doe
+              li
+                i.far.fa-bookmark
+                a(href='#')
+                  | &nbsp;Music,
+                a(href='#')
+                  | &nbsp;Night Clubs
+              li
+                i.far.fa-comment
+                a(href='#')
+                  | &nbsp;3 Comments
+          .col-md-9.blog-post
+            a(href='blog-single.html').post-thumb
+              img(src='img/blog/01.jpg', alt='Post')
+            h3.post-title
+              a(href='blog-single.html') Blog Post Title Goes Here
+            p
+              | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single.html' class='text-medium'>Read More</a>
+
+        // Post
+        article.row
+          .col-md-3
+            ul.post-meta
+              li
+                i.far.fa-calendar-alt
+                a(href='blog-single.html')
+                  | &nbsp;Feb 03, 2018
+              li
+                i.far.fa-user
+                | &nbsp;Susan Mayer
+              li
+                i.far.fa-bookmark
+                a(href='#')
+                  | &nbsp;Wine Testing
+              li
+                i.far.fa-comment
+                a(href='#')
+                  | &nbsp;1 Comment
+          .col-md-9.blog-post
+            h3.post-title
+              a(href='blog-single.html') Another Blog Post Title Goes Here
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Aliquid id nobis, amet dolorum earum maxime.
+            p
+              | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single.html' class='text-medium'>Read More</a>
+
+        // Post
+        article.row
+          .col-md-3
+            ul.post-meta
+              li
+                i.far.fa-calendar-alt
+                a(href='blog-single.html')
+                  | &nbsp;Jan 18, 2018
+              li
+                i.far.fa-user
+                | &nbsp;Mike Jordan
+              li
+                i.far.fa-bookmark
+                a(href='#')
+                  | &nbsp;Food Court
+              li
+                i.far.fa-comment
+                a(href='#')
+                  | &nbsp;15 Comments
+          .col-md-9.blog-post
+            a(href='blog-single.html').post-thumb
+              img(src='img/blog/02.jpg', alt='Post')
+            h3.post-title
+              a(href='blog-single.html') Yet Another Blog Post Title Goes Here
+            p
+              | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single.html' class='text-medium'>Read More</a>
+
+        // Post
+        article.row
+          .col-md-3
+            ul.post-meta
+              li
+                i.far.fa-calendar-alt
+                a(href='blog-single.html')
+                  | &nbsp;Dec 26, 2017
+              li
+                i.far.fa-user
+                | &nbsp;Paul Goodrich
+              li
+                i.far.fa-bookmark
+                a(href='#')
+                  | &nbsp;Business Conference
+              li
+                i.far.fa-comment
+                a(href='#')
+                  | &nbsp;1 Comment
+          .col-md-9.blog-post
+            h3.post-title
+              a(href='blog-single.html') Blog Post Title Goes Here
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Aliquid id nobis, amet dolorum earum maxime.
+            p
+              | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo... <a href='blog-single.html' class='text-medium'>Read More</a>
+
+        include partials/pagination

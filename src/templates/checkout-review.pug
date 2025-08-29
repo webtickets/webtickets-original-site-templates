@@ -1,0 +1,128 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Checkout'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Checkout'}]
+
+//- Page Content
+block content
+  .checkout-page.container.padding-bottom-3x.mb-2
+    .row
+      .col-xl-9.col-lg-8
+        
+        // Steps
+        .steps-wrap.margin-bottom-2x
+          .steps
+            a(href='checkout-address.html').step.completed
+              .step-inner
+                span.step-addon: i.fas.fa-check
+                | Address
+            a(href='checkout-shipping.html').step.completed
+              .step-inner
+                span.step-addon: i.fas.fa-check
+                | Shipping
+            a(href='checkout-payment.html').step.completed
+              .step-inner
+                span.step-addon: i.fas.fa-check
+                | Payment
+            a(href='checkout-review.html').step.active
+              .step-inner
+                span.step-addon: i.fas.fa-arrow-down
+                | Review
+
+        h4 Review Your Order
+        hr.padding-bottom-1x
+        .table-responsive.shopping-cart
+          table.table
+            thead
+              tr
+                th Event Title
+                th.text-center Subtotal
+                th
+            tbody
+              tr
+                td
+                  .product-item
+                    a(href='product.html').product-thumb
+                      img(src='img/shop/th01.jpg', alt='Product')
+                    .product-info
+                      h4.product-title
+                        a(href='product.html')
+                          | Event Title Goes Here
+                          small x 1
+                      span.text-info R43.90
+                td.text-center.text-lg.text-medium R43.90
+                td.text-center
+                  a(href='cart.html').btn.btn-outline-primary.btn-sm
+                    i.fas.fa-edit
+                    | &nbsp;Edit
+                
+              tr
+                td
+                  .product-item
+                    a(href='product.html').product-thumb
+                      img(src='img/shop/th02.jpg', alt='Product')
+                    .product-info
+                      h4.product-title
+                        a(href='product.html')
+                          | Event Title Goes Here
+                          small x 2
+                      span.text-info R24.89
+                td.text-center.text-lg.text-medium R24.89
+                td.text-center
+                  a(href='cart.html').btn.btn-outline-primary.btn-sm
+                    i.fas.fa-edit
+                    | &nbsp;Edit
+              tr
+                td
+                  .product-item
+                    a(href='product.html').product-thumb
+                      img(src='img/shop/th03.jpg', alt='Product')
+                    .product-info
+                      h4.product-title
+                        a(href='product.html')
+                          | Event Title Goes Here
+                          small x 1
+                      span.text-info R200.00
+                td.text-center.text-lg.text-medium R200.00
+                td.text-center
+                  a(href='cart.html').btn.btn-outline-primary.btn-sm
+                    i.fas.fa-edit
+                    | &nbsp;Edit
+        .shopping-cart-footer
+          .column
+          .column.text-lg
+            | Subtotal: 
+            span.text-medium R289.68
+        .row.padding-top-1x.mt-3
+          .col-sm-6
+            h5 Shipping to:
+            ul.list-unstyled
+              li
+                span.text-muted Client:
+                | Christy Turner
+              li
+                span.text-muted Address:
+                | 44 Shirley Ave. West Chicago, IL 60185, USA
+              li
+                span.text-muted Phone:
+                | +1(808) 764 554 330
+          .col-sm-6
+            h5 Payment method:
+            ul.list-unstyled
+              li
+                span.text-muted Credit Card:
+                | **** **** **** 5300
+        .checkout-footer.margin-top-1x
+          .column.hidden-xs-down
+            a(href='checkout-payment.html' class='btn btn-outline-secondary')
+              i.fas.fa-arrow-left
+              | &nbsp;Back
+          .column
+            a(href='checkout-complete.html' class='btn btn-primary') Complete Order
+
+      // Sidebar          
+      .col-xl-3.col-lg-4
+        include partials/checkout-sidebar    
+    

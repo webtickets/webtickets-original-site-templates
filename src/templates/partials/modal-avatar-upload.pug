@@ -1,0 +1,10 @@
+// Avatar Upload Modal
+div(id='avatarUpload' tabindex='-1').modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        h4.modal-title Upload New Profile Image
+        button(type='button' class='close' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body.bg-faded.pb-4
+        form(action='/file-upload')#fileUpload.dropzone

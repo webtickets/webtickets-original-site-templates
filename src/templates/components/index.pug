@@ -1,0 +1,170 @@
+extends ../partials/layout
+
+//- Override default config variables
+append config
+  - var isHeader = false
+  - var isComponentHeader = true
+  - var isPageTitle = false
+  - var isFooter = false
+  - var isNestedFile = true
+
+//- Page Content
+block content
+  .container.padding-top-2x.mt-3.padding-bottom-3x
+    .row
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-server.text-muted.opacity-60.mb-3
+            h4 Accordion
+            a(href='accordion.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-exclamation-circle.text-muted.opacity-60.mb-3
+            h4 Alerts
+            a(href='alerts.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-share-square.text-muted.opacity-60.mb-3
+            h4 Buttons
+            a(href='buttons.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-clone.text-muted.opacity-60.mb-3
+            h4 Cards
+            a(href='cards.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-arrows-alt.text-muted.opacity-60.mb-3
+            h4 Carousel
+            a(href='carousel.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-clock.text-muted.opacity-60.mb-3
+            h4 Countdown
+            a(href='countdown.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-toggle-on.text-muted.opacity-60.mb-3
+            h4 Forms
+            a(href='forms.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-images.text-muted.opacity-60.mb-3
+            h4 Gallery
+            a(href='gallery.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-map.text-muted.opacity-60.mb-3
+            h4 Google Maps
+            a(href='google-maps.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-image.text-muted.opacity-60.mb-3
+            h4 Images &amp; Figures
+            a(href='images.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-bars.text-muted.opacity-60.mb-3
+            h4 List Group
+            a(href='list-group.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fab.fa-facebook-square.text-muted.opacity-60.mb-3
+            h4 Social Buttons
+            a(href='market-social-buttons.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-list.text-muted.opacity-60.mb-3
+            h4 Media Object
+            a(href='media.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-window-restore.opacity-60.mb-3
+            h4 Modal
+            a(href='modal.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px; font-style: normal; font-weight: 500; line-height: 1;').d-inline-block.opacity-60.mb-3 1 2 3...
+            h4 Pagination
+            a(href='pagination.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-pills.opacity-60.mb-3
+            h4 Pills
+            a(href='pills.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-battery-half.opacity-60.mb-3
+            h4 Progress Bars
+            a(href='progress-bars.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px; font-style: normal; font-weight: 500; line-height: 1;').d-inline-block.opacity-60.mb-3 1 &rarr; 2
+            h4 Steps
+            a(href='steps.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-table.opacity-60.mb-3
+            h4 Tables
+            a(href='tables.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-box.opacity-60.mb-3
+            h4 Tabs
+            a(href='tabs.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-users.opacity-60.mb-3
+            h4 Team
+            a(href='team.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-bell.opacity-60.mb-3
+            h4 Toast Notificarions
+            a(href='toasts.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.far.fa-comment-alt.opacity-60.mb-3
+            h4 Tooltips &amp; Popovers
+            a(href='tooltips-popovers.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-text-height.opacity-60.mb-3
+            h4 Typography
+            a(href='typography.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-video.opacity-60.mb-3
+            h4 Video Player
+            a(href='video-player.html').btn.btn-sm.btn-outline-primary View Component
+      .col-lg-3.col-md-4.col-sm-6.col-12
+        .card.mb-30
+          .card-body.text-center
+            i(style='font-size: 30px;').d-inline-block.fas.fa-sliders-h.opacity-60.mb-3
+            h4 Widgets
+            a(href='widgets.html').btn.btn-sm.btn-outline-primary View Component

@@ -1,0 +1,91 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var isPageTitle = true
+  - var pageTitle = 'Contact Us'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Help & Info', 'link': 'index.html'}, {'title': 'Contact Us'}]
+  - var isGoogleMap = true
+
+//- Page Content
+block content
+  .container.padding-bottom-2x.mb-2
+    .row
+      .col-md-7
+        .display-3.text-muted.opacity-75.mb-30 Customer Service
+      .col-md-5
+        ul.list-icon
+          li
+            i.fas.fa-envelope
+            a(href='mailto:info@webtickets.co.za').navi-link info@webtickets.co.za
+          li
+            i.fas.fa-phone
+            | 086 111 0005
+          li
+            i.fas.fa-clock
+            | Mon-Fri 08:00 to 17:00 <br/>
+            | Weekend and Public Holidays 08:00 to 16:30
+    hr.margin-top-2x
+    .row.margin-top-2x
+      .col-md-7
+        .display-3.text-muted.opacity-75.mb-30 Website Support
+      .col-md-5
+        ul.list-icon
+          li
+            i.fas.fa-envelope
+            a(href='mailto:support@webtickets.co.za').navi-link support@webtickets.co.za
+          li
+            i.fas.fa-phone
+            | 021 123 4567
+          li
+            i.fas.fa-clock
+            | 24 hours
+    .row.margin-top-3x
+      .col-md-6
+        h3.text-center.mb-30 Cape Town Head Office
+        .card
+          .google-map(
+            data-height = '250',
+            data-address = '21 A Pepper Street, Cape Town, South Africa, 8001',
+            data-zoom = '15',
+            data-disable-controls = 'true',
+            data-scrollwheel = 'false',
+            data-marker = 'img/map-marker.png',
+            data-marker-title = 'We are here!',
+            data-styles = '[{"featureType":"administrative.country","elementType":"geometry","stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]}]'
+          )
+          .card-body
+            ul.list-icon
+              li
+                i.fas.fa-map-marker-alt
+                | 21 A Pepper Street, Cape Town, South Africa, 8001
+              li
+                i.fas.fa-phone
+                | +27(21) 123 4567
+              li
+                i.fas.fa-envelope
+                a(href='mailto:hello@webtickets.co.za').navi-link hello@webtickets.co.za.row.margin-top-3x
+      .col-md-6
+        h3.text-center.mb-30 Johannesburg Office
+        .card
+          .google-map(
+            data-height = '250',
+            data-address = '21 A Pepper Street, Cape Town, South Africa, 8001',
+            data-zoom = '15',
+            data-disable-controls = 'true',
+            data-scrollwheel = 'false',
+            data-marker = 'img/map-marker.png',
+            data-marker-title = 'We are here!',
+            data-styles = '[{"featureType":"administrative.country","elementType":"geometry","stylers":[{"visibility":"simplified"},{"hue":"#ff0000"}]}]'
+          )
+          .card-body
+            ul.list-icon
+              li
+                i.fas.fa-map-marker-alt
+                | 21 A Pepper Street, Cape Town, South Africa, 8001
+              li
+                i.fas.fa-phone
+                | +27(21) 123 4567
+              li
+                i.fas.fa-envelope
+                a(href='mailto:hello@webtickets.co.za').navi-link hello@webtickets.co.za

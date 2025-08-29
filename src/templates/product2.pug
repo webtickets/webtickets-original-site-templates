@@ -1,0 +1,138 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Event'
+  - var isGoogleMap = true
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Food & Drink', 'link': '#'}, {'title': 'Tour', 'link': '#'}, {'title': 'This Event'}]
+
+//- Page Content
+block content
+  .container.pb-4.my-3
+    .row.justify-content-center
+      .col-lg-8
+        .row
+          .col-sm-6.pb-4
+            img(src='img/shop/cover-image.jpg' alt='Product')
+          .col-sm-6.pb-4
+            .text-center.text-sm-left   
+              h2.h1.mb-1 World of Beer
+              h4.text-normal.text-body.pb-3 by SAB Breweries
+              a(href='#').like-link.mb-2
+                | Add to Likes
+                i.fas.fa-heart
+              h4.text-info R45 - R414
+              a(href='#tickets').scroll-to.btn.btn-primary.btn-sm.ml-0.mb-0 Buy Now
+    .row.py-4
+      .col-lg-2.col-md-3.text-center.text-sm-left.text-md-right
+        h3.h4.text-primary About
+      .col-lg-8.col-md-9.text-center.text-sm-left
+        p.text-lg The SAB World of Beer is the definitive home of beer in South Africa, uncovering the history of this fascinating beverage through a fun, creative and informative tour. From the origins of beer, to insights on its South African story and the brewing process, this tour is essential for anyone who is passionate about beer and curious about its role in South African life.
+        p.text-lg The World of Beer has twice been voted South Africa’s number one tourist attraction. Visit it today to find out why.
+    .row.pb-4
+      .col-lg-2.col-md-3.text-center.text-sm-left.text-md-right
+        h3.h4.text-primary More Info
+      .col-lg-8.col-md-9.text-center.text-sm-left
+        a(href='http://www.worldofbeer.co.za/tourticketsinfo' target='_blank').navi-link.text-lg www.worldofbeer.co.za/tourticketsinfo
+    .row.pb-4
+      .col-lg-2.col-md-3.text-center.text-sm-left.text-md-right
+        h3.h4.text-primary.pt-2 Social
+      .col-lg-8.col-md-9.text-center.text-sm-left
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Facebook').social-button.shape-circle.sb-facebook
+          i.fab.fa-facebook-f
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Twitter').social-button.shape-circle.sb-twitter
+          i.fab.fa-twitter
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Instagram').social-button.shape-circle.sb-instagram
+          i.fab.fa-instagram
+    .row.pb-4.mt-3
+      .col-lg-2.col-md-3.text-center.text-sm-left.text-md-right
+        h3.h4.text-primary Venue
+      .col-lg-8.col-md-9.text-center.text-sm-left
+        .row
+          .col-sm-8.pb-2
+            .google-map(
+              data-height = '270',
+              data-address = '254 Main Road, Newlands, Cape Town, 7708 South Africa',
+              data-zoom = '15',
+              data-disable-controls = 'true',
+              data-scrollwheel = 'true',
+              data-marker-title = 'We are here!'
+            )
+          .col-sm-4.text-center.text-sm-left
+            p.text-lg.pb-sm-4 254 Main Road,<br>Newlands,<br>Cape Town,<br>7708<br>South Africa
+            a(href='https://goo.gl/maps/2dJa6k6qGGy' target='_blank').btn.btn-outline-primary See Larger Map
+    .row.pb-4.mt-2
+      .col-lg-2.col-md-3.text-center.text-sm-left.text-md-right
+        h3.h4.text-primary Help &amp; FAQ
+      .col-lg-8.col-md-9.text-center.text-sm-left
+        a(href='#').navi-link.text-lg Click here to open the help and FAQ section
+        hr.mt-5
+
+    // Tickets
+    #tickets.row.pt-4
+      .col-lg-8.col-md-9.offset-lg-2.offset-md-3
+        h2.pb-4.text-center.text-sm-left Tickets
+
+        // Ticket Option
+        .ticket-panel
+          .d-sm-flex.justify-content-between.mb-2
+            .ticket-panel-header.pr-2.mx-auto.mx-sm-0
+              .ticket-panel-icon-wrap
+                i.ticket-panel-icon.fas.fa-ticket-alt
+              .ticket-panel-title
+                h4.h5.text-body.mb-0 Guided Tour of the SAB World of Beer
+                h5.h6.text-normal.text-info R45 - R125
+            .btn-select.py-2.py-sm-0.text-center.text-sm-left
+              a(href='product-date-time.html').btn.btn-outline-primary Select
+          #guided-tour.collapse.show
+            p.text-lg.text-center.text-sm-left Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu signiferumque vel cu, in pri percipit indoctum. Eam in simul pri percipit indoctum ei nam An saperet deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque vel cu, in pri percipit indoctum. Eam in simul vituper atoribus. Vis ponderum reprehendunt at. Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu. Vis ponderum reprehendunt deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque.
+          .text-center
+            a(href='#guided-tour' data-toggle='collapse').collapse-toggle
+        
+        // Ticket Option
+        .ticket-panel
+          .d-sm-flex.justify-content-between.mb-2
+            .ticket-panel-header.pr-2.mx-auto.mx-sm-0
+              .ticket-panel-icon-wrap
+                i.ticket-panel-icon.fas.fa-ticket-alt
+              .ticket-panel-title
+                h4.h5.text-body.mb-0 Beer Tasting Only
+                h5.h6.text-normal.text-info R115
+            .btn-select.py-2.py-sm-0.text-center.text-sm-left
+              a(href='product-date-time.html').btn.btn-outline-primary Select
+          #tasting-only.collapse
+            p.text-lg.text-center.text-sm-left Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu signiferumque vel cu, in pri percipit indoctum. Eam in simul pri percipit indoctum ei nam An saperet deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque vel cu, in pri percipit indoctum. Eam in simul vituper atoribus. Vis ponderum reprehendunt at. Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu. Vis ponderum reprehendunt deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque.
+          .text-center
+            a(href='#tasting-only' data-toggle='collapse').collapse-toggle.collapsed
+        
+        // Ticket Option
+        .ticket-panel
+          .d-sm-flex.justify-content-between.mb-2
+            .ticket-panel-header.pr-2.mx-auto.mx-sm-0
+              .ticket-panel-icon-wrap
+                i.ticket-panel-icon.fas.fa-ticket-alt
+              .ticket-panel-title
+                h4.h5.text-body.mb-0 Tour &amp; Beer Tasting Package
+                h5.h6.text-normal.text-info R195
+            .btn-select.py-2.py-sm-0.text-center.text-sm-left
+              a(href='product-date-time.html').btn.btn-outline-primary Select
+          #tour-tasting.collapse
+            p.text-lg.text-center.text-sm-left Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu signiferumque vel cu, in pri percipit indoctum. Eam in simul pri percipit indoctum ei nam An saperet deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque vel cu, in pri percipit indoctum. Eam in simul vituper atoribus. Vis ponderum reprehendunt at. Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu. Vis ponderum reprehendunt deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque.
+          .text-center
+            a(href='#tour-tasting' data-toggle='collapse').collapse-toggle.collapsed
+        
+        // Ticket Option
+        .ticket-panel
+          .d-sm-flex.justify-content-between.mb-2
+            .ticket-panel-header.pr-2.mx-auto.mx-sm-0
+              .ticket-panel-icon-wrap
+                i.ticket-panel-icon.fas.fa-ticket-alt
+              .ticket-panel-title
+                h4.h5.text-body.mb-0 Tour Only
+                h5.h6.text-normal.text-info R195
+            .btn-select.py-2.py-sm-0.text-center.text-sm-left
+              a(href='product-date-time.html').btn.btn-outline-primary Select
+          #tour-only.collapse
+            p.text-lg.text-center.text-sm-left Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu signiferumque vel cu, in pri percipit indoctum. Eam in simul pri percipit indoctum ei nam An saperet deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque vel cu, in pri percipit indoctum. Eam in simul vituper atoribus. Vis ponderum reprehendunt at. Te quem timeam qui, ut exerci atomorum est, nec suavitate sententiae eu. Vis ponderum reprehendunt deseruisse nam, suscipit perfecto ei nam. Ne liber expetendis nec, praesent quaerendum signiferumque.
+          .text-center
+            a(href='#tour-only' data-toggle='collapse').collapse-toggle.collapsed

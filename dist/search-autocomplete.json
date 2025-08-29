@@ -1,0 +1,8 @@
+[ 
+  {"name": "Sport & Fitness", "type": "category", "icon": "far fa-bookmark", "link": "#"}, 
+  {"name": "Sport Spectating", "type": "category", "icon": "far fa-bookmark", "link": "#"}, 
+  {"name": "Special Blend Club Night", "type": "event in music > club nights", "icon": "far fa-calendar-check", "link": "#"}, 
+  {"name": "World of Spice and Asian Cookery", "type": "event in food & drink > classes", "icon": "far fa-calendar-check", "link": "#"}, 
+  {"name": "Hobbies & Special Interests", "type": "category", "icon": "far fa-bookmark", "link": "#"}, 
+  {"name": "Special Days", "type": "category", "icon": "far fa-bookmark", "link": "#"}
+]

@@ -1,0 +1,88 @@
+// Site Footer
+footer.site-footer
+  .container
+    .row
+      .col-lg-3.col-md-6
+        // Sell Tickets
+        section.widget.widget-light-skin
+          h3.widget-title Sell Tickets With Us
+          p.text-white.opacity-90 The leader in online ticket sales in South Africa for over 10 years.
+          a(href='#').btn.btn-primary Sell With Us
+
+      .col-lg-3.col-md-6
+        // Find Events
+        section.widget.widget-links.widget-light-skin
+          h3.widget-title Find Events
+          ul
+            li: a(href='#') Recommended for you
+            li: a(href='#') Browse
+            li: a(href='#') Spotlight
+            li: a(href='#') Lists
+            li: a(href='#') Deals
+            li: a(href='#') Buy a Gift Voucher
+
+      .col-lg-3.col-md-6
+        // About Us
+        section.widget.widget-links.widget-light-skin
+          h3.widget-title Help &amp; Info
+          ul
+            li: a(href='#') Get Help
+            li: a(href='#') FAQs
+            li: a(href='#') About us
+            
+      .col-lg-3.col-md-6
+        // My Account
+        section.widget.widget-links.widget-light-skin
+          h3.widget-title My Account
+          ul
+            li: a(href='#') My Account
+            li
+              a(href='#')
+                | My Tickets&nbsp;
+                span.badge.badge-default.badge-pill 3
+            li: a(href='#') My Passes
+            li: a(href='#') My Likes
+            li: a(href='#') My Alerts
+            li: a(href='#') My Location
+            li: a(href='#') My Gift Vouchers
+    
+    .row
+      .col-lg-3.col-md-6
+        // Follow Us
+        section.widget.widget-light-skin
+          h3.widget-title Follow Us For Updates
+          a(href='#' data-toggle='tooltip' title='Facebook').social-button.shape-circle.sb-facebook.sb-light-skin
+            i.fab.fa-facebook-f
+          a(href='#' data-toggle='tooltip' title='Twitter').social-button.shape-circle.sb-twitter.sb-light-skin
+            i.fab.fa-twitter
+          a(href='#' data-toggle='tooltip' title='Instagram').social-button.shape-circle.sb-instagram.sb-light-skin
+            i.fab.fa-instagram
+
+      .col-lg-9.col-md-6
+        // Subscription
+        section.widget.widget-links.widget-light-skin
+          h3.widget-title Get The Best Events In Your Inbox
+          .row
+            .col-lg-4
+              p.text-white.opacity-90 Subscribe to our Newsletter to receive early discount offers, latest news, sales and promo information.
+            .col-lg-8
+              form(action='').subscribe-form
+                .clearfix
+                  .input-group
+                    input(type='email' name='email' placeholder='Your e-mail address').form-control
+                    span.input-group-addon
+                      i.fas.fa-envelope-open
+                  button(type='submit').btn.btn-primary
+                    i.fas.fa-check
+    section.widget.widget-light-skin
+      h3.widget-title Safe &amp; Secure
+      .row
+        .col-lg-3.col-md-5.padding-bottom-1x
+          p.text-white.opacity-90 We accept all major credit cards, including Visa Checkout and you can even pay in store at Pick n’ Pay
+        .col-lg-9.col-md-7.padding-bottom-1x
+          // Payment Methods
+          .pt-2.margin-bottom-1x
+            +image('img/payment-methods.png', 'Payment Methods')
+    
+    // Copyright
+    p.footer-copyright © All content is property of Webtickets w4.pr.a

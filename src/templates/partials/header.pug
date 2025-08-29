@@ -1,0 +1,33 @@
+// Top Bar
+div(style='background-image: url(img/promo-bar.jpg);').top-bar
+
+// Site Header
+header.site-header
+
+  // Container
+  .container-fluid.d-flex.align-items-center
+
+    // Menu Toggle
+    a(href='#' data-toggle='mobile-menu').menu-toggle.fas
+
+    // Logo
+    a(href='index.html').site-logo.align-middle
+      +image('img/logo.png', 'Webtickets')
+    
+    
+    // Navbar
+    .navbar
+      // Top Menu
+      include top-menu
+      
+      // Main Menu
+      include main-menu
+
+      // Search Box
+      include search-box
+      
+      // Toolbar
+      include toolbar
+
+  // Mobile Menu
+  include mobile-menu

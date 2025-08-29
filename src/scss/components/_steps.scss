@@ -1,0 +1,101 @@
+//
+// Steps
+// ----------------------------------------------------
+
+.steps {
+  display: table;
+  width: 100%;
+  height: $step-height + 2;
+  border: 1px solid $primary;
+  border-radius: floor($step-height / 2);
+  table-layout: fixed;
+  > .step {
+    display: table-cell;
+    padding: 8px 15px;
+    transition: all .3s;
+    border-right: 1px solid $primary;
+    color: $body-color;
+    font-size: floor($font-size-base * .9375); //~15px
+    vertical-align: middle;
+    text: {
+      transform: uppercase;
+      align: center;
+      decoration: none;
+    }
+    &:first-child {
+      border: {
+        top-left-radius: floor(($step-height / 2) - 2);
+        bottom-left-radius: floor(($step-height / 2) - 2);
+      }
+    }
+    &:last-child {
+      border: {
+        right: 0;
+        top-right-radius: floor(($step-height / 2) - 2);
+        bottom-right-radius: floor(($step-height / 2) - 2);
+      }
+    }
+    > .step-inner { display: inline-block; }
+    .step-addon {
+      display: inline-block;
+      width: $step-addon-size;
+      height: $step-addon-size;
+      margin-right: 7px;
+      border: 1px solid darken($border-color, 4%);
+      border-radius: 50%;
+      background-color: $white;
+      color: $gray;
+      line-height: ($step-addon-size - 2);
+      text-align: center;
+      vertical-align: middle;
+    }
+    &:hover { background-color: $gray-lightest; }
+    &.active .step-addon {
+      border-color: $primary;
+      background-color: $primary;
+      color: $white;
+    }
+    &.completed {
+      border-right-color: $white;
+      background-color: $primary;
+      color: $white;
+      .step-addon {
+        border-color: $white;
+        background-color: $white;
+        color: $primary;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md) {
+  .steps-wrap {
+    margin: {
+      right: -15px;
+      left: -15px;
+    }
+    padding: 15px;
+    background-color: $gray-lighter;
+  }
+  .steps {
+    display: block;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    > .step {
+      display: inline-block;
+      border: 0 !important;
+      border-radius: 0 !important;
+      &:hover, &.completed { background-color: transparent; }
+      &.completed {
+        color: $body-color;
+        .step-addon {
+          border-color: $primary;
+          background-color: $primary;
+          color: $white;
+        }
+      }
+    }
+  }
+}

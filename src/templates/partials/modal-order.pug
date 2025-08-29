@@ -1,0 +1,85 @@
+// Open Ticket Modal
+div(id='orderDetails' tabindex='-1').modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        h4.modal-title Order No  - 34VB5540K83
+        button(type='button' class='close' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        // Tickets Preview
+        h3 Guided Tour of the SAB World of Beer
+        .row.pt-3.pb-1
+          .col-md-3.col-sm-4
+            h4.text-body.m-0 Date
+          .col-md-9.col-sm-8
+            p.h4.text-normal.text-body.m-0 Wednesday, 21 March, 2018
+        .row.pt-3.pb-1
+          .col-md-3.col-sm-4
+            h4.text-body.m-0 Time
+          .col-md-9.col-sm-8
+            p.h4.text-normal.text-body.m-0 1:00PM
+        .row.py-3
+          .col-md-3.col-sm-4
+            h4.text-body.m-0 Total Tickets
+          .col-md-9.col-sm-8
+            p.h4.text-normal.text-body.m-0 3
+
+        // Ticket
+        .ticket-row
+          .d-sm-flex.justify-content-between.align-items-center
+            .w-10.text-center.pr-2.pb-2.pb-sm-0
+              i.ticket-icon.fas.fa-ticket-alt
+            .text-center.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Quantity
+              h4.text-normal 1
+            .w-30.text-center.pr-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Type
+              h4.text-normal Kid Under 18
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Seat
+              h4.text-normal J34
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Price
+              h4.text-normal R45.00
+
+        // Ticket
+        .ticket-row
+          .d-sm-flex.justify-content-between.align-items-center
+            .w-10.text-center.pr-2.pb-2.pb-sm-0
+              i.ticket-icon.fas.fa-ticket-alt
+            .text-center.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Quantity
+              h4.text-normal 1
+            .w-30.text-center.pr-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Type
+              h4.text-normal Kid Under 18
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Seat
+              h4.text-normal J34
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Price
+              h4.text-normal R45.00
+
+        // Ticket
+        .ticket-row
+          .d-sm-flex.justify-content-between.align-items-center
+            .w-10.text-center.pr-2.pb-2.pb-sm-0
+              i.ticket-icon.fas.fa-ticket-alt
+            .text-center.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Quantity
+              h4.text-normal 1
+            .w-30.text-center.pr-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Type
+              h4.text-normal Kid Under 18
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Seat
+              h4.text-normal J34
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Price
+              h4.text-normal R45.00
+        h3.h4.text-center.text-sm-right.pt-4 Subtotal: <span class='text-normal'>R295.00</span>
+        .text-center.text-sm-right.pt-2
+          a(href='#').btn.btn-primary
+            i.fas.fa-print
+            | &nbsp;Print Tickets

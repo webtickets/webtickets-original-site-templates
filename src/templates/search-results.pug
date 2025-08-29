@@ -1,0 +1,432 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Search Results for: Lorem ipsum'
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      // Results
+      .col-xl-9.col-lg-8
+        .card.mb-4
+          .card-header
+            span.badge.badge-pill.badge-primary Product
+          .card-body
+            .d-flex
+              a(href='product.html').pr-4.hidden-xs-down
+                .w-200
+                  img(src='img/shop/th01.jpg' alt='Product')
+              div
+                h5: a(href='product.html').navi-link Event Title Goes Here
+                h6.text-normal.text-info
+                  del.text-muted R145.00
+                  |  R129.00
+                p Consequatur omnis <span class='text-highlighted'>lorem ipsum</span> reprehenderit suscipit voluptatem blanditiis aliquid rerum animi aliquam, dicta quas nesciunt commodi sequi minima totam architecto.
+        .card.mb-4
+          .card-header
+            span.badge.badge-pill.badge-info Blog post
+          .card-body
+            h5: a(href='blog-single.html').navi-link Blog Post Title Goes Here
+            p <span class='text-highlighted'>Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <span class='text-highlighted'>lorem ipsum</span> aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Aliquid id nobis, amet dolorum earum maxime.
+        .card.mb-4
+          .card-header
+            span.badge.badge-pill.badge-primary Product
+          .card-body
+            .d-flex
+              a(href='product.html').pr-4.hidden-xs-down
+                .w-200
+                  img(src='img/shop/th04.jpg' alt='Product')
+              div
+                h5: a(href='product.html').navi-link Event Title Goes Here
+                h6.text-normal.text-info R155.00
+                p Ut enim ad minim veniam, <span class='text-highlighted'>lorem ipsum</span> reprehenderit suscipit voluptatem blanditiis aliquid rerum animi aliquam, dicta quas nesciunt commodi sequi minima totam architecto.
+        .card.mb-4
+          .card-header
+            span.badge.badge-pill.badge-info Blog post
+          .card-body
+            h5: a(href='blog-single.html').navi-link <span class='text-highlighted'>Lorem Ipsum</span> Blog Post Title
+            p Ut enim ad minim veniam, <span class='text-highlighted'>lorem ipsum</span> reprehenderit suscipit voluptatem blanditiis aliquid rerum animi aliquam, dicta quas nesciunt commodi sequi minima totam architecto.
+        .card.mb-4
+          .card-header
+            span.badge.badge-pill.badge-info Blog post
+          .card-body
+            h5: a(href='blog-single.html').navi-link Another Blog Post Title Goes Here
+            p <span class='text-highlighted'>Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <span class='text-highlighted'>lorem ipsum</span> aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse. Aliquid id nobis, amet dolorum earum maxime.
+
+        include partials/pagination
+
+      // Sidebar          
+      .col-xl-3.col-lg-4
+        button.sidebar-toggle.position-left
+          i.fas.fa-angle-right
+
+        aside.sidebar.sidebar-offcanvas.position-left
+          span.sidebar-close
+            i.fas.fa-times
+
+          // Widget Categories
+          section.widget.widget-categories
+            h3.widget-title Webtickets Categories
+            ul
+              li.has-children.expanded
+                a(href='#') Music
+                span (126)
+                ul
+                  li
+                    a(href='#') All
+                    span (126)
+                  li
+                    a(href='#') Music Festivals
+                    span (18)
+                    ul
+                      li: a(href='#') Ultra South Africa
+                      li: a(href='#') Oppikoppi
+                      li: a(href='#') Splashy Fen
+                      li: a(href='#') Cape Town Jazz Festival
+                      li: a(href='#') RAMFest
+                  li
+                    a(href='#') Club Nights
+                    span (47)
+                    ul
+                      li: a(href='#') Booth Night Club in Sandton
+                      li: a(href='#') Radium Beer Hall
+                      li: a(href='#') Taboo Night Club
+                      li: a(href='#') Fiction
+                  li
+                    a(href='#') DJ Sets
+                    span (35)
+                  li
+                    a(href='#') Live Bands
+                    span (16)
+                  li
+                    a(href='#') Classical &amp; Orchestra
+                    span (10)
+              li.has-children
+                a(href='#') Performance &amp; Visual Arts
+                span (121)
+                ul
+                  li
+                    a(href='#') All
+                    span (121)
+                  li
+                    a(href='#') Theatre
+                    span (36)
+                  li
+                    a(href='#') Comedy
+                    span (22)
+                  li
+                    a(href='#') Art Exhibitions
+                    span (19)
+                  li
+                    a(href='#') Musicals
+                    span (28)
+                  li
+                    a(href='#') Dance
+                    span (10)
+                  li
+                    a(href='#') Kids
+                    span (6)
+              li.has-children
+                a(href='#') Film &amp; Media
+                span (54)
+                ul
+                  li
+                    a(href='#') All
+                    span (54)
+                  li
+                    a(href='#') Outdoor Cinema
+                    span (21)
+                  li
+                    a(href='#') Movie Houses
+                    span (23)
+                  li
+                    a(href='#') Kids
+                    span (10)
+              li.has-children
+                a(href='#') Food &amp; Drink
+                span (88)
+                ul
+                  li
+                    a(href='#') All
+                    span (88)
+                  li
+                    a(href='#') Wine Tasting
+                    span (28)
+                  li
+                    a(href='#') Wine Festivals
+                    span (12)
+                  li
+                    a(href='#') Food Festivals
+                    span (45)
+                  li
+                    a(href='#') Cooking Classes
+                    span (3)
+              li.has-children
+                a(href='#') Sport &amp; Fitness
+                span (87)
+                ul
+                  li
+                    a(href='#') All
+                    span (87)
+                  li
+                    a(href='#') Cycling
+                    span (27)
+                  li
+                    a(href='#') Running
+                    span (15)
+                  li
+                    a(href='#') Surfing
+                    span (40)
+                  li
+                    a(href='#') Exercise Classes
+                    span (5)
+              li.has-children
+                a(href='#') Sport &amp; Spectating
+                span (67)
+                ul
+                  li
+                    a(href='#') All
+                    span (67)
+                  li
+                    a(href='#') Rugby
+                    span (24)
+                  li
+                    a(href='#') Cricket
+                    span (29)
+                  li
+                    a(href='#') Football
+                    span (8)
+                  li
+                    a(href='#') Rugby Sevens
+                    span (6)
+              li.has-children
+                a(href='#') Talks &amp; Education
+                span (38)
+                ul
+                  li
+                    a(href='#') All
+                    span (38)
+                  li
+                    a(href='#') Self-Improvement
+                    span (17)
+                  li
+                    a(href='#') Kids
+                    span (11)
+                  li
+                    a(href='#') Conferences
+                    span (10)
+              li.has-children
+                a(href='#') Tourism &amp; Outdoor
+                span (30)
+                ul
+                  li
+                    a(href='#') All
+                    span (30)
+                  li
+                    a(href='#') Museums
+                    span (12)
+                  li
+                    a(href='#') Aquariums
+                    span (5)
+                  li
+                    a(href='#') Bus Tours
+                    span (9)
+                  li
+                    a(href='#') Wildlife
+                    span (4)
+              li.has-children
+                a(href='#') Charities &amp; Causes
+                span (24)
+                ul
+                  li
+                    a(href='#') All
+                    span (24)
+                  li
+                    a(href='#') Eco
+                    span (8)
+                  li
+                    a(href='#') Children
+                    span (4)
+                  li
+                    a(href='#') Disability
+                    span (6)
+                  li
+                    a(href='#') Sport
+                    span (6)
+              li.has-children
+                a(href='#') Community, Social &amp; Culture
+                span (22)
+                ul
+                  li
+                    a(href='#') All
+                    span (22)
+                  li
+                    a(href='#') Flea Markets
+                    span (7)
+                  li
+                    a(href='#') Parades
+                    span (12)
+                  li
+                    a(href='#') Meetups
+                    span (3)
+              li.has-children
+                a(href='#') Family &amp; Kids
+                span (43)
+                ul
+                  li
+                    a(href='#') All
+                    span (43)
+                  li
+                    a(href='#') Theatres
+                    span (20)
+                  li
+                    a(href='#') Days Out
+                    span (17)
+                  li
+                    a(href='#') Activities
+                    span (6)
+              li.has-children
+                a(href='#') Fashion &amp; Beauty
+                span (56)
+                ul
+                  li
+                    a(href='#') All
+                    span (56)
+                  li
+                    a(href='#') Fashion Shows
+                    span (31)
+                  li
+                    a(href='#') Expos
+                    span (14)
+                  li
+                    a(href='#') Beauty Courses
+                    span (11)
+              li.has-children
+                a(href='#') Government &amp; Politics
+                span (7)
+                ul
+                  li
+                    a(href='#') All
+                    span (7)
+                  li
+                    a(href='#') Conferences
+                    span (4)
+                  li
+                    a(href='#') Other
+                    span (3)
+              li.has-children
+                a(href='#') Health &amp; Wellness
+                span (12)
+                ul
+                  li
+                    a(href='#') All
+                    span (12)
+                  li
+                    a(href='#') Courses
+                    span (6)
+                  li
+                    a(href='#') Talks
+                    span (2)
+                  li
+                    a(href='#') Expos
+                    span (4)
+              li.has-children
+                a(href='#') Hobbies &amp; Special Interests
+                span (18)
+                ul
+                  li
+                    a(href='#') All
+                    span (18)
+                  li
+                    a(href='#') Fairs
+                    span (6)
+                  li
+                    a(href='#') Shows
+                    span (4)
+                  li
+                    a(href='#') Talks
+                    span (8)
+              li.has-children
+                a(href='#') Religion &amp; Spirituality
+                span (62)
+                ul
+                  li
+                    a(href='#') All
+                    span (62)
+                  li
+                    a(href='#') Christianity
+                    span (28)
+                  li
+                    a(href='#') Islam
+                    span (21)
+                  li
+                    a(href='#') Judaism
+                    span (8)
+                  li
+                    a(href='#') Buddism
+                    span (2)
+                  li
+                    a(href='#') Meditation
+                    span (3)
+              li.has-children
+                a(href='#') Science &amp; Tech
+                span (23)
+                ul
+                  li
+                    a(href='#') All
+                    span (23)
+                  li
+                    a(href='#') Museums
+                    span (4)
+                  li
+                    a(href='#') Meetups
+                    span (11)
+                  li
+                    a(href='#') Courses
+                    span (8)
+              li.has-children
+                a(href='#') Business &amp; Professional
+                span (72)
+                ul
+                  li
+                    a(href='#') All
+                    span (72)
+                  li
+                    a(href='#') Exhibitions
+                    span (30)
+                  li
+                    a(href='#') Networking
+                    span (5)
+                  li
+                    a(href='#') Breakfasts
+                    span (9)
+                  li
+                    a(href='#') Conferences
+                    span (21)
+                  li
+                    a(href='#') Meetups
+                    span (7)
+              li.has-children
+                a(href='#') Special &amp; Days
+                span (39)
+                ul
+                  li
+                    a(href='#') All
+                    span (39)
+                  li
+                    a(href='#') New Years Eve
+                    span (12)
+                  li
+                    a(href='#') Easter
+                    span (17)
+                  li
+                    a(href='#') Valentines Day
+                    span (9)
+                  li
+                    a(href='#') Mandela Day
+                    span (1)
+              li
+                a(href='#') Other
+                span (15)

@@ -1,0 +1,85 @@
+extends ../partials/layout
+
+//- Override default config variables
+append config
+  - var isComponentHeader = true
+  - var isHeader = false
+  - var pageTitle = 'Toast Notifications'
+  - var isFooter = false
+  - var isNestedFile = true
+  - var breadcrumbs = [{'title': 'Components', 'link': 'index.html'}, {'title': 'Toast Notifications'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      .col-lg-9.col-md-8.order-md-2
+        p You can alter toast notification look and behaviour via flexible data API 
+          code data-toast-*
+          | :
+        ul.list-unstyled
+          li
+            code 'type' = 'none' (default) / 'info' / 'success' / 'warning' / 'danger'
+            span.text-gray  To alter look of the toast.
+          li
+            code 'icon' = 'icon-heart'
+            span.text-gray  Use class of built-in Feather icons or any othe icon pack you use.
+          li
+            code 'position' = 'topRight' / 'topCenter' / 'bottomRight' / 'bottomCenter' / 'bottomLeft' / 'topLeft'
+            span.text-gray  Where the toast notification appears on the page.
+          li
+            code 'title' = '' (string)
+            span.text-gray  Toast notification title.
+          li
+            code 'message' = '' (string)
+            span.text-gray  Toast notification message.
+        h6.text-muted.text-normal.text-uppercase.padding-top-1x.mt-4 Color Variations
+        hr.margin-bottom-1x
+        .row
+          .col-sm-6
+            .iziToast
+              .iziToast-body
+                strong Default
+                p toast notification without icon
+              button.iziToast-close
+          .col-sm-6
+            .iziToast.iziToast-info
+              .iziToast-body(style='padding-left: 33px;')
+                i.iziToast-icon.fas.fa-info-circle
+                strong Info
+                p toast notification with icon
+              button.iziToast-close
+        .row
+          .col-sm-6
+            .iziToast.iziToast-success
+              .iziToast-body(style='padding-left: 33px;')
+                i.iziToast-icon.fas.fa-check-circle
+                strong Success
+                p toast notification with icon
+              button.iziToast-close
+          .col-sm-6
+            .iziToast.iziToast-warning
+              .iziToast-body(style='padding-left: 33px;')
+                i.iziToast-icon.fas.fa-exclamation-triangle
+                strong Warning
+                p toast notification with icon
+              button.iziToast-close
+        .iziToast.iziToast-danger
+          .iziToast-body(style='padding-left: 33px;')
+            i.iziToast-icon.fas.fa-ban
+            strong Danger
+            p toast notification with icon
+          button.iziToast-close
+        
+        h6.text-muted.text-normal.text-uppercase.padding-top-2x Toasts Position in Action
+        hr.margin-bottom-1x
+        button(data-toast data-toast-position='topRight' data-toast-type='info' data-toast-icon='fas fa-info-circle' data-toast-title='Info' data-toast-message='toast notification with icon').btn.btn-outline-secondary Info Top Right
+        button(data-toast data-toast-position='topLeft' data-toast-type='success' data-toast-icon='fas fa-check-circle' data-toast-title='Success' data-toast-message='toast notification with icon').btn.btn-outline-secondary Success Top Left
+        button(data-toast data-toast-position='bottomRight' data-toast-type='warning' data-toast-icon='fas fa-exclamation-triangle' data-toast-title='Warning' data-toast-message='toast notification with icon').btn.btn-outline-secondary Warning Bottom Right
+        button(data-toast data-toast-position='bottomLeft' data-toast-type='danger' data-toast-icon='fas fa-ban' data-toast-title='Danger' data-toast-message='toast notification with icon').btn.btn-outline-secondary Danger Bottom Left
+        button(data-toast data-toast-position='topCenter' data-toast-icon='fas fa-clock' data-toast-title='Default' data-toast-message='toast notification with icon').btn.btn-outline-secondary Default Top Center
+        button(data-toast data-toast-position='bottomCenter' data-toast-icon='fas fa-bell' data-toast-title='Default' data-toast-message='toast notification with icon').btn.btn-outline-secondary Default Bottom Center
+      
+      .col-lg-3.col-md-4.order-md-1
+        //- Side Menu
+        include ../partials/components-menu

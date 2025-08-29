@@ -1,0 +1,45 @@
+// Account Menu
+aside.user-info-wrapper
+  .user-cover(style='background-image: url(img/account/user-cover-img.jpg);')
+    .info-label(data-toggle='tooltip', title='You currently have 290 Credits in your account to spend')
+      i.far.fa-money-bill-alt
+      | &nbsp;290 credits
+  .user-info
+    .user-avatar
+      a(href='#' data-toggle='modal' data-target='#avatarUpload').edit-avatar
+        i.far.fa-edit
+      img(src='img/account/user-ava.jpg', alt='User')
+    .user-data
+      h4 Christy Turner
+      span <i class='fas fa-map-marker-alt'></i> Cape Town
+nav.list-group
+  a(href='account-profile.html')&attributes((pageTitle === 'My Profile') ? {'class': 'list-group-item active'} : {'class': 'list-group-item'})
+    i.fas.fa-user
+    | My Profile
+  a(href='account-tickets.html')&attributes((pageTitle === 'My Tickets') ? {'class': 'list-group-item with-badge active'} : {'class': 'list-group-item with-badge'})
+    i.fas.fa-ticket-alt
+    | My Tickets
+    span.badge.badge-default.badge-pill 2
+  a(href='account-passes.html')&attributes((pageTitle === 'My Passes') ? {'class': 'list-group-item with-badge active'} : {'class': 'list-group-item with-badge'})
+    i.fas.fa-key
+    | My Passes
+    span.badge.badge-default.badge-pill 6
+  a(href='account-likes.html')&attributes((pageTitle === 'My Likes') ? {'class': 'list-group-item with-badge active'} : {'class': 'list-group-item with-badge'})
+    i.fas.fa-heart
+    | My Likes
+    span.badge.badge-default.badge-pill 3
+  a(href='account-alerts.html')&attributes((pageTitle === 'My Alerts') ? {'class': 'list-group-item active'} : {'class': 'list-group-item'})
+    i.fas.fa-exclamation-circle
+    | My Alerts
+  a(href='account-location.html')&attributes((pageTitle === 'My Location') ? {'class': 'list-group-item active'} : {'class': 'list-group-item'})
+    i.fas.fa-map-marker-alt
+    | My Location
+  a(href='account-vouchers.html')&attributes((pageTitle === 'My Gift Vouchers') ? {'class': 'list-group-item active'} : {'class': 'list-group-item'})
+    i.fas.fa-gift
+    | My Gift Vouchers
+  a(href='#').list-group-item
+    i.fas.fa-sync-alt
+    | Switch to Selling
+  a(href='#').list-group-item
+    i.fas.fa-sign-out-alt
+    | Logout

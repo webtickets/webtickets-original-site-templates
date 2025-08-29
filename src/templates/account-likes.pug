@@ -1,0 +1,63 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var isModalUpload = true
+  - var pageTitle = 'My Likes'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Account', 'link': 'account-profile.html'}, {'title': 'My Likes'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      .col-lg-4
+        include partials/account-menu
+      .col-lg-8
+        .padding-top-2x.mt-2.hidden-lg-up
+        .table-responsive.wishlist-table.margin-bottom-none
+            table.table
+              thead
+                tr
+                  th Event Title
+                  th.text-center
+                    a(href='#').btn.btn-sm.btn-outline-danger Remove All
+              tbody
+                tr
+                  td
+                    .product-item
+                      a(href='product.html').product-thumb
+                        img(src='img/shop/th01.jpg', alt='Product')
+                      .product-info
+                        span.text-info Tue, Mar 27, 7PM
+                        h4.product-title
+                          a(href='product.html') Event Title Goes Here
+                        .text-lg.text-info R45 - R414
+                  td.text-center
+                    a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+                      i.far.fa-times-circle
+                tr
+                  td
+                    .product-item
+                      a(href='product.html').product-thumb
+                        img(src='img/shop/th02.jpg', alt='Product')
+                      .product-info
+                        span.text-info Tue, Mar 27, 7PM
+                        h4.product-title
+                          a(href='product.html') Event Title Goes Here
+                        .text-lg.text-info R45 - R414
+                  td.text-center
+                    a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+                      i.far.fa-times-circle
+                tr
+                  td
+                    .product-item
+                      a(href='product.html').product-thumb
+                        img(src='img/shop/th04.jpg', alt='Product')
+                      .product-info
+                        span.text-info Tue, Mar 27, 7PM
+                        h4.product-title
+                          a(href='product.html') Event Title Goes Here
+                        .text-lg.text-info R45 - R414
+                  td.text-center
+                    a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+                      i.far.fa-times-circle

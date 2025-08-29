@@ -1,0 +1,125 @@
+//
+// Mobile Menu
+// --------------------------------------------------
+
+.mobile-menu-wrapper {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid $primary;
+  background-color: $white;
+  box-shadow: 0 7px 30px -6px rgba($black, .15);
+  z-index: 10;
+}
+@media (min-width: $nav-collapse) {
+  .mobile-menu-wrapper { display: none !important; }
+}
+.mobile-menu { padding: 0 25px 15px; }
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  color: $body-color;
+  font: {
+    size: $font-size-lg;
+    weight: $nav-link-font-weight;
+  }
+  text: {
+    transform: uppercase;
+    decoration: none;
+  }
+  > span {
+    display: block;
+    transition: color .3s;
+  }
+  > i {
+    display: block;
+    width: 27px;
+    transition: color .3s;
+    color: $nav-link-icon-color;
+    font-size: 1.5em;
+    text-align: center;
+    &.fa-edit, &.fa-tags { font-size: 1.35em; }
+  }
+  &[data-toggle='collapse'] {
+    color: $nav-link-active-color;
+    > i { color: $nav-link-active-color; }
+    &.collapsed {
+      color: $body-color;
+      > i { color: $nav-link-icon-color; }
+    }
+  }
+  &:hover, &.active {
+    color: $body-color !important;
+    > span, > i { color: $nav-link-hover-color !important; }
+  }
+}
+.mobile-menu-divider {
+  margin: 10px 0;
+  border-top: 1px solid $primary;
+}
+.mobile-submenu {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  > li {
+    display: block;
+    > a {
+      display: block;
+      padding: 5px 10px;
+      transition: color .3s;
+      color: $body-color;
+      font: {
+        size: $font-size-lg;
+        weight: $nav-link-font-weight;
+      }
+      text-decoration: none;
+      > span {
+        display: inline-block;
+        margin-left: 5px;
+        color: $muted !important;
+        font: {
+          size: $font-size-sm;
+          weight: normal;
+        }
+      }
+    }
+    &:last-child > a { margin-bottom: 15px; }
+    &:hover > a { color: $nav-link-hover-color; }
+    &.active > a { color: $nav-link-active-color; }
+  }
+}
+
+// Acoount Link
+.account-link {
+  display: table;
+  width: 100%;
+  padding: 25px 18px;
+  transition: background-color .3s;
+  border-bottom: 1px solid $border-color;
+  text-decoration: none;
+  .user-ava,
+  .user-info {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .user-ava {
+    width: 48px;
+    > img {
+      display: block;
+      width: 48px;
+      padding: 3px;
+      border: 1px solid $border-color;
+      border-radius: 50%;
+    }
+  }
+  .user-info {
+    padding-left: 8px;
+    > .user-name { margin-bottom: 2px; }
+    > span { display: block; }
+  }
+}

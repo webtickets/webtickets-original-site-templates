@@ -1,0 +1,180 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var isPageTitle = false
+  - var menuTitle = 'Home'
+  - var isHeaderSearch = false
+
+//- Page Content
+block content
+
+  // Search
+  section.fw-section.padding-top-3x.padding-bottom-5x
+    .bg-angle.bg-inset-shadow-both(style='background-image: url(img/bg-pattern.png);')
+    .container
+      .row.justify-content-center
+        .col-xl-8.col-lg-9.col-md-10
+          h1.display-2.text-primary.text-center.mb-2 <strong>Live More.</strong>
+          h3.text-normal.text-body.text-center.text-base-mobile There’s more to life. We’ll help you find it.
+          form(method='get').search-form
+            .clearfix
+              .input-group
+                input(type='text' name='search' id='site-search' placeholder='Search for any event or category').form-control
+                span.input-group-addon
+                  i.fas.fa-search
+              button(type='submit').btn.btn-outline-primary GO
+          p.lead.text-center.pt-3.text-base-mobile
+            i.fas.fa-map-marker-alt.text-primary
+            span.text-gray &nbsp;We've detected your location as
+            span.text-primary.text-medium &nbsp;Cape Town
+
+  // Explore Webtickets
+  .container.padding-top-1x.padding-bottom-4x
+    h2.mb-2
+      span.h1
+        i.fas.fa-walking.text-primary &nbsp;
+      | Explore Webtickets
+    .row
+      .col-lg-4
+        a(href='#').d-table.mb-30.pt-2.text-decoration-none
+          .d-table-cell.align-top.pr-3
+            .feature-icon
+              i.far.fa-calendar-check
+          .d-table-cell.align-top
+            h4.margin-bottom-none Events
+            p.text-muted.text-lg.margin-bottom-none Music, food, charity, business and everything in between.
+      .col-lg-4
+        a(href='#').d-table.mb-30.pt-2.text-decoration-none
+          .d-table-cell.align-top.pr-3
+            .feature-icon
+              i.fas.fa-bicycle
+          .d-table-cell.align-top
+            h4.margin-bottom-none Active
+            p.text-muted.text-lg.margin-bottom-none Participation activities and sports that you can enter.
+
+    // Recommended Products
+    h2.mb-2.pt-4
+      i.fas.fa-user.text-primary &nbsp;
+      | Recommended for you
+    .row.pb-2
+      .col-lg-7.col-md-9
+        p.text-lg A special collection based on your location, your past purchases, liked events and events which you’ve looked at while signed in. We think you might like these…
+    include partials/products-carousel-1
+  
+  //- include partial featured-events.pug
+  include partials/featured-events
+
+  // Lists
+  section.container.pt-4
+    h2.mb-2
+      span.h1
+        i.fas.fa-clipboard-list.text-primary &nbsp;
+      | Lists
+    p.text-lg.pb-2 Special collections of events so you can find the best more easily.
+    div(id='lists' class='accordion accordion-alt' role='tablist')
+      .card
+        .card-header(role='tab')
+          h3.text-normal
+            a(href='#popular' data-toggle='collapse').d-flex.justify-content-between.align-items-center
+              div Popular
+              div.lead.text-medium.text-info.d-none.d-sm-block Top selling events
+        div(id='popular' class='collapse show' data-parent='#lists' role='tabpanel')
+          .card-body
+            include partials/products-carousel-2
+      .card
+        .card-header(role='tab')
+          h3.text-normal
+            a(href='#trending' class='collapsed' data-toggle='collapse').d-flex.justify-content-between.align-items-center
+              div Trending
+              div.lead.text-medium.text-info.d-none.d-sm-block Most sales in the last 24 hours
+        div(id='trending' class='collapse' data-parent='#lists' role='tabpanel')
+          .card-body
+             include partials/products-carousel-1
+      .card
+        .card-header(role='tab')
+          h3.text-normal
+            a(href='#weekend' class='collapsed' data-toggle='collapse').d-flex.justify-content-between.align-items-center
+              div This Weekend
+              div.lead.text-medium.text-info.d-none.d-sm-block Friday night, Saturday and Sunday
+        div(id='weekend' class='collapse' data-parent='#lists' role='tabpanel')
+          .card-body
+             include partials/products-carousel-2
+      .card
+        .card-header(role='tab')
+          h3.text-normal
+            a(href='#kids' class='collapsed' data-toggle='collapse').d-flex.justify-content-between.align-items-center
+              div Fun with Kids
+              div.lead.text-medium.text-info.d-none.d-sm-block Great things to do with the family
+        div(id='kids' class='collapse' data-parent='#lists' role='tabpanel')
+          .card-body
+             include partials/products-carousel-1
+      .card
+        .card-header(role='tab')
+          h3.text-normal
+            a(href='#freebees' class='collapsed' data-toggle='collapse').d-flex.justify-content-between.align-items-center
+              div Freebees
+              div.lead.text-medium.text-info.d-none.d-sm-block No money, Just fun
+        div(id='freebees' class='collapse' data-parent='#lists' role='tabpanel')
+          .card-body
+             include partials/products-carousel-2
+
+  // Deals
+  section.fw-section.padding-top-2x
+    .container
+      h2.mb-2.pt-5
+        i.fas.fa-tags.text-primary &nbsp;
+        | Deals
+      p.text-lg.pb-2 Grab some hot savings courtesy of our fantastic partners.
+      .row
+        .col-sm-6.mb-30
+          a(href='#').promo-box
+            h3.promo-box-title
+              span Visa Checkout Deals
+              span.count 12
+            img(src='img/banners/visa-deals.jpg' alt='Visa Checkout Deals')
+        .col-sm-6.mb-30
+          a(href='#').promo-box
+            h3.promo-box-title
+              span PnP Smart Shopper Deals
+              span.count 4
+            img(src='img/banners/pnp-deals.jpg' alt='PnP Smart Shopper Deals')
+  .fw-section.floating-section
+    .bg-angle.bg-inset-shadow-top(style='background-color: #98E063;')
+
+  // Subscription
+  section.fw-section.padding-bottom-6x
+    .bg-angle.bg-inset-shadow-bottom(style='background-image: url(img/bg-pattern.png);')
+    .container
+      .row.justify-content-center.pt-4.text-center
+        .col-xl-8.col-lg-9.col-md-10
+          h2.mb-3
+            i.d-block.fas.fa-envelope.text-primary.mb-3
+            | Live More. Starting from your inbox.
+          p.lead Sign-up for our weekly email newsletter so that you can be the first to know about the biggest events and the ones we think you <span class='text-medium'>personally would</span> like.
+      .row.justify-content-center.pt-4
+        .col-xl-6.col-lg-7.col-md-9
+          form(action='').subscribe-form
+            .clearfix
+              .input-group
+                input(type='email' name='email' placeholder='Your e-mail address').form-control
+                span.input-group-addon
+                  i.fas.fa-envelope-open
+              button(type='submit').btn.btn-primary
+                i.fas.fa-check
+
+
+    // Get Social
+  section.container.padding-top-2x.padding-bottom-3x.mb-3
+    .row.justify-content-center.text-center
+      .col-xl-5.col-lg-6.col-md-8
+        h2.mb-3
+          i.d-block.fas.fa-smile.text-primary.mb-3
+          | Let's get social.
+        p.lead If you miss it in your inbox, you can still catch our greatest events on social media.
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Facebook').social-button.shape-circle.sb-facebook
+          i.fab.fa-facebook-f
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Twitter').social-button.shape-circle.sb-twitter
+          i.fab.fa-twitter
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Instagram').social-button.shape-circle.sb-instagram
+          i.fab.fa-instagram

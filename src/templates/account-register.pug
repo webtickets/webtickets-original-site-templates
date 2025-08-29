@@ -1,0 +1,104 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Register Account'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Register Account'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      .col-md-6
+        form(method='post').login-box
+          h3.margin-bottom-1x.text-center.text-md-left Register with Webtickets
+          .form-group
+            label(for='ac_email') Email:
+            input(type='email' id='ac_email' name='ac_email' required).form-control
+          .form-group
+            label(for='ac_confirm_email') Confirm Email:
+            input(type='email' id='ac_confirm_email' name='ac_confirm_email' required).form-control
+          .form-group
+            label(for='ac_password') Password:
+            input(type='password' id='ac_password' name='ac_password' required).form-control
+          .form-group
+            label(for='ac_confirm_password') Confirm Password:
+            input(type='password' id='ac_confirm_password' name='ac_confirm_password' required).form-control
+          .form-group
+            label(for='ac_first_name') First Name:
+            input(type='text' id='ac_first_name' name='ac_first_name' required).form-control
+          .form-group
+            label(for='ac_last_name') Last Name:
+            input(type='text' id='ac_last_name' name='ac_last_name' required).form-control
+          .form-group
+            label(for='ac_cellphone') Cellphone:
+            input(type='tel' id='ac_cellphone' name='ac_cellphone' required).form-control
+          .form-group
+            label(for='ac_pnp_number') PnP Smart Shopper Number (optional):
+            input(type='text' id='ac_pnp_number' name='ac_pnp_number').form-control
+          .form-group
+            label(for='ac_country') Your Country:
+            select(id='ac_country' name='ac_country').form-control
+              option Argentina
+              option Australia
+              option New Zealand
+              option(selected) South Africa
+              option Switzerland
+              option Thailand
+              option United Kingdom
+          .form-group
+            label(for='ac_province') Province:
+            select(id='ac_province' name='ac_province').form-control
+              option Select province
+              option Eastern Cape
+              option Free State
+              option Gauteng
+              option KwaZulu-Natal
+              option Limpopo
+              option North West
+              option Northen Cape
+          .pb-3
+            .custom-control.custom-checkbox
+              input(type='checkbox' id='terms' checked).custom-control-input
+              label(for='terms').custom-control-label I have read and understood the <a href='#'>Terms &amp; Conditions</a>
+            .custom-control.custom-checkbox
+              input(type='checkbox' id='newsletter' checked).custom-control-input
+              label(for='newsletter').custom-control-label Yes, I want to receive the monthly Webtickets newsletter!
+          .text-center.text-sm-right
+            button(type='submit' class='btn btn-primary margin-bottom-none')
+              i.far.fa-user
+              | &nbsp;Register
+
+      .col-lg-5.col-md-6.offset-lg-1
+        .padding-top-3x.hidden-md-up
+        h3.margin-bottom-2x.text-center.text-md-left Still Need Convincing?
+
+        // Features
+        .d-table.mb-30.pt-2
+          .d-table-cell.align-top.pr-3
+            div(style='line-height: 88px;').wh-90.display-4.border-default.bg-lightest.rounded-circle.text-center
+              i.far.fa-clock.text-primary
+          .d-table-cell.align-top
+            h5 24/7 Box Office
+            p.text-muted.margin-bottom-none Immediately available Print-at-Home tickets. You can go straight to your tickets after payment and print them out, or simply display them on your mobile phone. No need to pick them up at a supermarket ;-)
+        .d-table.mb-30.pt-2
+          .d-table-cell.align-top.pr-3
+            div(style='line-height: 86px;').wh-90.display-4.border-default.bg-lightest.rounded-circle.text-center
+              i.fas.fa-unlock-alt.text-primary
+          .d-table-cell.align-top
+            h5 Safe &amp; Secure
+            p.text-muted.margin-bottom-none Our site is 100% secure and protected by GeoTrust. We also store your IP address & personal details to help us prevent fraudulent transactions.
+        .d-table.mb-30.pt-2
+          .d-table-cell.align-top.pr-3
+            div(style='line-height: 86px;').wh-90.display-4.border-default.bg-lightest.rounded-circle.text-center
+              i.fas.fa-wrench.text-primary
+          .d-table-cell.align-top
+            h5 Manage your Tickets
+            p.text-muted.margin-bottom-none As a registered user, you can view your order history, print your tickets and update your profile in your own secure webtickets management area...
+        .d-table.mb-30.pt-2
+          .d-table-cell.align-top.pr-3
+            div(style='line-height: 86px;').wh-90.display-4.border-default.bg-lightest.rounded-circle.text-center
+              i.far.fa-smile.text-primary
+          .d-table-cell.align-top
+            h5 Fast &amp; Friendly Support
+            p.text-muted.margin-bottom-none Our knowledgeable and friendly customer support team are always on hand to assist you if you get stuck.

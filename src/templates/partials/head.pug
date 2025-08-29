@@ -1,0 +1,43 @@
+head
+  meta(charset="utf-8")
+  title
+    block title
+      | #{pageTitle}
+
+  // SEO Meta Tags
+  meta(name="description", content="Webtickets - Platform for selling and buying tickets online")
+  meta(name="keywords", content="")
+  meta(name="author", content="Webtickets")
+
+  // Mobile Specific Meta Tag
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+  // Favicon and Touch Icons
+  link(rel="apple-touch-icon", sizes="180x180")&attributes(isNestedFile ? {'href':'../apple-touch-icon.png'} : {'href':'apple-touch-icon.png'})
+  link(rel="icon", type="image/png", sizes="32x32")&attributes(isNestedFile ? {'href':'../favicon-32x32.png'} : {'href':'favicon-32x32.png'})
+  link(rel="icon", type="image/png", sizes="16x16")&attributes(isNestedFile ? {'href':'../favicon-16x16.png'} : {'href':'favicon-16x16.png'})
+  link(rel="manifest")&attributes(isNestedFile ? {'href':'../site.webmanifest'} : {'href':'site.webmanifest'})
+  link(rel="mask-icon", color="#343b43")&attributes(isNestedFile ? {'href':'../safari-pinned-tab.svg'} : {'href':'safari-pinned-tab.svg'})
+  meta(name="msapplication-TileColor", content="#603cba")
+  meta(name="theme-color", content="#ffffff")
+
+  // Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.
+  link(rel="stylesheet", media="screen")&attributes(isNestedFile ? {'href': '../css/vendor.min.css'} : {'href': 'css/vendor.min.css'})
+
+  // Font Awesome Icons
+  link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.13/css/all.css", integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
+
+  if isCardScript
+    // Interactive Credit Card
+    link(rel="stylesheet", media="screen")&attributes(isNestedFile ? {'href': '../css/card.min.css'} : {'href': 'css/card.min.css'})
+
+  // Main Template Styles
+  link(id='mainStyles', rel="stylesheet", media="screen")&attributes(isNestedFile ? {'href': '../css/styles.min.css'} : {'href': 'css/styles.min.css'})
+
+  // Modernizr
+  script()&attributes(isNestedFile ? {'src': '../js/modernizr.min.js'} : {'src': 'js/modernizr.min.js'})
+
+  if isGoogleMap
+    // Google Map API
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAve6GOw6aJy300Vwkt2xzvtJpw_aw__Vo"
+    type="text/javascript")

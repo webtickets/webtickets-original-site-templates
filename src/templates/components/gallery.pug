@@ -1,0 +1,135 @@
+extends ../partials/layout
+
+//- Override default config variables
+append config
+  - var isComponentHeader = true
+  - var isHeader = false
+  - var pageTitle = 'Gallery'
+  - var isFooter = false
+  - var isNestedFile = true
+  - var isGallery = true
+  - var breadcrumbs = [{'title': 'Components', 'link': 'index.html'}, {'title': 'Gallery'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-2x
+    .row
+      .col-lg-9.col-md-8.order-md-2
+        h6.text-muted.text-normal.text-uppercase With Gutters
+        hr.margin-bottom-1x
+        .gallery-wrapper
+          .row
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/03.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th03.jpg' alt='Image')
+                span.caption Image Caption #1
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/02.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th02.jpg' alt='Image')
+                span.caption Image Caption #2
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='#'  data-type="video" data-video='<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" width="960" height="640" src="https://www.youtube-nocookie.com/embed/KgAsd-w9kCU?rel=0" frameborder="0" allowfullscreen></iframe></div></div>')
+                  i.fas.fa-play
+                  img(src='../img/gallery/th01.jpg' alt='Image')
+                span.caption Image Caption #3
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/04.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th04.jpg' alt='Image')
+                span.caption Image Caption #4
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='#' data-type="video" data-video='<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" width="960" height="640" src="https://player.vimeo.com/video/67628259?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe></div></div>')
+                  i.fas.fa-play
+                  img(src='../img/gallery/th05.jpg' alt='Image')
+                span.caption Image Caption #5
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/06.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th06.jpg' alt='Image')
+                span.caption Image Caption #6
+
+        h6.text-muted.text-normal.text-uppercase.padding-top-1x.mt-1 No Gutters
+        hr.margin-bottom-1x
+        .gallery-wrapper
+          .row.no-gutters
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/03.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th03.jpg' alt='Image')
+                span.caption Image Caption #1
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/02.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th02.jpg' alt='Image')
+                span.caption Image Caption #2
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='#'  data-type="video" data-video='<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" width="960" height="640" src="https://www.youtube-nocookie.com/embed/KgAsd-w9kCU?rel=0" frameborder="0" allowfullscreen></iframe></div></div>')
+                  i.fas.fa-play
+                  img(src='../img/gallery/th01.jpg' alt='Image')
+                span.caption Image Caption #3
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/04.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th04.jpg' alt='Image')
+                span.caption Image Caption #4
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='#' data-type="video" data-video='<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" width="960" height="640" src="https://player.vimeo.com/video/67628259?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe></div></div>')
+                  i.fas.fa-play
+                  img(src='../img/gallery/th05.jpg' alt='Image')
+                span.caption Image Caption #5
+            .col-md-4.col-sm-6
+              .gallery-item
+                a(href='../img/gallery/06.jpg' data-size='1000x667')
+                  i.fas.fa-search-plus
+                  img(src='../img/gallery/th06.jpg' alt='Image')
+                span.caption Image Caption #6
+        h6.text-muted.text-normal.text-uppercase.padding-top-2x.mt-2 Inside Carousel
+        hr.margin-bottom-1x
+        .gallery-wrapper.owl-carousel(data-owl-carousel='{ "nav": false, "dots": true, "loop": true, "margin": 30, "autoplay": false, "responsive": {"0":{"items":1},"576":{"items":2},"991":{"items":3},"1200":{"items":3}} }')
+          .gallery-item
+              a(href='../img/gallery/03.jpg' data-size='1000x667')
+                i.fas.fa-search-plus
+                img(src='../img/gallery/th03.jpg' alt='Image')
+              span.caption Image Caption #1
+          .gallery-item
+            a(href='../img/gallery/02.jpg' data-size='1000x667')
+              i.fas.fa-search-plus
+              img(src='../img/gallery/th02.jpg' alt='Image')
+            span.caption Image Caption #2
+          .gallery-item
+            a(href='#'  data-type="video" data-video='<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" width="960" height="640" src="https://www.youtube-nocookie.com/embed/KgAsd-w9kCU?rel=0" frameborder="0" allowfullscreen></iframe></div></div>')
+              i.fas.fa-play
+              img(src='../img/gallery/th01.jpg' alt='Image')
+            span.caption Image Caption #3
+          .gallery-item
+            a(href='../img/gallery/04.jpg' data-size='1000x667')
+              i.fas.fa-search-plus
+              img(src='../img/gallery/th04.jpg' alt='Image')
+            span.caption Image Caption #4
+          .gallery-item
+            a(href='#' data-type="video" data-video='<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" width="960" height="640" src="https://player.vimeo.com/video/67628259?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe></div></div>')
+              i.fas.fa-play
+              img(src='../img/gallery/th05.jpg' alt='Image')
+            span.caption Image Caption #5
+          .gallery-item
+            a(href='../img/gallery/06.jpg' data-size='1000x667')
+              i.fas.fa-search-plus
+              img(src='../img/gallery/th06.jpg' alt='Image')
+            span.caption Image Caption #6
+      
+      .col-lg-3.col-md-4.order-md-1
+        //- Side Menu
+        include ../partials/components-menu

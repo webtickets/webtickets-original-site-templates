@@ -1,0 +1,184 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'World of Beer'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Food & Drink', 'link': '#'}, {'title': 'Tour', 'link': '#'}, {'title': 'This Event'}]
+
+//- Page Content
+block content
+  // Steps
+  .steps-wrap-container.container
+    .steps-wrap.margin-bottom-2x
+      .steps
+        a(href='product.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Tickets
+        a(href='product-date-time.html').step.active
+          .step-inner
+            span.step-addon: i.fas.fa-arrow-down
+            | Date &amp; Time
+        a(href='product-seating.html').step
+          .step-inner
+            span.step-addon 3
+            | Seating
+        a(href='product-ticket-type.html').step
+          .step-inner
+            span.step-addon 4
+            | Ticket Type
+        a(href='product-add-to-cart.html').step
+          .step-inner
+            span.step-addon 5
+            | Add To Cart
+  
+  // Content
+  .container.padding-bottom-3x.mb-2
+    .row.justify-content-center
+      .col-xl-8.col-lg-10
+        h2.mb-1 Date
+        p.text-lg.mb-4 Choose your preferred date.
+    
+        // Events Calendar
+        .events-calendar
+
+          // EC Header
+          .ec-header
+            .ec-control-prev
+            h3.ec-month March 2018
+            .ec-control-next
+          
+          // EC Days
+          .ec-days.d-none.d-md-table
+            .ec-day Mon
+            .ec-day Tue
+            .ec-day Wed
+            .ec-day Thu
+            .ec-day Fri
+            .ec-day Sat
+            .ec-day Sun
+
+          // EC Week
+          .ec-week
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 26
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 27
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 28
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 1
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 2
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 3
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 4
+          // EC Week
+          .ec-week
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 5
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 6
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 7
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 8
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 9
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 10
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 11
+          // EC Week
+          .ec-week
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 12
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 13
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 14
+            .ec-date
+              a(href='#').disabled
+                span.ec-number <span class='d-inline d-md-none'>Thu</span> 15
+                span.ec-description Sold Out Online
+            .ec-date
+              a(href='#').disabled
+                span.ec-number <span class='d-inline d-md-none'>Fri</span> 16
+                span.ec-description Sold Out
+            .ec-date
+              a(href='#').disabled
+                span.ec-number <span class='d-inline d-md-none'>Sat</span> 17
+                span.ec-description Online Sales Closed
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Sun</span> 18
+                span.ec-description Some Times Available
+          // EC Week
+          .ec-week
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Mon</span> 19
+                span.ec-description Some Times Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Tue</span> 20
+                span.ec-description Some Times Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Wed</span> 21
+                span.ec-description Sales Close in 32 mins
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Thu</span> 22
+                span.ec-description Available
+            .ec-date
+              a(href='#').active
+                span.ec-number <span class='d-inline d-md-none'>Fri</span> 23
+                span.ec-description Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Sat</span> 24
+                span.ec-description Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Sun</span> 25
+                span.ec-description Available
+          // EC Week
+          .ec-week
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Mon</span> 26
+                span.ec-description Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Tue</span> 27
+                span.ec-description Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Wed</span> 28
+                span.ec-description Available
+            .ec-date
+              a(href='#')
+                span.ec-number <span class='d-inline d-md-none'>Thu</span> 29
+                span.ec-description Available
+            .ec-date
+              a(href='#').disabled
+                span.ec-number <span class='d-inline d-md-none'>Fri</span> 30
+                span.ec-description Not Yet Available
+            .ec-date
+              a(href='#').disabled
+                span.ec-number <span class='d-inline d-md-none'>Sat</span> 31
+                span.ec-description Closed
+            .ec-date.d-none.d-md-table-cell: div: span.ec-number 1
+          
+          // EC Footer
+          .ec-footer.d-md-none
+            .ec-control-prev
+            h3.ec-month March 2018
+            .ec-control-next
+
+        // Arrow
+        .pt-30.pb-30.d-none.d-md-block
+          .ec-arrow-down
+
+        h2.mb-1.pt-4.pt-md-0 Time
+        p.text-lg.mb-3 Choose your preferred time.
+        .row
+          .col-sm-6
+            a(href='#').ec-time-btn
+              .ec-time
+                i.far.fa-sun
+                | 1:00 PM
+              .ec-price
+                | R45 - R125
+          .col-sm-6
+            a(href='#').ec-time-btn.active
+              .ec-time
+                i.far.fa-moon
+                | 7:30 PM
+              .ec-price
+                | R45 - R125

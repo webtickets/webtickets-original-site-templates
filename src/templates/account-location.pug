@@ -1,0 +1,16 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var isModalUpload = true
+  - var pageTitle = 'My Location'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Account', 'link': 'account-profile.html'}, {'title': 'My Location'}]
+
+//- Page Content
+block content
+  .container.padding-bottom-3x.mb-2
+    .row
+      .col-lg-4
+        include partials/account-menu
+      .col-lg-8
+        .padding-top-2x.mt-2.hidden-lg-up

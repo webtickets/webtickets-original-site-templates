@@ -1,0 +1,65 @@
+ul.top-menu
+  li
+    a(href='account-profile.html')
+      i.fas.fa-user
+      | My Account
+    ul.sub-menu
+      li.sub-menu-user
+        .user-ava
+          +image('img/account/user-ava-sm.jpg', 'Daniel Adams')
+        .user-info
+          h6.user-name Christy Turner
+          span.text-xs.text-muted
+            i.fas.fa-map-marker-alt.opacity-80
+            | &nbsp;Cape Town
+      li()&attributes((pageTitle === 'My Profile') ? {'class': 'active'} : '')
+        a(href='account-profile.html') My Account
+      li()&attributes((pageTitle === 'My Tickets') ? {'class': 'active'} : '')
+        a(href='account-tickets.html')
+          | My Tickets&nbsp;
+          span.badge.badge-default.badge-pill 2
+      li()&attributes((pageTitle === 'My Passes') ? {'class': 'active'} : '')
+        a(href='account-passes.html') My Passes
+      li()&attributes((pageTitle === 'My Likes') ? {'class': 'active'} : '')
+        a(href='account-likes.html') My Likes
+      li()&attributes((pageTitle === 'My Alerts') ? {'class': 'active'} : '')
+        a(href='account-alerts.html') My Alerts
+      li()&attributes((pageTitle === 'My Location') ? {'class': 'active'} : '')
+        a(href='account-location.html') My Location
+      li()&attributes((pageTitle === 'My Gift Vouchers') ? {'class': 'active'} : '')
+        a(href='account-vouchers.html') My Gift Vouchers
+      li: a(href='#') Switch to Selling
+      li.sub-menu-separator
+      li
+        a(href='account-login.html')
+          i.fas.fa-sign-out-alt.text-primary
+          | Logout
+  li
+    a(href='account-tickets.html')
+      i.fas.fa-ticket-alt
+      | My Tickets&nbsp;
+      span.badge.badge-default.badge-pill 2
+    ul.sub-menu
+      li: a(href='#')
+        | Upcoming Events&nbsp;
+        span.badge.badge-default.badge-pill 2
+      li: a(href='#') Past Events
+      li: a(href='#') Notices of Changes
+  li
+    a(href='account-likes.html')
+      i.fas.fa-heart
+      | My Likes
+    ul.sub-menu
+      li: a(href='#') Recent Like 0
+      li: a(href='#') Recent Like 1
+      li: a(href='#') Recent Like 2
+      li: a(href='#') Recent Like 3
+      li: a(href='#') Recent Like 4
+      li: a(href='#') Show All
+  li
+    a(href='#')
+      i.fas.fa-map-marker-alt
+      | Cape Town
+    ul.sub-menu
+      li: a(href='#')
+        | Change Location&nbsp;

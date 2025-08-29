@@ -1,0 +1,167 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'World of Beer'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Food & Drink', 'link': '#'}, {'title': 'Tour', 'link': '#'}, {'title': 'This Event'}]
+
+//- Page Content
+block content
+  // Steps
+  .steps-wrap-container.container
+    .steps-wrap.margin-bottom-2x
+      .steps
+        a(href='product.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Tickets
+        a(href='product-date-time.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Date &amp; Time
+        a(href='product-seating.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Seating
+        a(href='product-ticket-type.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Ticket Type
+        a(href='product-add-to-cart.html').step.active
+          .step-inner
+            span.step-addon: i.fas.fa-arrow-down
+            | Add To Cart
+  
+  // Content
+  .container.padding-bottom-3x
+
+    // Tickets Preview
+    .row.justify-content-center
+      .col-lg-8.text-center.text-sm-left
+        h2.pb-2 Add to Cart
+        h3.text-body Guided Tour of the SAB World of Beer
+        .row.pt-3.pb-1
+          .col-md-3.col-sm-4
+            h4.text-body.m-0 Date
+          .col-md-9.col-sm-8
+            p.h4.text-normal.text-body.m-0
+              | Wednesday, 21 March, 2018
+              a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                i.far.fa-edit
+        .row.pt-3.pb-1
+          .col-md-3.col-sm-4
+            h4.text-body.m-0 Time
+          .col-md-9.col-sm-8
+            p.h4.text-normal.text-body.m-0
+              | 1:00PM
+              a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                i.far.fa-edit
+        .row.py-3
+          .col-md-3.col-sm-4
+            h4.text-body.m-0 Total Tickets
+          .col-md-9.col-sm-8
+            p.h4.text-normal.text-body.m-0 3
+
+        // Ticket
+        .ticket-row
+          .d-sm-flex.justify-content-between.align-items-center
+            .w-10.text-center.pr-2.pb-2.pb-sm-0
+              i.ticket-icon.fas.fa-ticket-alt
+            .text-center.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Quantity
+              h4.text-normal
+                | 1
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .w-30.text-center.pr-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Type
+              h4.text-normal
+                | Kid Under 18
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Seat
+              h4.text-normal
+                | J34
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Price
+              h4.text-normal R45.00
+            .w-10.text-center.px-2
+              a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+                i.far.fa-times-circle
+
+        // Ticket
+        .ticket-row
+          .d-sm-flex.justify-content-between.align-items-center
+            .w-10.text-center.pr-2.pb-2.pb-sm-0
+              i.ticket-icon.fas.fa-ticket-alt
+            .text-center.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Quantity
+              h4.text-normal
+                | 1
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .w-30.text-center.pr-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Type
+              h4.text-normal
+                | Kid Under 18
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Seat
+              h4.text-normal
+                | J34
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Price
+              h4.text-normal R45.00
+            .w-10.text-center.px-2
+              a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+                i.far.fa-times-circle
+
+        // Ticket
+        .ticket-row
+          .d-sm-flex.justify-content-between.align-items-center
+            .w-10.text-center.pr-2.pb-2.pb-sm-0
+              i.ticket-icon.fas.fa-ticket-alt
+            .text-center.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Quantity
+              h4.text-normal
+                | 1
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .w-30.text-center.pr-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Type
+              h4.text-normal
+                | Kid Under 18
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Seat
+              h4.text-normal
+                | J34
+                a(href='#' data-toggle='tooltip' title='Edit').btn-edit
+                  i.far.fa-edit
+            .text-center.text-sm-left.px-2.pb-2.pb-sm-0
+              span.d-block.text-uppercase.text-gray.text-medium.mb-1 Price
+              h4.text-normal R45.00
+            .w-10.text-center.px-2
+              a(href='#' data-toggle='tooltip' title='Remove').btn-remove
+                i.far.fa-times-circle
+        .d-sm-flex.justify-content-between.mt-4
+          .alert.alert-info.bg-0.border-0.p-0.pr-3.text-center.text-sm-left
+            i.fas.fa-info-circle.text-lg &nbsp;&nbsp;
+            span.text-lg You can continue shopping once you’ve added these to your cart.
+          h3.h4.text-center.text-sm-right.pt-2.pt-sm-0 Subtotal: <span class='text-normal'>R295.00</span>
+        .text-center.text-sm-right.pt-3
+          a(href='#').btn.btn-primary Add To Cart
+          
+    // Related Products
+    h2.mb-2.pt-5.text-center.text-sm-left
+      i.fas.fa-star.text-primary &nbsp;
+      | You May Also Like
+    p.text-lg.pb-2 If you like this event, here are a few more that may interest you.
+    include partials/products-carousel-1

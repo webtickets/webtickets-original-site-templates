@@ -1,0 +1,42 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'World of Beer'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Food & Drink', 'link': '#'}, {'title': 'Tour', 'link': '#'}, {'title': 'This Event'}]
+
+//- Page Content
+block content
+  // Steps
+  .steps-wrap-container.container
+    .steps-wrap.margin-bottom-2x
+      .steps
+        a(href='product.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Tickets
+        a(href='product-date-time.html').step.completed
+          .step-inner
+            span.step-addon: i.fas.fa-check
+            | Date &amp; Time
+        a(href='product-seating.html').step.active
+          .step-inner
+            span.step-addon: i.fas.fa-arrow-down
+            | Seating
+        a(href='product-ticket-type.html').step
+          .step-inner
+            span.step-addon 4
+            | Ticket Type
+        a(href='product-add-to-cart.html').step
+          .step-inner
+            span.step-addon 5
+            | Add To Cart
+  
+  // Content
+  .container.padding-bottom-3x.mb-2
+    .row.justify-content-center
+      .col-xl-8.col-lg-10
+        h2.text-center.text-sm-left Seat Selection
+
+        // Here goes Seat Selection Plugin code. Remove image
+        img(src='img/seat-selection-demo.png' alt='Seat Selection').d-block.mx-auto
