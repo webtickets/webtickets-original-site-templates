@@ -112,6 +112,15 @@
           font-size: 1rem;
         }
       }
+      
+      /* 4-column layout for expanded categories */
+      @media (min-width: 992px) {
+        .category-expanded-view .col-lg-3 {
+          width: 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+      }
     </style>
   </head>
   <!-- Body-->
@@ -679,7 +688,7 @@
         <!-- Categories Grid-->
         <div class="row" id="categories-grid">
           <!-- Row 1 - Most Popular Categories (always visible) -->
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
+          <div class="col-lg-4 col-6 mb-30 category-visible">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/music.jpg);">
@@ -689,7 +698,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
+          <div class="col-lg-4 col-6 mb-30 category-visible">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/food.jpg);">
@@ -699,7 +708,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
+          <div class="col-lg-4 col-6 mb-30 category-visible">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/sport-spectating.jpg);">
@@ -710,7 +719,7 @@
             </div>
           </div>
           <!-- Row 2 -->
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
+          <div class="col-lg-4 col-6 mb-30 category-hidden" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/theatre-dance.jpg);">
@@ -720,7 +729,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
+          <div class="col-lg-4 col-6 mb-30 category-hidden" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/sport.jpg);">
@@ -730,7 +739,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
+          <div class="col-lg-4 col-6 mb-30 category-hidden" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/community.jpg);">
@@ -741,7 +750,7 @@
             </div>
           </div>
           <!-- Hidden categories (shown when expanded) -->
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/art-literature-design.jpg);">
@@ -751,7 +760,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/family.jpg);">
@@ -761,7 +770,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/business.jpg);">
@@ -771,7 +780,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/education.jpg);">
@@ -781,7 +790,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/workshops-classes.jpg);">
@@ -791,7 +800,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/wellness.jpg);">
@@ -801,7 +810,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/talks.jpg);">
@@ -811,7 +820,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/special-days.jpg);">
@@ -821,7 +830,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/film.jpg);">
@@ -831,7 +840,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/tourism.jpg);">
@@ -841,7 +850,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/fashion.jpg);">
@@ -851,7 +860,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/charity.jpg);">
@@ -861,7 +870,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/adrenaline-adventure.jpg);">
@@ -871,7 +880,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/spirituality.jpg);">
@@ -881,7 +890,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/museums-visitors-centers.jpg);">
@@ -891,7 +900,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/nature.jpg);">
@@ -901,7 +910,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/comedy.jpg);">
@@ -911,7 +920,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-30 category-hidden" style="display: none;">
+          <div class="col-lg col-6 mb-30 category-hidden category-expanded" style="display: none;">
             <div class="category-tile">
               <a href="#" class="category-tile-link">
                 <div class="category-tile-image" style="background-image: url(img/category-images/other.jpg);">
@@ -1851,16 +1860,35 @@
     <script>
       function toggleCategories() {
         var hiddenCategories = document.querySelectorAll('.category-hidden');
+        var visibleCategories = document.querySelectorAll('.category-visible');
+        var allCategories = document.querySelectorAll('.category-visible, .category-hidden');
+        var categoriesGrid = document.getElementById('categories-grid');
         var toggleBtn = document.getElementById('toggle-categories');
         var isExpanded = toggleBtn.textContent === 'Show Less';
         
-        hiddenCategories.forEach(function(category) {
-          if (isExpanded) {
+        if (isExpanded) {
+          // Collapse: Show only first 3 on desktop, 2 on mobile
+          hiddenCategories.forEach(function(category) {
             category.style.display = 'none';
-          } else {
+          });
+          visibleCategories.forEach(function(category) {
+            category.classList.remove('col-lg-3');
+            category.classList.add('col-lg-4');
+          });
+          categoriesGrid.classList.remove('category-expanded-view');
+        } else {
+          // Expand: Show all with 4 across on desktop, 2 on mobile
+          hiddenCategories.forEach(function(category) {
             category.style.display = 'block';
-          }
-        });
+            category.classList.remove('col-lg');
+            category.classList.add('col-lg-3');
+          });
+          visibleCategories.forEach(function(category) {
+            category.classList.remove('col-lg-4');
+            category.classList.add('col-lg-3');
+          });
+          categoriesGrid.classList.add('category-expanded-view');
+        }
         
         toggleBtn.textContent = isExpanded ? 'See All Categories' : 'Show Less';
       }
