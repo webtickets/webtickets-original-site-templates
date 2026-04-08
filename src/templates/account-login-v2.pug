@@ -357,8 +357,13 @@ block content
           .signin-or-divider
             span OR
 
-          //- Email / Password form
-          form(method='post')
+          //- Email / Password toggle button
+          button.btn.signin-btn-login#signin-email-toggle(type='button' onclick='toggleEmailForm()')
+            i.fas.fa-envelope
+            | &nbsp; SIGN IN WITH EMAIL & PASSWORD
+
+          //- Email / Password form (hidden by default)
+          form#signin-email-form(method='post' style='display:none;')
             .signin-input-group
               i.fas.fa-envelope.signin-input-icon
               input.signin-input(type='email' placeholder='Email' required)
@@ -377,14 +382,22 @@ block content
                 a.signin-forgot-link(href='account-password-recovery.html') Click here.
 
             button.btn.signin-btn-login(type='submit')
-              i.fas.fa-envelope
-              | &nbsp; SIGN IN WITH EMAIL & PASSWORD
+              i.fas.fa-sign-in-alt
+              | &nbsp; SIGN IN
 
         p.text-center.mt-4.signin-register-link Don't have an account?&nbsp;
           a(href='account-register.html') Register now
 
   //- Password toggle script
   script.
+    function toggleEmailForm() {
+      var form = document.getElementById('signin-email-form');
+      var btn = document.getElementById('signin-email-toggle');
+      form.style.display = 'block';
+      btn.style.display = 'none';
+      form.querySelector('.signin-input').focus();
+    }
+
     function togglePassword() {
       var input = document.getElementById('signin-password');
       var icon = document.getElementById('password-eye-icon');
