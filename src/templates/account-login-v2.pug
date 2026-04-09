@@ -2,8 +2,8 @@ extends partials/layout
 
 //- Override default config variables
 append config
-  - var pageTitle = 'Welcome back!'
-  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Welcome back!'}]
+  - var pageTitle = 'Sign In'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'Sign In'}]
 
 //- Page Content
 block content
@@ -188,12 +188,12 @@ block content
     /* Phone button */
     .signin-btn-phone {
       width: 100%;
-      height: 50px;
-      border-radius: 25px;
+      height: 52px;
+      border-radius: 26px;
       border: 2px solid #7fbd52;
       background: transparent;
       color: #7fbd52;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -352,7 +352,7 @@ block content
             i.fas.fa-mobile-alt
             | &nbsp; SIGN IN WITH CELL
 
-          p.signin-helper-text We'll send an SMS with a code to log in
+          p.signin-helper-text We'll send an SMS with a code to sign in
 
           .signin-or-divider
             span OR
