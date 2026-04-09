@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     del = require('del'),
     rename = require('gulp-rename'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('sass')),
     pug = require('gulp-pug'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -34,12 +34,11 @@ var path = {
 gulp.task('sass:bootstrap', () => {
   const options = {
     outputStyle: 'compressed',
-    precision: 10 // rounding of css color values, etc..
   };
   return gulp.src(path.src_bootstrap_vendor + '/bootstrap.scss')
     .pipe(sass(options).on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions', 'ie 10', 'ie 11'],
+      overrideBrowserslist: ['last 2 versions'],
       cascade: false
     }))
     .pipe(rename({ suffix: '.min'}))
@@ -50,12 +49,11 @@ gulp.task('sass:bootstrap', () => {
 gulp.task('sass:expanded', () => {
   const options = {
     outputStyle: 'expanded',
-    precision: 10 // rounding of css color values, etc..
   };
   return gulp.src(path.src_scss + '/styles.scss')
     .pipe(sass(options).on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions', 'ie 10', 'ie 11'],
+      overrideBrowserslist: ['last 2 versions'],
       cascade: false
     }))
     .pipe(gulp.dest(path.dist_css))
@@ -66,13 +64,12 @@ gulp.task('sass:expanded', () => {
 gulp.task('sass:minified', () => {
   const options = {
     outputStyle: 'compressed',
-    precision: 10 // rounding of css color values, etc..
   };
   return gulp.src(path.src_scss + '/styles.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(options).on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions', 'ie 10', 'ie 11'],
+      overrideBrowserslist: ['last 2 versions'],
       cascade: false
     }))
     .pipe(rename({ suffix: '.min'}))
