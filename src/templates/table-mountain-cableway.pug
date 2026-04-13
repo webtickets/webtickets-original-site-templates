@@ -1,0 +1,109 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var pageTitle = 'Table Mountain Cableway'
+  - var breadcrumbs = [{'title': 'Home', 'link': 'index.html'}, {'title': 'This Event', 'link': '#'}, {'title': 'Select Category'}]
+
+//- Page Content
+block content
+  //- Hardcoded ticket data for Table Mountain Cableway (inside block because
+  //- extending templates disallow top-level statements)
+  -
+    var categories = [
+      { id: 'local-is-lekker',   title: 'Local is Lekker',    description: 'Discounts for verified South African citizens and residents.' },
+      { id: 'daily-tickets',     title: 'Daily Tickets',      description: 'Same-day tickets for non-SA-residents.' },
+      { id: 'fast-track',        title: 'Fast Track',         description: 'Jump to the front of the queue.' },
+      { id: 'private-cable-car', title: 'Private Cable Car',  description: 'Book a totally private experience.' }
+    ];
+    var typesByCategory = {
+      'local-is-lekker': [
+        { id: 'return',       title: 'Return',       description: 'Up and down cable car trips on the same day.', recommended: true },
+        { id: 'one-way-up',   title: 'One Way Up',   description: 'One-way ticket, going up the mountain.' },
+        { id: 'one-way-down', title: 'One Way Down', description: 'One-way ticket, going down the mountain.' }
+      ],
+      'daily-tickets': [
+        { id: 'return',       title: 'Return',       description: 'Up and down cable car trips on the same day.', recommended: true },
+        { id: 'one-way-up',   title: 'One Way Up',   description: 'One-way ticket, going up the mountain.' },
+        { id: 'one-way-down', title: 'One Way Down', description: 'One-way ticket, going down the mountain.' }
+      ],
+      'fast-track': [
+        { id: 'return',       title: 'Return',       description: 'Skip the queue both ways, up and down the mountain.', recommended: true },
+        { id: 'one-way-up',   title: 'One Way Up',   description: 'Skip the queue going up the mountain.' },
+        { id: 'one-way-down', title: 'One Way Down', description: 'Skip the queue going down the mountain.' }
+      ],
+      'private-cable-car': [
+        { id: 'sunset',  title: 'Sunset Experience',  description: 'Your own private cable car booked for a sunset trip.', recommended: true },
+        { id: 'sunrise', title: 'Sunrise Experience', description: 'Your own private cable car booked for a sunrise trip.' },
+        { id: 'custom',  title: 'Custom Time',        description: 'Your own private cable car at a time of your choosing.' }
+      ]
+    };
+  .container.padding-top-2x.padding-bottom-3x
+    .ticket-flow
+      //- Step 1: Ticket Options (always visible)
+      .ticket-flow__step.is-active(data-section='1')
+        h3.ticket-flow__heading 1. Ticket Options
+        .row
+          each category in categories
+            .col-lg-3.col-sm-6.mb-4
+              .ticket-option-card(data-category=category.id)
+                h4.ticket-option-card__title= category.title
+                p.ticket-option-card__description= category.description
+                .btn-select
+                  a(href='#').btn.btn-outline-primary= category.title
+
+      //- Step 2: Ticket Types (hidden by default)
+      .ticket-flow__step(data-section='2')
+        .ticket-flow__connector.hidden-sm-down
+          .ticket-flow__connector-line
+          .ticket-flow__connector-puck: i.fas.fa-arrow-down
+          .ticket-flow__connector-line
+        h3.ticket-flow__heading
+          | 2.&nbsp;
+          span(data-heading-slot='category')
+          |  Ticket Types
+        p.ticket-flow__description Choose how you'd like to travel. We've pre-selected the option most customers go with &mdash; feel free to change it if you need something different.
+        each category in categories
+          .ticket-flow__types-group(data-category=category.id)
+            .row
+              each type in typesByCategory[category.id]
+                .col-md-4.col-sm-6.mb-4
+                  .ticket-option-card(data-type=type.id class=(type.recommended ? 'ticket-option-card--recommended' : ''))
+                    if type.recommended
+                      span.badge.badge-info.ticket-option-card__badge
+                        i.fas.fa-star
+                        |  RECOMMENDED
+                    h4.ticket-option-card__title= type.title
+                    p.ticket-option-card__description= type.description
+                    .btn-select
+                      a(href='#').btn.btn-outline-primary= type.title
+
+      //- Step 3: Quantity (hidden by default)
+      .ticket-flow__step(data-section='3')
+        .ticket-flow__connector.hidden-sm-down
+          .ticket-flow__connector-line
+          .ticket-flow__connector-puck: i.fas.fa-arrow-down
+          .ticket-flow__connector-line
+        h3.ticket-flow__heading
+          | 3.&nbsp;#[span(data-heading-slot='category')] #[span(data-heading-slot='type')] Quantity
+        p.ticket-flow__description How many would you like? You can also change this in your cart later.
+        .ticket-flow__quantity
+          .count-input
+            a(href='#' data-action='decrease').incr-btn –
+            input(type='text' value='1').quantity
+            a(href='#' data-action='increase').incr-btn +
+        .btn-select.ticket-flow__continue
+          a(href='#' data-action='continue').btn.btn-outline-primary Continue
+
+      //- Step 4: Add to Cart (hidden by default)
+      .ticket-flow__step(data-section='4')
+        .ticket-flow__connector.hidden-sm-down
+          .ticket-flow__connector-line
+          .ticket-flow__connector-puck: i.fas.fa-arrow-down
+          .ticket-flow__connector-line
+        h3.ticket-flow__heading
+          | 4.&nbsp;#[span(data-heading-slot='category')] #[span(data-heading-slot='type')] Add to Cart
+        p.ticket-flow__description Fantastic! Ready to add to cart to complete your purchase. Note that after you do that you can change quantity or add more types of tickets from other providers including Table Mountain Cableway.
+        a(href='cart.html').btn.btn-outline-primary.ticket-flow__add-to-cart
+          i.fas.fa-shopping-cart
+          | &nbsp;&nbsp;Add to Cart
