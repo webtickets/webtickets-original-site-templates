@@ -804,6 +804,166 @@ jQuery(document).ready(function($) {
 		});
 	}
 
+
+	// Table Mountain Ticket Flow
+	//------------------------------------------------------------------------------
+	// Wrapped in an IIFE so function declarations below are at the top level
+	// of a function body (required by strict mode — declarations inside an
+	// `if` block would fail uglify).
+	(function() {
+		var $flow = $('.ticket-flow');
+		if (!$flow.length) { return; }
+
+		var state = {
+			category:      null,
+			categoryLabel: null,
+			type:          null,
+			typeLabel:     null,
+			quantity:      1
+		};
+
+		var $sections = {
+			1: $flow.find('[data-section="1"]'),
+			2: $flow.find('[data-section="2"]'),
+			3: $flow.find('[data-section="3"]'),
+			4: $flow.find('[data-section="4"]')
+		};
+
+		function updateHeadings() {
+			$flow.find('[data-heading-slot="category"]').text(state.categoryLabel || '');
+			$flow.find('[data-heading-slot="type"]').text(state.typeLabel || '');
+		}
+
+		function resetFrom(n) {
+			// Clear state values for steps at and after n
+			if (n <= 2) {
+				state.type = null;
+				state.typeLabel = null;
+			}
+			if (n <= 3) {
+				state.quantity = 1;
+			}
+
+			// Clear visual selection state on cards in sections >= n
+			for (var i = n; i <= 4; i++) {
+				$sections[i].find('.ticket-option-card').removeClass('ticket-option-card--selected');
+				$sections[i].find('.btn-select .btn').removeClass('selected');
+			}
+
+			// Deactivate all types groups when resetting step 2
+			if (n <= 2) {
+				$flow.find('.ticket-flow__types-group').removeClass('is-active');
+			}
+
+			// Reset quantity input and Continue button label
+			$flow.find('.ticket-flow__quantity .quantity').val(1);
+			$flow.find('[data-action="continue"]').text('Continue');
+
+			// Slide up and deactivate sections at and after n
+			for (var j = n; j <= 4; j++) {
+				(function($sec) {
+					$sec.stop(true, true).slideUp(200, function() {
+						$sec.removeClass('is-active');
+					});
+				})($sections[j]);
+			}
+
+			updateHeadings();
+		}
+
+		function revealSection(n, shouldScroll) {
+			if (shouldScroll !== false) { shouldScroll = true; }
+			var $sec = $sections[n];
+			$sec.addClass('is-active');
+			$sec.stop(true, true).slideDown(400, function() {
+				if (shouldScroll) {
+					$('html').velocity('scroll', {
+						offset: $sec.offset().top - 80,
+						duration: 700,
+						easing: 'easeOutExpo',
+						mobileHA: false
+					});
+				}
+			});
+		}
+
+		function selectCategory($card) {
+			var id    = $card.data('category');
+			var label = $card.find('.ticket-option-card__title').text().trim();
+
+			resetFrom(2);
+			state.category      = id;
+			state.categoryLabel = label;
+
+			// Mark this category card selected, clear siblings
+			$sections[1].find('.ticket-option-card')
+				.removeClass('ticket-option-card--selected');
+			$sections[1].find('.btn-select .btn').removeClass('selected');
+			$card
+				.addClass('ticket-option-card--selected')
+				.find('.btn-select .btn').addClass('selected');
+
+			// Activate only the matching types group
+			$flow.find('.ticket-flow__types-group').removeClass('is-active');
+			$flow.find('.ticket-flow__types-group[data-category="' + id + '"]').addClass('is-active');
+
+			updateHeadings();
+			revealSection(2);
+
+			// Pre-select the recommended type (visually + reveal step 3 without scrolling past step 2)
+			var $recommended = $flow.find('.ticket-flow__types-group.is-active .ticket-option-card--recommended').first();
+			if ($recommended.length) {
+				selectType($recommended, false);
+			}
+		}
+
+		function selectType($card, shouldScroll) {
+			var id    = $card.data('type');
+			var label = $card.find('.ticket-option-card__title').text().trim();
+
+			resetFrom(3);
+			state.type      = id;
+			state.typeLabel = label;
+
+			// Mark this type card selected within its group
+			var $group = $card.closest('.ticket-flow__types-group');
+			$group.find('.ticket-option-card').removeClass('ticket-option-card--selected');
+			$group.find('.btn-select .btn').removeClass('selected');
+			$card
+				.addClass('ticket-option-card--selected')
+				.find('.btn-select .btn').addClass('selected');
+
+			updateHeadings();
+			revealSection(3, shouldScroll);
+		}
+
+		function lockQuantity() {
+			state.quantity = parseInt($flow.find('.ticket-flow__quantity .quantity').val(), 10) || 1;
+			$sections[3].find('[data-action="continue"]')
+				.addClass('selected')
+				.text('Continue (' + state.quantity + ')');
+			revealSection(4);
+		}
+
+		// Event delegation on the root so hide/show never loses bindings
+		$flow.on('click', '[data-section="1"] .ticket-option-card', function(e) {
+			e.preventDefault();
+			selectCategory($(this));
+		});
+
+		$flow.on('click', '.ticket-flow__types-group .ticket-option-card', function(e) {
+			e.preventDefault();
+			selectType($(this));
+		});
+
+		$flow.on('click', '[data-action="continue"]', function(e) {
+			e.preventDefault();
+			lockQuantity();
+		});
+
+		// Note: the existing .incr-btn handler (lines 212-229) already handles +/-
+	})();
+
 });/*Document Ready End*/
 
 // File Upload Options (Dropzone)

@@ -297,7 +297,10 @@ button:focus { outline: none; }
     border-radius: 50%;
     background-color: $white;
     color: $primary !important;
-    font-family: 'FontAwesome';
+    // Font Awesome 5 Free (solid) — FA4 'FontAwesome' isn't loaded by this
+    // theme, so the old font-family rendered an invisible PUA char.
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     line-height: 24px;
     text-align: center;
     content: '\f00c';
@@ -308,7 +311,10 @@ button:focus { outline: none; }
     &::after { opacity: 1; }
   }
   &.selected {
-    @extend .btn-outline-primary:hover;
+    // Dart Sass 2 disallows extending compound selectors, so inline the
+    // .btn-outline-primary:hover declarations (see mixins.scss:62-64).
+    background-color: $primary;
+    color: $white !important;
   }
 }
 

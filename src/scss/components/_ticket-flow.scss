@@ -1,0 +1,193 @@
+//
+// Ticket Flow (Table Mountain Cableway)
+// --------------------------------------------------
+// Progressive-reveal ticket configurator. See
+// src/templates/table-mountain-cableway.pug for the markup and the
+// "Table Mountain Ticket Flow" block in src/js/scripts.js for behavior.
+// Intentionally reuses .btn-select (_buttons.scss:285), .badge-info,
+// .count-input (_forms.scss:80) and .hidden-sm-down (_utilities.scss:259).
+
+.ticket-flow {
+  max-width: 1080px;
+  margin: 0 auto;
+
+  // Step wrapper — groups one section with its leading connector so
+  // hide/show operates atomically on the whole block. Step 1 is always
+  // visible (.is-active applied in pug); later steps are revealed by JS.
+  &__step {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &__heading {
+    color: $gray-dark;
+    font-weight: 400;
+    font-size: floor($font-size-base * 1.375); // ~22px
+    margin: 24px 0 8px;
+  }
+
+  &__description {
+    color: $gray;
+    font-size: $font-size-base;
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  // Connector between sections on desktop — decorative only, hidden on
+  // mobile via the existing .hidden-sm-down utility class in pug.
+  &__connector {
+    display: flex;
+    align-items: center;
+    margin: 40px 0 24px;
+
+    &-line {
+      flex: 1 1 auto;
+      height: 2px;
+      background-color: $primary;
+    }
+
+    &-puck {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      margin: 0 16px;
+      border-radius: 50%;
+      background-color: $primary;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+
+  // Ticket type groups — four are rendered in step 2, one per category,
+  // all hidden by default. JS adds .is-active to the matching one on
+  // category selection.
+  &__types-group {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  // Quantity stepper — reuses .count-input DOM contract so the existing
+  // .incr-btn handler in scripts.js:212 keeps working. Just restyled here.
+  &__quantity {
+    margin-bottom: 16px;
+
+    .count-input {
+      width: auto;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .count-input .incr-btn {
+      position: static;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin: 0;
+      font-size: 22px;
+      line-height: 1;
+
+      &:first-child {
+        right: auto;
+        left: auto;
+      }
+    }
+
+    .count-input input {
+      width: 72px;
+      height: auto;
+      margin: 0 12px;
+      font-size: 36px;
+      font-weight: 500;
+    }
+  }
+
+  &__continue {
+    margin-top: 16px;
+  }
+
+  &__add-to-cart {
+    i {
+      position: relative;
+      top: -1px;
+    }
+  }
+}
+
+// Selectable card — used at step 1 (categories) and step 2 (types).
+// CTA button inside is wrapped in .btn-select so it gets the existing
+// animated-checkmark .selected state from _buttons.scss for free.
+.ticket-option-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px 24px;
+  border: 2px solid $border-color;
+  border-radius: $border-radius-lg;
+  background-color: $white;
+  cursor: pointer;
+  transition: border-color .2s, background-color .2s, box-shadow .2s;
+
+  &:hover {
+    border-color: lighten($primary, 15%);
+    box-shadow: 0 4px 18px rgba($gray-darker, .06);
+  }
+
+  &--selected {
+    border-color: $primary;
+    background-color: rgba($primary, .08);
+
+    &:hover {
+      border-color: $primary;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: $headings-color;
+    font-size: $font-size-h5;
+  }
+
+  &__description {
+    flex: 1 1 auto;
+    margin-bottom: 24px;
+    color: $gray;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    padding: 6px 14px;
+    font-size: $font-size-xs;
+    letter-spacing: .05em;
+
+    i {
+      font-size: 11px;
+      margin-right: 2px;
+    }
+  }
+
+  // Center the CTA inside the card so it sits flush at the bottom
+  // regardless of how long the description wraps.
+  .btn-select {
+    margin-top: auto;
+    text-align: center;
+  }
+}
