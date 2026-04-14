@@ -304,6 +304,30 @@ block content
       background: #7fbd52;
       color: #fff;
     }
+    /* Filled variant — used for primary commit actions inside a form
+       (SEND SIGN IN LINK / SEND OTP CODE / SIGN IN). */
+    .signin-btn-login--filled {
+      background: #7fbd52;
+      color: #fff;
+      transition: background-color 0.15s, transform 0.05s;
+    }
+    .signin-btn-login--filled:hover {
+      background: #6ba843;
+      color: #fff;
+    }
+    .signin-btn-login--filled:active {
+      background: #5a9338;
+      color: #fff;
+      transform: scale(0.98);
+    }
+    .signin-btn-login--filled:disabled,
+    .signin-btn-login--filled:disabled:hover {
+      background: #7fbd52;
+      color: #fff;
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
 
     /* Back button + submit row (shown after an option is chosen) */
     .signin-form-actions {
@@ -510,7 +534,7 @@ block content
               .signin-form-actions
                 button.signin-btn-back(type='button' onclick='showAllSignInOptions()' aria-label='Back')
                   i.fas.fa-arrow-left
-                button.btn.signin-btn-login(type='submit')
+                button.btn.signin-btn-login.signin-btn-login--filled(type='submit')
                   i.fas.fa-paper-plane
                   | &nbsp; SEND SIGN IN LINK TO MY EMAIL
 
@@ -546,7 +570,7 @@ block content
               .signin-form-actions
                 button.signin-btn-back(type='button' onclick='showAllSignInOptions()' aria-label='Back')
                   i.fas.fa-arrow-left
-                button.btn.signin-btn-login(type='submit')
+                button.btn.signin-btn-login.signin-btn-login--filled(type='submit')
                   i.fas.fa-mobile-alt
                   | &nbsp; SEND OTP CODE TO MY CELL
 
@@ -595,7 +619,7 @@ block content
             .signin-form-actions
               button.signin-btn-back(type='button' onclick='showAllSignInOptions()' aria-label='Back')
                 i.fas.fa-arrow-left
-              button.btn.signin-btn-login(type='submit')
+              button.btn.signin-btn-login.signin-btn-login--filled(type='submit')
                 i.fas.fa-envelope
                 | &nbsp; SIGN IN
 
