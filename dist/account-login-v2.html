@@ -779,15 +779,30 @@
                     <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
                     <path fill="none" d="M0 0h48v48H0z"></path>
                   </svg>
-                </div><span class="gsi-material-button-contents">Sign in with Google</span><span style="display: none;">Sign in with Google</span>
+                </div><span class="gsi-material-button-contents">Continue with Google</span><span style="display: none;">Continue with Google</span>
               </div>
             </button>
             <!-- button.signin-facebook-btn(type='button')-->
             <!--   i.fab.fa-facebook-f-->
             <!--   span Sign in with Facebook-->
             <div class="signin-or-divider"><span>OR</span></div>
-            <button class="btn signin-btn-phone" type="button"><i class="fas fa-mobile-alt"></i>&nbsp; SIGN IN WITH CELL</button>
-            <p class="signin-helper-text">We'll send an SMS with a code to sign in</p>
+            <button class="btn signin-btn-phone" id="signin-cell-toggle" type="button" onclick="toggleCellForm()"><i class="fas fa-mobile-alt"></i>&nbsp; CONTINUE WITH CELL</button>
+            <p class="signin-helper-text" id="signin-cell-helper">We'll send an SMS with a code to sign in</p>
+            <form id="signin-cell-form" method="post" style="display:none;">
+              <div class="signin-input-group"><i class="fas fa-mobile-alt signin-input-icon"></i>
+                <input class="signin-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Cell phone number" required>
+              </div>
+              <button class="btn signin-btn-login" type="submit"><i class="fas fa-sms"></i>&nbsp; SEND CODE</button>
+            </form>
+            <div class="signin-or-divider"><span>OR</span></div>
+            <button class="btn signin-btn-login" id="signin-magic-toggle" type="button" onclick="toggleMagicForm()"><i class="fas fa-magic"></i>&nbsp; CONTINUE WITH EMAIL</button>
+            <p class="signin-helper-text" id="signin-magic-helper">We'll email you a link to sign in</p>
+            <form id="signin-magic-form" method="post" style="display:none;">
+              <div class="signin-input-group"><i class="fas fa-envelope signin-input-icon"></i>
+                <input class="signin-input" type="email" autocomplete="email" placeholder="Email" required>
+              </div>
+              <button class="btn signin-btn-login" type="submit"><i class="fas fa-paper-plane"></i>&nbsp; SEND EMAIL SIGN-IN LINK TO MY EMAIL</button>
+            </form>
             <div class="signin-or-divider"><span>OR</span></div>
             <button class="btn signin-btn-login" id="signin-email-toggle" type="button" onclick="toggleEmailForm()"><i class="fas fa-envelope"></i>&nbsp; SIGN IN WITH EMAIL & PASSWORD</button>
             <form id="signin-email-form" method="post" style="display:none;">
@@ -817,6 +832,26 @@
         var btn = document.getElementById('signin-email-toggle');
         form.style.display = 'block';
         btn.style.display = 'none';
+        form.querySelector('.signin-input').focus();
+      }
+      
+      function toggleCellForm() {
+        var form = document.getElementById('signin-cell-form');
+        var btn = document.getElementById('signin-cell-toggle');
+        var helper = document.getElementById('signin-cell-helper');
+        form.style.display = 'block';
+        btn.style.display = 'none';
+        helper.style.display = 'none';
+        form.querySelector('.signin-input').focus();
+      }
+      
+      function toggleMagicForm() {
+        var form = document.getElementById('signin-magic-form');
+        var btn = document.getElementById('signin-magic-toggle');
+        var helper = document.getElementById('signin-magic-helper');
+        form.style.display = 'block';
+        btn.style.display = 'none';
+        helper.style.display = 'none';
         form.querySelector('.signin-input').focus();
       }
       
