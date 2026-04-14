@@ -157,12 +157,18 @@ block content
       padding: 35px 30px;
     }
 
-    /* Helper text */
+    /* Helper text — tight to the button above, clear gap below so it
+       visually groups with its own button rather than the next one. */
     .signin-helper-text {
       text-align: center;
       color: #666;
       font-size: 14px;
-      margin: 6px 0 0 0;
+      margin: 1px 0 18px 0;
+    }
+    /* When an OR divider follows a helper (via the hidden form sibling),
+       trim its top margin so the gap doesn't double-up. */
+    .signin-helper-text + form + .signin-or-divider {
+      margin-top: 1px;
     }
 
     /* OR divider */
@@ -299,17 +305,35 @@ block content
       color: #fff;
     }
 
-    /* Register link below card */
-    .signin-register-link {
-      color: #555;
-      font-size: 17px;
+    /* Back button + submit row (shown after an option is chosen) */
+    .signin-form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .signin-register-link a {
+    .signin-form-actions .signin-btn-login {
+      flex: 1 1 auto;
+      width: auto;
+    }
+    .signin-btn-back {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #7fbd52;
+      background: transparent;
       color: #7fbd52;
-      text-decoration: underline;
+      font-size: 16px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
     }
-    .signin-register-link a:hover {
-      color: #6aa842;
+    .signin-btn-back:hover {
+      background: #7fbd52;
+      color: #fff;
     }
 
     /* Responsive */
@@ -347,8 +371,28 @@ block content
           .signin-or-divider
             span OR
 
+          //- Continue with Email (magic link)
+          button.btn.signin-btn-login#signin-magic-toggle(type='button' onclick='showSignInForm("magic")')
+            i.fas.fa-paper-plane
+            | &nbsp; CONTINUE WITH EMAIL
+
+          p.signin-helper-text#signin-magic-helper We'll email a magic link to sign you in instantly
+
+          //- Magic link form (hidden by default)
+          form#signin-magic-form(method='post' style='display:none;')
+            .signin-input-group
+              i.fas.fa-envelope.signin-input-icon
+              input.signin-input(type='email' autocomplete='email' placeholder='Email' required)
+
+            .signin-form-actions
+              button.signin-btn-back(type='button' onclick='showAllSignInOptions()' aria-label='Back')
+                i.fas.fa-arrow-left
+              button.btn.signin-btn-login(type='submit')
+                i.fas.fa-paper-plane
+                | &nbsp; SEND SIGN IN LINK TO MY EMAIL
+
           //- Continue with Phone
-          button.btn.signin-btn-phone#signin-cell-toggle(type='button' onclick='toggleCellForm()')
+          button.btn.signin-btn-phone#signin-cell-toggle(type='button' onclick='showSignInForm("cell")')
             i.fas.fa-mobile-alt
             | &nbsp; CONTINUE WITH CELL
 
@@ -360,35 +404,18 @@ block content
               i.fas.fa-mobile-alt.signin-input-icon
               input.signin-input(type='tel' inputmode='tel' autocomplete='tel' placeholder='Cell phone number' required)
 
-            button.btn.signin-btn-login(type='submit')
-              i.fas.fa-sms
-              | &nbsp; SEND CODE
-
-          .signin-or-divider
-            span OR
-
-          //- Continue with Magic Link
-          button.btn.signin-btn-login#signin-magic-toggle(type='button' onclick='toggleMagicForm()')
-            i.fas.fa-magic
-            | &nbsp; CONTINUE WITH EMAIL
-
-          p.signin-helper-text#signin-magic-helper We'll email you a link to sign in
-
-          //- Magic link form (hidden by default)
-          form#signin-magic-form(method='post' style='display:none;')
-            .signin-input-group
-              i.fas.fa-envelope.signin-input-icon
-              input.signin-input(type='email' autocomplete='email' placeholder='Email' required)
-
-            button.btn.signin-btn-login(type='submit')
-              i.fas.fa-paper-plane
-              | &nbsp; SEND EMAIL SIGN-IN LINK TO MY EMAIL
+            .signin-form-actions
+              button.signin-btn-back(type='button' onclick='showAllSignInOptions()' aria-label='Back')
+                i.fas.fa-arrow-left
+              button.btn.signin-btn-login(type='submit')
+                i.fas.fa-mobile-alt
+                | &nbsp; SEND OTP CODE TO MY CELL
 
           .signin-or-divider
             span OR
 
           //- Email / Password toggle button
-          button.btn.signin-btn-login#signin-email-toggle(type='button' onclick='toggleEmailForm()')
+          button.btn.signin-btn-login#signin-email-toggle(type='button' onclick='showSignInForm("email")')
             i.fas.fa-envelope
             | &nbsp; SIGN IN WITH EMAIL & PASSWORD
 
@@ -411,41 +438,52 @@ block content
               span.signin-forgot-text Forgot password?&nbsp;
                 a.signin-forgot-link(href='account-password-recovery.html') Click here.
 
-            button.btn.signin-btn-login(type='submit')
-              i.fas.fa-sign-in-alt
-              | &nbsp; SIGN IN
+            .signin-form-actions
+              button.signin-btn-back(type='button' onclick='showAllSignInOptions()' aria-label='Back')
+                i.fas.fa-arrow-left
+              button.btn.signin-btn-login(type='submit')
+                i.fas.fa-envelope
+                | &nbsp; SIGN IN
 
-        p.text-center.mt-4.signin-register-link Don't have an account?&nbsp;
-          a(href='account-register.html') Register now
 
   //- Password toggle script
   script.
-    function toggleEmailForm() {
-      var form = document.getElementById('signin-email-form');
-      var btn = document.getElementById('signin-email-toggle');
-      form.style.display = 'block';
-      btn.style.display = 'none';
-      form.querySelector('.signin-input').focus();
+    var SIGNIN_OPTION_NAMES = ['magic', 'cell', 'email'];
+
+    function setSignInOptionsVisible(visible) {
+      var display = visible ? '' : 'none';
+      var google = document.querySelector('.signin-google-btn');
+      if (google) google.style.display = display;
+      document.querySelectorAll('.signin-card .signin-or-divider').forEach(function (divider) {
+        divider.style.display = display;
+      });
+      SIGNIN_OPTION_NAMES.forEach(function (name) {
+        var btn = document.getElementById('signin-' + name + '-toggle');
+        if (btn) btn.style.display = display;
+        var helper = document.getElementById('signin-' + name + '-helper');
+        if (helper) helper.style.display = display;
+      });
     }
 
-    function toggleCellForm() {
-      var form = document.getElementById('signin-cell-form');
-      var btn = document.getElementById('signin-cell-toggle');
-      var helper = document.getElementById('signin-cell-helper');
-      form.style.display = 'block';
-      btn.style.display = 'none';
-      helper.style.display = 'none';
-      form.querySelector('.signin-input').focus();
+    function showSignInForm(name) {
+      setSignInOptionsVisible(false);
+      SIGNIN_OPTION_NAMES.forEach(function (other) {
+        var form = document.getElementById('signin-' + other + '-form');
+        if (form) form.style.display = (other === name) ? 'block' : 'none';
+      });
+      var activeForm = document.getElementById('signin-' + name + '-form');
+      if (activeForm) {
+        var firstInput = activeForm.querySelector('.signin-input');
+        if (firstInput) firstInput.focus();
+      }
     }
 
-    function toggleMagicForm() {
-      var form = document.getElementById('signin-magic-form');
-      var btn = document.getElementById('signin-magic-toggle');
-      var helper = document.getElementById('signin-magic-helper');
-      form.style.display = 'block';
-      btn.style.display = 'none';
-      helper.style.display = 'none';
-      form.querySelector('.signin-input').focus();
+    function showAllSignInOptions() {
+      SIGNIN_OPTION_NAMES.forEach(function (name) {
+        var form = document.getElementById('signin-' + name + '-form');
+        if (form) form.style.display = 'none';
+      });
+      setSignInOptionsVisible(true);
     }
 
     function togglePassword() {

@@ -601,12 +601,18 @@
         padding: 35px 30px;
       }
       
-      /* Helper text */
+      /* Helper text — tight to the button above, clear gap below so it
+         visually groups with its own button rather than the next one. */
       .signin-helper-text {
         text-align: center;
         color: #666;
         font-size: 14px;
-        margin: 6px 0 0 0;
+        margin: 1px 0 18px 0;
+      }
+      /* When an OR divider follows a helper (via the hidden form sibling),
+         trim its top margin so the gap doesn't double-up. */
+      .signin-helper-text + form + .signin-or-divider {
+        margin-top: 1px;
       }
       
       /* OR divider */
@@ -743,17 +749,35 @@
         color: #fff;
       }
       
-      /* Register link below card */
-      .signin-register-link {
-        color: #555;
-        font-size: 17px;
+      /* Back button + submit row (shown after an option is chosen) */
+      .signin-form-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-      .signin-register-link a {
+      .signin-form-actions .signin-btn-login {
+        flex: 1 1 auto;
+        width: auto;
+      }
+      .signin-btn-back {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2px solid #7fbd52;
+        background: transparent;
         color: #7fbd52;
-        text-decoration: underline;
+        font-size: 16px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
       }
-      .signin-register-link a:hover {
-        color: #6aa842;
+      .signin-btn-back:hover {
+        background: #7fbd52;
+        color: #fff;
       }
       
       /* Responsive */
@@ -786,25 +810,30 @@
             <!--   i.fab.fa-facebook-f-->
             <!--   span Sign in with Facebook-->
             <div class="signin-or-divider"><span>OR</span></div>
-            <button class="btn signin-btn-phone" id="signin-cell-toggle" type="button" onclick="toggleCellForm()"><i class="fas fa-mobile-alt"></i>&nbsp; CONTINUE WITH CELL</button>
+            <button class="btn signin-btn-login" id="signin-magic-toggle" type="button" onclick="showSignInForm(&quot;magic&quot;)"><i class="fas fa-paper-plane"></i>&nbsp; CONTINUE WITH EMAIL</button>
+            <p class="signin-helper-text" id="signin-magic-helper">We'll email a magic link to sign you in instantly</p>
+            <form id="signin-magic-form" method="post" style="display:none;">
+              <div class="signin-input-group"><i class="fas fa-envelope signin-input-icon"></i>
+                <input class="signin-input" type="email" autocomplete="email" placeholder="Email" required>
+              </div>
+              <div class="signin-form-actions">
+                <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
+                <button class="btn signin-btn-login" type="submit"><i class="fas fa-paper-plane"></i>&nbsp; SEND SIGN IN LINK TO MY EMAIL</button>
+              </div>
+            </form>
+            <button class="btn signin-btn-phone" id="signin-cell-toggle" type="button" onclick="showSignInForm(&quot;cell&quot;)"><i class="fas fa-mobile-alt"></i>&nbsp; CONTINUE WITH CELL</button>
             <p class="signin-helper-text" id="signin-cell-helper">We'll send an SMS with a code to sign in</p>
             <form id="signin-cell-form" method="post" style="display:none;">
               <div class="signin-input-group"><i class="fas fa-mobile-alt signin-input-icon"></i>
                 <input class="signin-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Cell phone number" required>
               </div>
-              <button class="btn signin-btn-login" type="submit"><i class="fas fa-sms"></i>&nbsp; SEND CODE</button>
-            </form>
-            <div class="signin-or-divider"><span>OR</span></div>
-            <button class="btn signin-btn-login" id="signin-magic-toggle" type="button" onclick="toggleMagicForm()"><i class="fas fa-magic"></i>&nbsp; CONTINUE WITH EMAIL</button>
-            <p class="signin-helper-text" id="signin-magic-helper">We'll email you a link to sign in</p>
-            <form id="signin-magic-form" method="post" style="display:none;">
-              <div class="signin-input-group"><i class="fas fa-envelope signin-input-icon"></i>
-                <input class="signin-input" type="email" autocomplete="email" placeholder="Email" required>
+              <div class="signin-form-actions">
+                <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
+                <button class="btn signin-btn-login" type="submit"><i class="fas fa-mobile-alt"></i>&nbsp; SEND OTP CODE TO MY CELL</button>
               </div>
-              <button class="btn signin-btn-login" type="submit"><i class="fas fa-paper-plane"></i>&nbsp; SEND EMAIL SIGN-IN LINK TO MY EMAIL</button>
             </form>
             <div class="signin-or-divider"><span>OR</span></div>
-            <button class="btn signin-btn-login" id="signin-email-toggle" type="button" onclick="toggleEmailForm()"><i class="fas fa-envelope"></i>&nbsp; SIGN IN WITH EMAIL & PASSWORD</button>
+            <button class="btn signin-btn-login" id="signin-email-toggle" type="button" onclick="showSignInForm(&quot;email&quot;)"><i class="fas fa-envelope"></i>&nbsp; SIGN IN WITH EMAIL & PASSWORD</button>
             <form id="signin-email-form" method="post" style="display:none;">
               <div class="signin-input-group"><i class="fas fa-envelope signin-input-icon"></i>
                 <input class="signin-input" type="email" placeholder="Email" required>
@@ -819,40 +848,52 @@
                   <label class="custom-control-label" for="remember_me">Remember me</label>
                 </div><span class="signin-forgot-text">Forgot password?&nbsp;<a class="signin-forgot-link" href="account-password-recovery.html">Click here.</a></span>
               </div>
-              <button class="btn signin-btn-login" type="submit"><i class="fas fa-sign-in-alt"></i>&nbsp; SIGN IN</button>
+              <div class="signin-form-actions">
+                <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
+                <button class="btn signin-btn-login" type="submit"><i class="fas fa-envelope"></i>&nbsp; SIGN IN</button>
+              </div>
             </form>
           </div>
-          <p class="text-center mt-4 signin-register-link">Don't have an account?&nbsp;<a href="account-register.html">Register now</a></p>
         </div>
       </div>
     </div>
     <script>
-      function toggleEmailForm() {
-        var form = document.getElementById('signin-email-form');
-        var btn = document.getElementById('signin-email-toggle');
-        form.style.display = 'block';
-        btn.style.display = 'none';
-        form.querySelector('.signin-input').focus();
+      var SIGNIN_OPTION_NAMES = ['magic', 'cell', 'email'];
+      
+      function setSignInOptionsVisible(visible) {
+        var display = visible ? '' : 'none';
+        var google = document.querySelector('.signin-google-btn');
+        if (google) google.style.display = display;
+        document.querySelectorAll('.signin-card .signin-or-divider').forEach(function (divider) {
+          divider.style.display = display;
+        });
+        SIGNIN_OPTION_NAMES.forEach(function (name) {
+          var btn = document.getElementById('signin-' + name + '-toggle');
+          if (btn) btn.style.display = display;
+          var helper = document.getElementById('signin-' + name + '-helper');
+          if (helper) helper.style.display = display;
+        });
       }
       
-      function toggleCellForm() {
-        var form = document.getElementById('signin-cell-form');
-        var btn = document.getElementById('signin-cell-toggle');
-        var helper = document.getElementById('signin-cell-helper');
-        form.style.display = 'block';
-        btn.style.display = 'none';
-        helper.style.display = 'none';
-        form.querySelector('.signin-input').focus();
+      function showSignInForm(name) {
+        setSignInOptionsVisible(false);
+        SIGNIN_OPTION_NAMES.forEach(function (other) {
+          var form = document.getElementById('signin-' + other + '-form');
+          if (form) form.style.display = (other === name) ? 'block' : 'none';
+        });
+        var activeForm = document.getElementById('signin-' + name + '-form');
+        if (activeForm) {
+          var firstInput = activeForm.querySelector('.signin-input');
+          if (firstInput) firstInput.focus();
+        }
       }
       
-      function toggleMagicForm() {
-        var form = document.getElementById('signin-magic-form');
-        var btn = document.getElementById('signin-magic-toggle');
-        var helper = document.getElementById('signin-magic-helper');
-        form.style.display = 'block';
-        btn.style.display = 'none';
-        helper.style.display = 'none';
-        form.querySelector('.signin-input').focus();
+      function showAllSignInOptions() {
+        SIGNIN_OPTION_NAMES.forEach(function (name) {
+          var form = document.getElementById('signin-' + name + '-form');
+          if (form) form.style.display = 'none';
+        });
+        setSignInOptionsVisible(true);
       }
       
       function togglePassword() {
