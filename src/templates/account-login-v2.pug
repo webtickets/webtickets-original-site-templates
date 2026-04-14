@@ -348,11 +348,21 @@ block content
             span OR
 
           //- Continue with Phone
-          button.btn.signin-btn-phone(type='button')
+          button.btn.signin-btn-phone#signin-cell-toggle(type='button' onclick='toggleCellForm()')
             i.fas.fa-mobile-alt
             | &nbsp; SIGN IN WITH CELL
 
-          p.signin-helper-text We'll send an SMS with a code to sign in
+          p.signin-helper-text#signin-cell-helper We'll send an SMS with a code to sign in
+
+          //- Cell form (hidden by default)
+          form#signin-cell-form(method='post' style='display:none;')
+            .signin-input-group
+              i.fas.fa-mobile-alt.signin-input-icon
+              input.signin-input(type='tel' inputmode='tel' autocomplete='tel' placeholder='Cell phone number' required)
+
+            button.btn.signin-btn-login(type='submit')
+              i.fas.fa-sms
+              | &nbsp; SEND CODE
 
           .signin-or-divider
             span OR
@@ -395,6 +405,16 @@ block content
       var btn = document.getElementById('signin-email-toggle');
       form.style.display = 'block';
       btn.style.display = 'none';
+      form.querySelector('.signin-input').focus();
+    }
+
+    function toggleCellForm() {
+      var form = document.getElementById('signin-cell-form');
+      var btn = document.getElementById('signin-cell-toggle');
+      var helper = document.getElementById('signin-cell-helper');
+      form.style.display = 'block';
+      btn.style.display = 'none';
+      helper.style.display = 'none';
       form.querySelector('.signin-input').focus();
     }
 
