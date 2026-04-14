@@ -184,10 +184,10 @@
     }
   }
 
-  // Center the CTA inside the card so it sits flush at the bottom
-  // regardless of how long the description wraps.
+  // Left-align the CTA at the bottom of the card, regardless of how
+  // long the description wraps.
   .btn-select {
     margin-top: auto;
-    text-align: center;
+    text-align: left;
   }
 }
