@@ -104,6 +104,23 @@ block content
         h3.ticket-flow__heading
           | 4.&nbsp;#[span(data-heading-slot='category')] #[span(data-heading-slot='type')] Add to Cart
         p.ticket-flow__description Fantastic! Ready to add to cart to complete your purchase. Note that after you do that you can change quantity or add more types of tickets from other providers including Table Mountain Cableway.
-        a(href='cart.html').btn.btn-outline-primary.ticket-flow__add-to-cart
+        a(href='#' data-action='add-to-cart').btn.btn-primary.ticket-flow__add-to-cart
           i.fas.fa-shopping-cart
           | &nbsp;&nbsp;Add to Cart
+
+    //- Added-to-cart confirmation modal
+    .modal.fade#addedToCartModal(tabindex='-1' role='dialog' aria-labelledby='addedToCartModalTitle' aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h4.modal-title#addedToCartModalTitle
+              i.fas.fa-check-circle.text-success
+              | &nbsp;&nbsp;Added to Cart
+          .modal-body.text-center
+            p.mb-2 The following has been added to your cart:
+            p.lead.font-weight-bold.mb-0(data-added-item) &nbsp;
+          .modal-footer.justify-content-center
+            button.btn.btn-outline-secondary(type='button' data-dismiss='modal') Add Another
+            a.btn.btn-primary(href='cart.html')
+              i.fas.fa-shopping-cart
+              | &nbsp;&nbsp;View Cart

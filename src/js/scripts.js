@@ -945,6 +945,14 @@ jQuery(document).ready(function($) {
 			revealSection(4);
 		}
 
+		function resetAll() {
+			state.category      = null;
+			state.categoryLabel = null;
+			$sections[1].find('.ticket-option-card').removeClass('ticket-option-card--selected');
+			$sections[1].find('.btn-select .btn').removeClass('selected');
+			resetFrom(2);
+		}
+
 		// Event delegation on the root so hide/show never loses bindings
 		$flow.on('click', '[data-section="1"] .ticket-option-card', function(e) {
 			e.preventDefault();
@@ -959,6 +967,27 @@ jQuery(document).ready(function($) {
 		$flow.on('click', '[data-action="continue"]', function(e) {
 			e.preventDefault();
 			lockQuantity();
+		});
+
+		$flow.on('click', '[data-action="add-to-cart"]', function(e) {
+			e.preventDefault();
+			var label = (state.categoryLabel || '') + ' \u2013 ' + (state.typeLabel || '')
+					+ ' \u00d7 ' + state.quantity;
+			$('#addedToCartModal [data-added-item]').text(label);
+			$('#addedToCartModal').modal('show');
+		});
+
+		// Reset the flow once the confirmation modal is fully dismissed
+		// (via OK, ESC, backdrop, or close button). Bound on document because
+		// the modal lives outside the .ticket-flow container.
+		$(document).on('hidden.bs.modal', '#addedToCartModal', function() {
+			resetAll();
+			$('html').velocity('scroll', {
+				offset:   $sections[1].offset().top - 80,
+				duration: 500,
+				easing:   'easeOutExpo',
+				mobileHA: false
+			});
 		});
 
 		// Note: the existing .incr-btn handler (lines 212-229) already handles +/-
