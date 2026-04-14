@@ -1,3 +1,7 @@
+// Suppress Node.js process-level deprecation warnings (DEP0169, DEP0180, etc.)
+// emitted by gulp/sass internals. Has no effect on Sass compiler output.
+process.removeAllListeners('warning');
+
 var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     del = require('del'),
@@ -30,10 +34,26 @@ var path = {
 
 // Sass compiling
 
+// Silence noisy deprecation warnings from this 2017-era theme & Bootstrap 4.
+// quietDeps hides warnings from imported files (vendor + helpers); silenceDeprecations
+// hides specific deprecation types still emitted from root stylesheets.
+const sassQuiet = {
+  quietDeps: true,
+  silenceDeprecations: [
+    'legacy-js-api',
+    'import',
+    'global-builtin',
+    'slash-div',
+    'color-functions',
+    'if-function',
+  ],
+};
+
 // Bootsrap
 gulp.task('sass:bootstrap', () => {
   const options = {
     outputStyle: 'compressed',
+    ...sassQuiet,
   };
   return gulp.src(path.src_bootstrap_vendor + '/bootstrap.scss')
     .pipe(sass(options).on('error', sass.logError))
@@ -49,6 +69,7 @@ gulp.task('sass:bootstrap', () => {
 gulp.task('sass:expanded', () => {
   const options = {
     outputStyle: 'expanded',
+    ...sassQuiet,
   };
   return gulp.src(path.src_scss + '/styles.scss')
     .pipe(sass(options).on('error', sass.logError))
@@ -64,6 +85,7 @@ gulp.task('sass:expanded', () => {
 gulp.task('sass:minified', () => {
   const options = {
     outputStyle: 'compressed',
+    ...sassQuiet,
   };
   return gulp.src(path.src_scss + '/styles.scss')
     .pipe(sourcemaps.init())
