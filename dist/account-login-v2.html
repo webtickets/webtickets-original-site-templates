@@ -780,6 +780,122 @@
         color: #fff;
       }
       
+      /* Disabled submit state (error flow) */
+      .signin-btn-login:disabled,
+      .signin-btn-phone:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .signin-btn-login:disabled:hover,
+      .signin-btn-phone:disabled:hover {
+        background: transparent;
+        color: #7fbd52;
+      }
+      
+      /* Unknown-account error box shown inside magic/cell forms */
+      .signin-error-box {
+        background: #fdf2f2;
+        border: 1px solid #f5c2c2;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 16px;
+      }
+      .signin-error-message {
+        color: #a0332f;
+        font-size: 14px;
+        line-height: 1.45;
+        margin: 0 0 10px 0;
+      }
+      .signin-error-box .custom-control {
+        min-height: auto;
+      }
+      
+      /* Dev toggle — fixed bottom-right, simulates an unknown account */
+      .signin-dev-toggle {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        background: #fff;
+        border: 1px dashed #aaa;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 12px;
+        color: #555;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      .signin-dev-toggle label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0;
+        cursor: pointer;
+      }
+      .signin-dev-toggle input {
+        margin: 0;
+      }
+      
+      /* Success state (shown after a successful magic/cell submit) */
+      .signin-form-success {
+        text-align: center;
+        padding: 8px 0 4px 0;
+      }
+      .signin-success-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #eaf4df;
+        color: #7fbd52;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        margin: 0 auto 18px auto;
+      }
+      .signin-success-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 10px 0;
+      }
+      .signin-success-text {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.5;
+        margin: 0 auto 22px auto;
+        max-width: 320px;
+      }
+      .signin-success-text strong {
+        color: #333;
+        word-break: break-word;
+      }
+      
+      /* 6-digit OTP input row */
+      .signin-otp-group {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+      .signin-otp-input {
+        width: 44px;
+        height: 54px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+        outline: none;
+        padding: 0;
+        background: #fff;
+        transition: border-color 0.2s;
+      }
+      .signin-otp-input:focus {
+        border-color: #7fbd52;
+      }
+      
       /* Responsive */
       @media (max-width: 575px) {
         .signin-card {
@@ -813,23 +929,64 @@
             <button class="btn signin-btn-login" id="signin-magic-toggle" type="button" onclick="showSignInForm(&quot;magic&quot;)"><i class="fas fa-paper-plane"></i>&nbsp; CONTINUE WITH EMAIL</button>
             <p class="signin-helper-text" id="signin-magic-helper">We'll email a magic link to sign you in instantly</p>
             <form id="signin-magic-form" method="post" style="display:none;">
-              <div class="signin-input-group"><i class="fas fa-envelope signin-input-icon"></i>
-                <input class="signin-input" type="email" autocomplete="email" placeholder="Email" required>
+              <div class="signin-form-entry" id="signin-magic-entry">
+                <div class="signin-input-group"><i class="fas fa-envelope signin-input-icon"></i>
+                  <input class="signin-input" type="email" autocomplete="email" placeholder="Email" required>
+                </div>
+                <div class="signin-error-box" id="signin-magic-error" style="display:none;">
+                  <p class="signin-error-message">We don't recognize this email. Please confirm you're not a robot to continue.</p>
+                  <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="signin-magic-robot">
+                    <label class="custom-control-label" for="signin-magic-robot">I'm not a robot</label>
+                  </div>
+                </div>
+                <div class="signin-form-actions">
+                  <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
+                  <button class="btn signin-btn-login" type="submit"><i class="fas fa-paper-plane"></i>&nbsp; SEND SIGN IN LINK TO MY EMAIL</button>
+                </div>
               </div>
-              <div class="signin-form-actions">
-                <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
-                <button class="btn signin-btn-login" type="submit"><i class="fas fa-paper-plane"></i>&nbsp; SEND SIGN IN LINK TO MY EMAIL</button>
+              <div class="signin-form-success" id="signin-magic-success" style="display:none;">
+                <div class="signin-success-icon"><i class="fas fa-paper-plane"></i></div>
+                <h3 class="signin-success-title">Check your email</h3>
+                <p class="signin-success-text">We sent a sign-in link to <strong id="signin-magic-display-value"></strong>. Click the link in the email to finish signing in.</p>
+                <button class="btn signin-btn-login" type="button" onclick="showAllSignInOptions()"><i class="fas fa-arrow-left"></i>&nbsp; USE A DIFFERENT EMAIL</button>
               </div>
             </form>
             <button class="btn signin-btn-phone" id="signin-cell-toggle" type="button" onclick="showSignInForm(&quot;cell&quot;)"><i class="fas fa-mobile-alt"></i>&nbsp; CONTINUE WITH CELL</button>
             <p class="signin-helper-text" id="signin-cell-helper">We'll send an SMS with a code to sign in</p>
             <form id="signin-cell-form" method="post" style="display:none;">
-              <div class="signin-input-group"><i class="fas fa-mobile-alt signin-input-icon"></i>
-                <input class="signin-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Cell phone number" required>
+              <div class="signin-form-entry" id="signin-cell-entry">
+                <div class="signin-input-group"><i class="fas fa-mobile-alt signin-input-icon"></i>
+                  <input class="signin-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Cell phone number" required>
+                </div>
+                <div class="signin-error-box" id="signin-cell-error" style="display:none;">
+                  <p class="signin-error-message">We don't recognize this cell number. Please confirm you're not a robot to continue.</p>
+                  <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="signin-cell-robot">
+                    <label class="custom-control-label" for="signin-cell-robot">I'm not a robot</label>
+                  </div>
+                </div>
+                <div class="signin-form-actions">
+                  <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
+                  <button class="btn signin-btn-login" type="submit"><i class="fas fa-mobile-alt"></i>&nbsp; SEND OTP CODE TO MY CELL</button>
+                </div>
               </div>
-              <div class="signin-form-actions">
-                <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
-                <button class="btn signin-btn-login" type="submit"><i class="fas fa-mobile-alt"></i>&nbsp; SEND OTP CODE TO MY CELL</button>
+              <div class="signin-form-success" id="signin-cell-success" style="display:none;">
+                <div class="signin-success-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="signin-success-title">Enter the code</h3>
+                <p class="signin-success-text">We sent a 6-digit code to <strong id="signin-cell-display-value"></strong>.</p>
+                <div class="signin-otp-group">
+                  <input class="signin-otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1">
+                  <input class="signin-otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2">
+                  <input class="signin-otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3">
+                  <input class="signin-otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4">
+                  <input class="signin-otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 5">
+                  <input class="signin-otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 6">
+                </div>
+                <div class="signin-form-actions">
+                  <button class="signin-btn-back" type="button" onclick="showAllSignInOptions()" aria-label="Back"><i class="fas fa-arrow-left"></i></button>
+                  <button class="btn signin-btn-login" type="button"><i class="fas fa-check"></i>&nbsp; VERIFY</button>
+                </div>
               </div>
             </form>
             <div class="signin-or-divider"><span>OR</span></div>
@@ -856,6 +1013,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="signin-dev-toggle">
+      <label>
+        <input type="checkbox" id="dev-unknown-account"><span>DEV: simulate unknown account</span>
+      </label>
     </div>
     <script>
       var SIGNIN_OPTION_NAMES = ['magic', 'cell', 'email'];
@@ -893,8 +1055,118 @@
           var form = document.getElementById('signin-' + name + '-form');
           if (form) form.style.display = 'none';
         });
+        resetSignInForm('magic');
+        resetSignInForm('cell');
         setSignInOptionsVisible(true);
       }
+      
+      function resetSignInForm(name) {
+        var entry = document.getElementById('signin-' + name + '-entry');
+        var success = document.getElementById('signin-' + name + '-success');
+        var errorBox = document.getElementById('signin-' + name + '-error');
+        var robot = document.getElementById('signin-' + name + '-robot');
+        if (entry) entry.style.display = '';
+        if (success) success.style.display = 'none';
+        if (errorBox) errorBox.style.display = 'none';
+        if (robot) robot.checked = false;
+        if (entry) {
+          var submitBtn = entry.querySelector('button[type="submit"]');
+          if (submitBtn) submitBtn.disabled = false;
+        }
+        if (success) {
+          success.querySelectorAll('.signin-otp-input').forEach(function (i) { i.value = ''; });
+        }
+      }
+      
+      function handleSignInSubmit(event, name) {
+        event.preventDefault();
+        var devUnknown = document.getElementById('dev-unknown-account');
+        var entry = document.getElementById('signin-' + name + '-entry');
+      
+        // Dev toggle ON: simulate the unknown-account error state
+        if (devUnknown && devUnknown.checked) {
+          var errorBox = document.getElementById('signin-' + name + '-error');
+          if (!errorBox || errorBox.style.display === 'block') return;
+          errorBox.style.display = 'block';
+          if (entry) {
+            var errSubmit = entry.querySelector('button[type="submit"]');
+            if (errSubmit) errSubmit.disabled = true;
+          }
+          var errRobot = document.getElementById('signin-' + name + '-robot');
+          if (errRobot) errRobot.checked = false;
+          return;
+        }
+      
+        // Normal flow: transition to the success state and echo the value
+        var success = document.getElementById('signin-' + name + '-success');
+        var input = entry ? entry.querySelector('.signin-input') : null;
+        var value = input ? input.value.trim() : '';
+        var display = document.getElementById('signin-' + name + '-display-value');
+        if (display) display.textContent = value || (name === 'cell' ? 'your phone' : 'your email');
+        if (entry) entry.style.display = 'none';
+        if (success) success.style.display = 'block';
+        if (name === 'cell' && success) {
+          var firstOtp = success.querySelector('.signin-otp-input');
+          if (firstOtp) firstOtp.focus();
+        }
+      }
+      
+      function initSignInForm(name) {
+        var form = document.getElementById('signin-' + name + '-form');
+        if (!form) return;
+        form.addEventListener('submit', function (e) { handleSignInSubmit(e, name); });
+        var robot = document.getElementById('signin-' + name + '-robot');
+        if (robot) {
+          robot.addEventListener('change', function () {
+            var errorBox = document.getElementById('signin-' + name + '-error');
+            if (!errorBox || errorBox.style.display !== 'block') return;
+            var entry = document.getElementById('signin-' + name + '-entry');
+            var submitBtn = entry ? entry.querySelector('button[type="submit"]') : null;
+            if (submitBtn) submitBtn.disabled = !robot.checked;
+          });
+        }
+      }
+      
+      function initOtpGroup(containerSelector) {
+        var container = document.querySelector(containerSelector);
+        if (!container) return;
+        var inputs = container.querySelectorAll('.signin-otp-input');
+        if (!inputs.length) return;
+        inputs.forEach(function (input, idx) {
+          input.addEventListener('input', function (e) {
+            var digits = e.target.value.replace(/\D/g, '');
+            e.target.value = digits.slice(-1);
+            if (digits && idx < inputs.length - 1) {
+              inputs[idx + 1].focus();
+            }
+          });
+          input.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+              inputs[idx - 1].focus();
+            } else if (e.key === 'ArrowLeft' && idx > 0) {
+              inputs[idx - 1].focus();
+            } else if (e.key === 'ArrowRight' && idx < inputs.length - 1) {
+              inputs[idx + 1].focus();
+            }
+          });
+          input.addEventListener('paste', function (e) {
+            e.preventDefault();
+            var pasted = ((e.clipboardData || window.clipboardData).getData('text') || '').replace(/\D/g, '').slice(0, inputs.length);
+            if (!pasted) return;
+            for (var i = 0; i < pasted.length; i++) {
+              inputs[i].value = pasted[i];
+            }
+            var target = Math.min(pasted.length, inputs.length - 1);
+            inputs[target].focus();
+          });
+        });
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        initSignInForm('magic');
+        initSignInForm('cell');
+        initOtpGroup('#signin-cell-success .signin-otp-group');
+      });
       
       function togglePassword() {
         var input = document.getElementById('signin-password');
