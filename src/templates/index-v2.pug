@@ -1,0 +1,100 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var isPageTitle = false
+  - var menuTitle = 'Home'
+  - var isHeaderSearch = false
+
+//- Page Content
+block content
+
+  // Search
+  section.fw-section.padding-top-3x.padding-bottom-5x
+    .bg-angle.bg-inset-shadow-both(style='background-image: url(img/bg-pattern.png);')
+    .container
+      .row.justify-content-center
+        .col-xl-8.col-lg-9.col-md-10
+          h1.display-2.text-primary.text-center.mb-2 <strong>Live More.</strong>
+          h3.text-normal.text-body.text-center.text-base-mobile
+            | Hi
+            span.text-primary.text-medium sean
+            | ! We’ve found some events we think you’ll like.
+          form(method='get').search-form
+            .clearfix
+              .input-group
+                input(type='text' name='search' id='site-search' placeholder='Search for any event').form-control
+                span.input-group-addon
+                  i.fas.fa-search
+              button(type='submit').btn.btn-outline-primary GO
+          .text-center.pt-3
+            span.text-muted.text-uppercase or
+          .text-center.pt-2
+            a(href='shop-grid.html').btn.btn-outline-primary
+              i.fas.fa-binoculars &nbsp;
+              | Browse Events
+          p.lead.text-center.pt-3.text-base-mobile
+            i.fas.fa-map-marker-alt.text-primary
+            span.text-gray &nbsp;To find events near you,&nbsp;
+            a(href='#').text-primary.text-medium set your location here
+
+  // Featured Events
+  .container.padding-top-1x.padding-bottom-4x
+    h2.mb-2.pt-4
+      i.fas.fa-star.text-primary &nbsp;
+      | Featured Events
+    p.text-lg We’ve hand picked the best events.
+    .row
+      - var thumbs = ['th01.jpg', 'th02.jpg', 'th03.jpg', 'th04.jpg', 'th05.jpg', 'th06.jpg', 'th07.jpg', 'th08.jpg']
+      each thumb in thumbs
+        .col-lg-3.col-6
+          // Event
+          .product-card.mb-30
+            .product-card-thumb
+              a(href='product.html')
+                img(src='img/shop/' + thumb alt='Product')
+              button(type='button' data-toggle='tooltip' title='Add to Likes').product-card-like
+                i.far.fa-heart
+            .product-card-meta Tue, Mar 27, 7PM
+            h3.product-card-title: a(href='product.html') Event Title Here With Enough Space For Two Lines
+            ul.product-card-category
+              li.hidden-xs-down: a(href='#') Performance &amp; Visual Art
+              li.hidden-xs-down &gt;
+              li: a(href='#') Theatre
+            .product-card-price R45 - R414
+
+  // Subscription
+  section.fw-section.padding-bottom-6x
+    .bg-angle.bg-inset-shadow-bottom(style='background-image: url(img/bg-pattern.png);')
+    .container
+      .row.justify-content-center.pt-4.text-center
+        .col-xl-8.col-lg-9.col-md-10
+          h2.mb-3
+            i.d-block.fas.fa-envelope.text-primary.mb-3
+            | Live More. Starting from your inbox.
+          p.lead Sign-up for our weekly email newsletter so that you can be the first to know about the biggest events and the ones we think you <span class='text-medium'>personally would</span> like.
+      .row.justify-content-center.pt-4
+        .col-xl-6.col-lg-7.col-md-9
+          form(action='').subscribe-form
+            .clearfix
+              .input-group
+                input(type='email' name='email' placeholder='Your e-mail address').form-control
+                span.input-group-addon
+                  i.fas.fa-envelope-open
+              button(type='submit').btn.btn-primary
+                i.fas.fa-check
+
+  // Get Social
+  section.container.padding-top-2x.padding-bottom-3x.mb-3
+    .row.justify-content-center.text-center
+      .col-xl-5.col-lg-6.col-md-8
+        h2.mb-3
+          i.d-block.fas.fa-smile.text-primary.mb-3
+          | Let's get social.
+        p.lead If you miss it in your inbox, you can still catch our greatest events on social media.
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Facebook').social-button.shape-circle.sb-facebook
+          i.fab.fa-facebook-f
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Twitter').social-button.shape-circle.sb-twitter
+          i.fab.fa-twitter
+        a(href='#' data-toggle='tooltip' data-placement='top' title='Instagram').social-button.shape-circle.sb-instagram
+          i.fab.fa-instagram
