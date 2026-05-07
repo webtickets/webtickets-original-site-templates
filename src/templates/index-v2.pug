@@ -5,8 +5,9 @@ append config
   - var isPageTitle = false
   - var menuTitle = 'Home'
   - var isHeaderSearch = false
-  //- Disable the default promo-bar + header so we can inline the v2 versions below
+  //- Disable the default promo-bar + header + footer so we can inline the v2 versions below
   - var isHeader = false
+  - var isFooter = false
 
 //- Page Content
 block content
@@ -295,3 +296,82 @@ block content
           i.fab.fa-twitter
         a(href='#' data-toggle='tooltip' data-placement='top' title='Instagram').social-button.shape-circle.sb-instagram
           i.fab.fa-instagram
+
+  // V2 Site Footer
+  footer.site-footer
+    .container
+      .row
+        .col-lg-3.col-md-6
+          // Sell Tickets
+          section.widget.widget-light-skin.margin-bottom-1x
+            h3.widget-title Sell Tickets With Us
+            p.text-white.opacity-90 The leader in online ticket sales in South Africa since 2007.
+            a(href='#').btn.btn-primary Sell With Us
+        .col-lg-3.col-md-6
+          // Find Events
+          section.widget.widget-links.widget-light-skin.margin-bottom-1x
+            h3.widget-title Find Events
+            ul
+              li: a(href='shop-grid.html') Browse
+              li: a(href='account-likes.html') My Likes
+              li: a(href='#') Smart Shopper Deals
+          // Partner Countries
+          section.widget.widget-links.widget-light-skin.margin-bottom-1x
+            h3.widget-title Partner Countries
+            ul
+              li: a(href='https://www.webtickets.com.na') Namibia
+              li: a(href='https://www.webtickets.co.bw') Botswana
+              li: a(href='https://www.webtickets.co.zm') Zambia
+              li: a(href='https://www.webtickets.mw') Malawi
+        .col-lg-3.col-md-6
+          // Help & Info
+          section.widget.widget-links.widget-light-skin.margin-bottom-1x
+            h3.widget-title Help &amp; Info
+            ul
+              li: a(href='faq.html') Get Help
+              li: a(href='faq.html') FAQ's
+              li: a(href='https://www.webtickets.co.za/docs/Data%20Protection%20Policy%20April%202021.pdf') Webtickets Privacy Policy
+              li: a(href='#') New Client - List your event
+              li: a(href='#') Existing Client - Switch to Selling
+        .col-lg-3.col-md-6
+          // My Account
+          section.widget.widget-links.widget-light-skin.margin-bottom-1x
+            h3.widget-title My Account
+            ul
+              li: a(href='#') My Profile
+              li: a(href='account-tickets.html') My Tickets
+              li: a(href='#') My Race Entries
+              li: a(href='account-passes.html') My Passes
+              li: a(href='#') My Membership Cards
+              li: a(href='account-vouchers.html') My Webtickets Gift Cards
+              li: a(href='#') My Order History
+              li: a(href='#') Promoter Profile
+              li: a(href='account-likes.html') My Likes
+      .row
+        .col-lg-3.col-md-6
+          // Follow Us
+          section.widget.widget-light-skin
+            h3.widget-title Follow Us For Updates
+            a(href='https://www.facebook.com/webtickets' target='_blank' rel='noopener' data-toggle='tooltip' title='Facebook').social-button.shape-circle.sb-facebook.sb-light-skin
+              i.fab.fa-facebook-f
+            a(href='https://twitter.com/webticketsSA' target='_blank' rel='noopener' data-toggle='tooltip' title='X').social-button.shape-circle.sb-twitter.sb-light-skin
+              i.fab.fa-twitter
+            a(href='https://www.instagram.com/webtickets/' target='_blank' rel='noopener' data-toggle='tooltip' title='Instagram').social-button.shape-circle.sb-instagram.sb-light-skin
+              i.fab.fa-instagram
+      // Safe & Secure
+      section.widget.widget-light-skin
+        h3.widget-title Safe &amp; Secure
+        .row
+          .col-lg-3.col-md-5.padding-bottom-1x
+            p.text-white.opacity-90 We accept all major credit cards, as well as Masterpass, Ozow and SnapScan. You can also pay at any Pick n Pay or Boxer store.
+          .col-lg-9.col-md-7.padding-bottom-1x
+            // Payment Methods
+            .pt-2.margin-bottom-1x
+              img(src='img/payment-methods-za-3.png' alt='Payment Methods')
+      // Copyright
+      .row
+        .col
+          p.footer-copyright © All content is property of Webtickets
+        .col.text-right
+          p.footer-copyright
+            a(href='https://www.webtickets.co.za/docs/Data%20Protection%20Policy%20April%202021.pdf' target='_blank' rel='noopener') Webtickets Privacy Policy
