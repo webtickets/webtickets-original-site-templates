@@ -5,9 +5,210 @@ append config
   - var isPageTitle = false
   - var menuTitle = 'Home'
   - var isHeaderSearch = false
+  //- Disable the default promo-bar + header so we can inline the v2 versions below
+  - var isHeader = false
 
 //- Page Content
 block content
+
+  // V2 Promo Bar
+  a(href='#' style='background-image: url(img/promo-bar.jpg);').promo-bar.alert.alert-dismissible.fade.show.text-center
+    p.d-inline-block.text-uppercase.text-medium.text-white.mb-0.mr-3
+      i.far.fa-snowflake.mr-2
+      | Scorpion Kings LIVE
+
+  // V2 Site Header
+  header.site-header
+    .container-fluid.d-flex.align-items-center
+      a(href='#' data-toggle='mobile-menu').menu-toggle.fas
+      a(href='index-v2.html').site-logo.align-middle
+        img(src='img/logo.png' alt='Webtickets')
+      .navbar
+        // Top Menu
+        ul.top-menu
+          li
+            a(href='account-login-v2.html')
+              i.fas.fa-user
+              | Sign in
+          li
+            a(href='account-tickets.html')
+              i.fas.fa-ticket-alt
+              | My Tickets
+          li
+            a(href='account-likes.html')
+              i.fas.fa-heart
+              | My Likes
+          li
+            a(href='#')
+              i.fas.fa-life-ring
+              | Help &amp; Info
+            ul.sub-menu
+              li: a(href='faq.html') FAQ's
+              li.sub-menu-separator
+              li
+                a(href='#')
+                  i.far.fa-calendar-check.text-primary
+                  | List your Event
+          li
+            img(src='img/pick-n-pay-logo.png' width='110' alt='Available at Pick n Pay')
+        // Main Menu
+        ul.main-menu
+          li
+            a(href='shop-grid.html')
+              i.fas.fa-binoculars
+              | Events
+            // Mega Menu "Events"
+            .mega-menu(style='min-height: 416px; background-image: url(img/mega-menu-bg.png);')
+              .container
+                h3.h4.mb-4
+                  span.d-inline-block.align-middle.h2.mb-0.mr-2.text-primary
+                    i.fas.fa-ticket-alt
+                  | Event Tickets
+                .owl-carousel.nav-outside(data-owl-carousel='{ "nav": true, "dots": true, "margin": 30, "items": 3 }')
+                  ul.mega-menu-links
+                    li
+                      a(href='#')
+                        span Music
+                        span.count 126
+                      span.description Music Festivals, Club Nights, DJ Sets, ...
+                    li
+                      a(href='#')
+                        span Performance &amp; Visual Art
+                        span.count 121
+                      span.description Theatre, Comedy, Art Exhibitions, ...
+                    li
+                      a(href='#')
+                        span Film &amp; Media
+                        span.count 54
+                      span.description Cinemas, Screenings, Outdoor, ...
+                    li
+                      a(href='#')
+                        span Talks &amp; Education
+                        span.count 38
+                      span.description Theatre, Comedy, Art Exhibitions, ...
+                  ul.mega-menu-links
+                    li
+                      a(href='#')
+                        span Sport Spectating
+                        span.count 67
+                      span.description Rugby, Cricket, Football, ...
+                    li
+                      a(href='#')
+                        span Food &amp; Drink
+                        span.count 88
+                      span.description Wine Tasting, Food Festivals, ...
+                    li
+                      a(href='#')
+                        span Family &amp; Kids
+                        span.count 43
+                      span.description Days Out, Under 5's, Babies, ...
+                    li
+                      a(href='#')
+                        span Charities &amp; Causes
+                        span.count 24
+                      span.description Events, Participation, ...
+                .text-center.pt-3
+                  a(href='shop-grid.html').btn.btn-primary See All Categories
+          li
+            a.d-none.d-xl-block(href='shop-grid.html')
+              i.fa.fa-suitcase
+              | Tourism &amp; Activities
+          li
+            a(href='shop-grid.html')
+              i.fas.fa-walking
+              | Race Entries
+            // Mega Menu "Race Entries"
+            .mega-menu(style='min-height: 416px; background-image: url(img/mega-menu-bg.png);')
+              .container
+                h3.h4.mb-4
+                  span.d-inline-block.align-middle.h2.mb-0.mr-2.text-primary
+                    i.fas.fa-walking
+                  | Race Entries &amp; Fitness Classes
+                .owl-carousel.nav-outside(data-owl-carousel='{ "nav": true, "dots": true, "margin": 30, "items": 3 }')
+                  ul.mega-menu-links
+                    li
+                      a(href='#')
+                        span Running
+                        span.count 42
+                      span.description 5km, 10km, half marathons, ...
+                    li
+                      a(href='#')
+                        span Cycling
+                        span.count 28
+                      span.description Road, MTB, leisure rides, ...
+                    li
+                      a(href='#')
+                        span Multisport
+                        span.count 14
+                      span.description Triathlon, duathlon, ...
+                    li
+                      a(href='#')
+                        span Fitness Classes
+                        span.count 22
+                      span.description Yoga, pilates, bootcamp, ...
+                .text-center.pt-3
+                  a(href='shop-grid.html').btn.btn-primary See All Categories
+          li
+            a.d-none.d-xl-block(href='shop-grid.html')
+              i.fas.fa-bookmark
+              | Vouchers
+          li
+            a(href='#')
+              i.far.fa-calendar-check
+              | List your Event
+        // Toolbar
+        .toolbar
+          .tool-cart
+            a(href='cart.html')
+            i.fas.fa-shopping-cart
+            span.count 0
+            span.subtotal R&nbsp;0.00
+    // Mobile Menu
+    .mobile-menu-wrapper
+      a(href='account-login-v2.html').account-link
+        .user-info
+          h6.user-name Sign in
+      form(method='get').p-25
+        .input-group
+          span.input-group-btn
+            button(type='submit')
+              i.fas.fa-search
+          input(type='search' placeholder='Search Webtickets').form-control
+      nav.mobile-menu
+        a(href='index-v2.html').mobile-menu-item.active
+          span Home
+          i.fas.fa-home
+        .mobile-menu-divider
+        a(href='shop-grid.html').mobile-menu-item
+          span Events
+          i.fas.fa-binoculars
+        a(href='shop-grid.html').mobile-menu-item
+          span Tourism &amp; Activities
+          i.fa.fa-suitcase
+        a(href='shop-grid.html').mobile-menu-item
+          span Race Entries
+          i.fas.fa-walking
+        a(href='shop-grid.html').mobile-menu-item
+          span Vouchers
+          i.fas.fa-bookmark
+        a(href='#').mobile-menu-item
+          span List your Event
+          i.far.fa-calendar-check
+        a.mobile-menu-item.collapsed(href='#menu-help' data-toggle='collapse')
+          span Help &amp; Info
+          i.fas.fa-life-ring
+        ul.mobile-submenu.collapse#menu-help
+          li: a(href='faq.html') FAQ's
+        .mobile-menu-divider
+        a(href='account-login-v2.html').mobile-menu-item
+          span Sign in
+          i.fas.fa-user
+        a(href='account-tickets.html').mobile-menu-item
+          span My Tickets
+          i.fas.fa-ticket-alt
+        a(href='account-likes.html').mobile-menu-item
+          span My Likes
+          i.fas.fa-heart
 
   // Search
   section.fw-section.padding-top-3x.padding-bottom-5x
